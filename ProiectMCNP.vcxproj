@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ProjectModernCpp\Question.cpp" />
+    <ClCompile Include="..\ProjectModernCpp\QuestionABCD.cpp" />
+    <ClCompile Include="..\ProjectModernCpp\QuestionNumeric.cpp" />
     <ClCompile Include="ProiectMCNP.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ProjectModernCpp\Question.h" />
+    <ClInclude Include="..\ProjectModernCpp\QuestionABCD.h" />
+    <ClInclude Include="..\ProjectModernCpp\QuestionNumeric.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
