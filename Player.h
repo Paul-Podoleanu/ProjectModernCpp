@@ -32,5 +32,12 @@ public:
 	int getScore();
 	std::string getName();
 	bool getActive();
+
+	//Deactivare player pentru cand pierde sau se deconecteaza de la joc
+	void deactivate_player();
+
+	//Ajustare cod, numarul poate fi pozitiv sau negativ
+	void changeScore(int dif);
+
 };
 
