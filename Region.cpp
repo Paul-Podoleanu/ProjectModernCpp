@@ -15,6 +15,11 @@ void Region::setIsBase(bool status)
 	this->m_isBase = status;
 }
 
+void Region::setIsFormerBase(bool status)
+{
+	this->m_isFormerBase = status;
+}
+
 std::string Region::getName()
 {
 	return this->m_name;
@@ -28,4 +33,9 @@ int Region::getPoints()
 bool Region::getIsBase()
 {
 	return this->m_isBase;
+}
+
+bool Region::getIsFormerBase()
+{
+	return this->m_isFormerBase;
 }

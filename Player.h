@@ -20,17 +20,19 @@ private:
 	 /*O sa fie necesar sa ii fie atribuite si anumite regiuni precum si o baza
 	 Pentru asta o sa trb sa facem mai intai clasa Region*/
 	std::vector<Region>m_region;
-	Region m_baza;
+	Region m_base;
 
 
 public:
 	//Constructori
 	Player();
+	//Destructor
 	~Player();
 	//Set-eri
 	void setName(std::string m_name);
 	void setScore(int m_score);
 	void setColor(std::string m_color);
+	void setBase(Region m_baza);
 	//Get-eri
 	int getScore();
 	std::string getName();
@@ -38,6 +40,7 @@ public:
 	std::string getColor();
 	//Deactivare player pentru cand pierde sau se deconecteaza de la joc
 	void deactivate_player();
+	Region getBase();
 
 	//Ajustare cod, numarul poate fi pozitiv sau negativ
 	void changeScore(int dif);
