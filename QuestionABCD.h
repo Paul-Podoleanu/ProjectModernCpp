@@ -18,6 +18,13 @@ public:
 	std::string getAnswerC();
 	std::string getAnswerD();
 	std::string getCorrectAnswer();
+	void setQuestion(std::string question);
+	void setAnswerA(std::string answerA);
+	void setAnswerB(std::string answerB);
+	void setAnswerC(std::string answerC);
+	void setAnswerD(std::string answerD);
+	void setCorrectAnswer(std::string correctAnswer);
+	~QuestionABCD();
 };
 
 
