@@ -12,12 +12,12 @@ private:
 public:
 	QuestionABCD(std::string question, std::string answerA, std::string answerB, std::string answerC, std::string answerD, std::string correctAnswer);
 
-	std::string getQuestion();
-	std::string getAnswerA();
-	std::string getAnswerB();
-	std::string getAnswerC();
-	std::string getAnswerD();
-	std::string getCorrectAnswer();
+	std::string getQuestion() const;
+	std::string getAnswerA() const ;
+	std::string getAnswerB() const ;
+	std::string getAnswerC() const;
+	std::string getAnswerD() const;
+	std::string getCorrectAnswer() const ;
 	void setQuestion(std::string question);
 	void setAnswerA(std::string answerA);
 	void setAnswerB(std::string answerB);
