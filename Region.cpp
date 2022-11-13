@@ -49,3 +49,14 @@ bool Region::getChooseBase()
 {
 	return m_chooseBase;
 }
+
+bool Region::operator==(const Region& region) const
+{
+	/*Doua regiuni nu ar trebui sa aiba acelasi nume, deci toate sunt diferite in acest aspect
+	Restul de variabile/caracteristici nu diferentiaza reginuile in sine, doar cum se comporta
+	intr-o anumita stare a jocului (ex: Daca un player are baza in regiune) */
+	if (this->m_name == region.m_name) {
+		return true;
+	}
+	return false;
+}

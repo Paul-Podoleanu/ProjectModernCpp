@@ -27,5 +27,7 @@ public:
 	bool getIsFormerBase();
 	bool getChooseBase();
 
+	//Overload Operatori
+	bool operator==(const Region& region) const;
 };
 

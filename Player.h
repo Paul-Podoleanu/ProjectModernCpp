@@ -17,36 +17,39 @@ private:
 	/*O sa trebuiasca sa fie asociat unui cont
 	 Pentru asta o sa trebuiasca sa facem mai intai Account Manager */
 
-	 /*O sa fie necesar sa ii fie atribuite si anumite regiuni precum si o baza
-	 Pentru asta o sa trb sa facem mai intai clasa Region*/
-	std::vector<Region>m_region;
+	std::vector<Region>m_regions;
 	Region m_base;
-	Region m_formerbase;
-
+	
 
 public:
 	//Constructori
 	Player();
 	//Destructor
 	~Player();
+
 	//Set-eri
 	void setName(std::string m_name);
 	void setScore(int m_score);
 	void setColor(std::string m_color);
 	void setBase(Region m_base);
-	void setFormerBase(Region m_formerbase);
+
 	//Get-eri
 	int getScore();
 	std::string getName();
 	bool getActive();
 	std::string getColor();
+	Region getBase();
+
 	//Deactivare player pentru cand pierde sau se deconecteaza de la joc
 	void deactivate_player();
-	Region getBase();
-	Region getFormerBase();
+	void reactivatePlayer();
+	
 
-	//Ajustare cod, numarul poate fi pozitiv sau negativ
+	//Functii pentru gameplay
+	//Ajustare scor, numarul poate fi pozitiv sau negativ
 	void changeScore(int dif);
+	void addRegion(Region newRegion);
+	void loseRegion(Region lostRegion);
 
 };
 
