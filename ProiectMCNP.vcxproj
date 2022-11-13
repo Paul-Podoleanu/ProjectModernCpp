@@ -129,6 +129,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Account.cpp" />
+    <ClCompile Include="AccountManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProiectMCNP.cpp" />
     <ClCompile Include="Question.cpp" />
@@ -137,6 +139,8 @@
     <ClCompile Include="Region.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Account.h" />
+    <ClInclude Include="AccountManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuestionABCD.h" />
