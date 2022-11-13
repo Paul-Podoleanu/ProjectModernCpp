@@ -5,7 +5,7 @@ void Player::setColor(std::string m_color)
 	this->m_color = m_color;
 }
 
-void Player::setBase(Region m_baza)
+void Player::setBase(Region m_base)
 {
 	this->m_base = m_base;
 }
