@@ -20,6 +20,11 @@ void Region::setIsFormerBase(bool status)
 	this->m_isFormerBase = status;
 }
 
+void Region::setChooseBase(bool status)
+{
+	this->m_chooseBase = status;
+}
+
 std::string Region::getName()
 {
 	return this->m_name;
@@ -38,4 +43,9 @@ bool Region::getIsBase()
 bool Region::getIsFormerBase()
 {
 	return this->m_isFormerBase;
+}
+
+bool Region::getChooseBase()
+{
+	return m_chooseBase;
 }

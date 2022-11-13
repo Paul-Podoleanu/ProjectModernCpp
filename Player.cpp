@@ -10,6 +10,11 @@ void Player::setBase(Region m_baza)
 	this->m_base = m_base;
 }
 
+void Player::setFormerBase(Region m_formerbase)
+{
+	this->m_formerbase = m_formerbase;
+}
+
 int Player::getScore()
 {
 	return this->m_score;
@@ -38,6 +43,11 @@ void Player::deactivate_player()
 Region Player::getBase()
 {
 	return m_base;
+}
+
+Region Player::getFormerBase()
+{
+	return m_formerbase;
 }
 
 void Player::changeScore(int dif)

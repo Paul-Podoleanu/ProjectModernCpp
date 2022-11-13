@@ -2,6 +2,9 @@
 //
 
 #include <iostream>
+#include <vector>
+#include"Player.h"
+#include"Region.h"
 
 int main()
 {

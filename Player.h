@@ -21,6 +21,7 @@ private:
 	 Pentru asta o sa trb sa facem mai intai clasa Region*/
 	std::vector<Region>m_region;
 	Region m_base;
+	Region m_formerbase;
 
 
 public:
@@ -32,7 +33,8 @@ public:
 	void setName(std::string m_name);
 	void setScore(int m_score);
 	void setColor(std::string m_color);
-	void setBase(Region m_baza);
+	void setBase(Region m_base);
+	void setFormerBase(Region m_formerbase);
 	//Get-eri
 	int getScore();
 	std::string getName();
@@ -41,6 +43,7 @@ public:
 	//Deactivare player pentru cand pierde sau se deconecteaza de la joc
 	void deactivate_player();
 	Region getBase();
+	Region getFormerBase();
 
 	//Ajustare cod, numarul poate fi pozitiv sau negativ
 	void changeScore(int dif);
