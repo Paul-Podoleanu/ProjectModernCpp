@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include"Player.h"
 class Region
 {
 private:
@@ -8,8 +9,8 @@ private:
 	bool m_isBase;
 	bool m_isFormerBase;
 	// Bool pentru inceputul meciului cand fiecare jucator isi alege o regiune de pe harta
-	bool m_chooseBase;
-
+	bool isOwned;
+	Player owner;
 public:
 	Region();
 	
@@ -18,16 +19,16 @@ public:
 	void setPoints(int point);
 	void setIsBase(bool status);
 	void setIsFormerBase(bool status);
-	void setChooseBase(bool status);
+	void setisOwned(bool status);
 
 	//Get-eri
 	std::string getName();
 	int getPoints();
 	bool getIsBase();
 	bool getIsFormerBase();
-	bool getChooseBase();
-
+	bool getisOwned();
 	//Overload Operatori
 	bool operator==(const Region& region) const;
+	//Functii pentru joc
 };
 

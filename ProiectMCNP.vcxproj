@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="AccountManager.cpp" />
+    <ClCompile Include="DuelManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProiectMCNP.cpp" />
     <ClCompile Include="Question.cpp" />
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Account.h" />
     <ClInclude Include="AccountManager.h" />
+    <ClInclude Include="DuelManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuestionABCD.h" />

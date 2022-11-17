@@ -20,9 +20,10 @@ void Region::setIsFormerBase(bool status)
 	this->m_isFormerBase = status;
 }
 
-void Region::setChooseBase(bool status)
+
+void Region::setisOwner(bool status)
 {
-	this->m_chooseBase = status;
+	this->isOwned = status;
 }
 
 std::string Region::getName()
@@ -45,9 +46,10 @@ bool Region::getIsFormerBase()
 	return this->m_isFormerBase;
 }
 
-bool Region::getChooseBase()
+
+bool Region::getisOwned()
 {
-	return m_chooseBase;
+	return isOwned;
 }
 
 bool Region::operator==(const Region& region) const
@@ -60,3 +62,4 @@ bool Region::operator==(const Region& region) const
 	}
 	return false;
 }
+
