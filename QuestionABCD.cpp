@@ -57,6 +57,15 @@ void QuestionABCD::setCorrectAnswer(std::string correctAnswer)
 {
 	m_correctAnswer = correctAnswer;
 }
+std::ostream& operator<<(std::ostream& out, const QuestionABCD& question)
+{
+	out << question.m_question << std::endl;
+	out << question.m_answerA << std::endl;
+	out << question.m_answerB << std::endl;
+	out << question.m_answerC << std::endl;
+	out << question.m_answerD << std::endl;
+	return out;
+}
 
 QuestionABCD::~QuestionABCD()
 {

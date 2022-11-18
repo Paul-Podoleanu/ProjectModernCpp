@@ -4,6 +4,7 @@
 #include "QuestionABCD.h"
 #include "QuestionNumeric.h"
 #include <iostream>
+#include <random>
 #include <fstream>
 class Question
 {

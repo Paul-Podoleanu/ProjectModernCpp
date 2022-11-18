@@ -32,3 +32,18 @@ void Question::addQuestion()
 		}
 	}
 }
+void Question::writeQuestionWithVar()
+{
+	std::random_device rd;
+	std::mt19937 g(rd());
+	std::uniform_int_distribution<>dis(0, m_QuestionsWithVariants.size() - 1);
+	std::cout << m_QuestionsWithVariants[dis(g)];
+
+}
+void Question::writeQuestionWithNumeric()
+{
+	std::random_device rd;
+	std::mt19937 g(rd());
+	std::uniform_int_distribution<>dis(0, m_QuestionWithNumericAnswer.size() - 1);
+	std::cout << m_QuestionWithNumericAnswer[dis(g)];
+}

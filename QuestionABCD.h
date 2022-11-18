@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 class QuestionABCD
 {
 private:
@@ -23,6 +24,7 @@ public:
 	void setAnswerB(std::string answerB);
 	void setAnswerC(std::string answerC);
 	void setAnswerD(std::string answerD);
+	friend std::ostream& operator<<(std::ostream& out, const QuestionABCD& question);
 	void setCorrectAnswer(std::string correctAnswer);
 	~QuestionABCD();
 };
