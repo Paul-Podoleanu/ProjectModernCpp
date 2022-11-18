@@ -19,7 +19,7 @@ private:
 
 	std::vector<Region>m_regions;
 	Region m_base;
-	
+
 
 public:
 	//Constructori

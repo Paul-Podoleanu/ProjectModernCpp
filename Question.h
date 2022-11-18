@@ -13,6 +13,6 @@ private:
 	std::vector<QuestionNumeric>m_QuestionWithNumericAnswer;
 public:
 	void addQuestion();
-	void writeQuestion();
-
+	void writeQuestionWithVar();
+	void writeQuestionWithNumeric();
 };
