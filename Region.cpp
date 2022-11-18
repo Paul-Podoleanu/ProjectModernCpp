@@ -21,7 +21,7 @@ void Region::setIsFormerBase(bool status)
 }
 
 
-void Region::setisOwner(bool status)
+void Region::setisOwneD(bool status)
 {
 	this->isOwned = status;
 }
