@@ -31,3 +31,13 @@ void Board::setDimension()
 		dimensions.second = 4;
 	}
 }
+
+void Board::setRegionsNumber()
+{
+	if (dimensions.first == 3 && dimensions.second ==3)
+		size = 9;
+	if (dimensions.first == 5 && dimensions.second == 3)
+		size = 15;
+	if (dimensions.first == 6 && dimensions.second == 4)
+		size = 24;
+}
