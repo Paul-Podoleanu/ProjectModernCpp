@@ -16,4 +16,6 @@ public:
 	void addQuestion();
 	void writeQuestionWithVar();
 	void writeQuestionWithNumeric();
+	QuestionABCD getRandomQuestionWithVariants();
+	QuestionNumeric getRandomQuestionWithNumericAnswer();
 };

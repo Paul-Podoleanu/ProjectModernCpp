@@ -67,6 +67,18 @@ std::ostream& operator<<(std::ostream& out, const QuestionABCD& question)
 	return out;
 }
 
+QuestionABCD& QuestionABCD::operator=(const QuestionABCD& other)
+{
+	m_answerA = other.getAnswerA();
+	m_answerB = other.getAnswerB();
+	m_answerC = other.getAnswerC();
+	m_answerD = other.getAnswerD();
+	m_correctAnswer = other.getCorrectAnswer();
+	m_question = other.getQuestion();
+
+	return *this;
+}
+
 QuestionABCD::~QuestionABCD()
 {
 }

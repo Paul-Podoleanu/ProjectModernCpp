@@ -47,3 +47,16 @@ void Question::writeQuestionWithNumeric()
 	std::uniform_int_distribution<>dis(0, m_QuestionWithNumericAnswer.size() - 1);
 	std::cout << m_QuestionWithNumericAnswer[dis(g)];
 }
+
+QuestionABCD Question::getRandomQuestionWithVariants()
+{
+	int k=rand()%m_QuestionsWithVariants.size();
+	return m_QuestionsWithVariants[k];
+}
+
+QuestionNumeric Question::getRandomQuestionWithNumericAnswer()
+{
+	int k = rand() % m_QuestionWithNumericAnswer.size();
+	return m_QuestionWithNumericAnswer[k];
+
+}
