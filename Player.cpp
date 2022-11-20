@@ -55,6 +55,16 @@ void Player::addRegion(Region newRegion)
 	m_regions.push_back(newRegion);
 }
 
+void Player::addRegion(std::string newRegion, Board b)
+{
+	for (auto& region : b.getRegions()) {
+		if (newRegion == region.getName()) {
+			this->addRegion(region);
+			break;
+		}
+	}
+}
+
 void Player::loseRegion(Region lostRegion)
 {
 	for (int i = 0; i < m_regions.size(); i++) {

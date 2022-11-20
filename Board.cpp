@@ -5,9 +5,18 @@ void Board::setnrPlayers(int nrPlayers)
 	this->nrPlayers = nrPlayers;
 }
 
-int Board::getnrPlayers()
+int Board::getNrPlayers()
 {
 	return nrPlayers;
+}
+
+Region Board::getSpecificRegion(std::string region)
+{
+	for (auto& r : m_regions) {
+		if (r.getName() == region) {
+			return r;
+		}
+	}
 }
 
 void Board::setDimension()

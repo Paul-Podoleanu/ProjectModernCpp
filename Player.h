@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <iostream>
 #include"Region.h"
+#include "Board.h"
 
 //Clasa este pentru un player in-game, nu pentru un cont
 class Player
@@ -27,13 +29,13 @@ public:
 	//Destructor
 	~Player();
 
-	//Set-eri
+	//Set
 	void setName(std::string m_name);
 	void setScore(int m_score);
 	void setColor(std::string m_color);
 	void setBase(Region m_base);
 
-	//Get-eri
+	//Get
 	int getScore();
 	std::string getName();
 	bool getActive();
@@ -49,6 +51,7 @@ public:
 	//Ajustare scor, numarul poate fi pozitiv sau negativ
 	void changeScore(int dif);
 	void addRegion(Region newRegion);
+	void addRegion(std::string newRegion, Board);
 	void loseRegion(Region lostRegion);
 
 };

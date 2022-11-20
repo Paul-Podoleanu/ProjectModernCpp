@@ -11,13 +11,19 @@ private:
 	int nrPlayers;
 	int nrRounds;
 	std::vector < std::vector<int, int>>BoardMatrix;
+
 public:
 	Board();
 	~Board();
+
+	//Set
 	void setnrPlayers(int nrPlayers);
-	int getnrPlayers();
 	void setDimension();
 	void setRegionsNumber();
 
+	//Get
+	int getNrPlayers();
+	std::vector<Region> getRegions() { return m_regions; }
+	Region getSpecificRegion(std::string region);
 };
 
