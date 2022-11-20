@@ -150,6 +150,7 @@
     <ClInclude Include="QuestionABCD.h" />
     <ClInclude Include="QuestionNumeric.h" />
     <ClInclude Include="Region.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Logging\Logging.vcxproj">

@@ -18,6 +18,6 @@ public:
 	//Momentan se dau raspunsuri in consola
 	//O sa inlocuim cum se dau raspunsurile, intr-un GUI, alta data
 	void TwoPlayerDuelABCD(Question q, Player one, Player two, int score);
-	void TwoPlayerDuelNumeric(Player one, Player Two, int score);
+	void TwoPlayerDuelNumeric(Question q, Player one, Player two, int score);
 };
 
