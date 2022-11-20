@@ -64,3 +64,20 @@ void Player::loseRegion(Region lostRegion)
 		}
 	}
 }
+void Player::chooseBase(Board b)
+{
+	int linie, coloana;
+	std::cin >> linie >> coloana;
+	std::vector < std::vector<Region>>board = b.getBoard();
+	if (board[linie][coloana].getisOwned() == false)
+	{
+		m_base = board[linie][coloana];
+		board[linie][coloana].setisOwned(true);
+		board[linie][coloana].setOwner(this);
+	}
+	else
+	{
+		std::cout << "Alege alta baza";
+		chooseBase(b);
+	}
+}
