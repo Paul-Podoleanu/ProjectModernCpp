@@ -20,6 +20,7 @@ public:
 	void setIsBase(bool status);
 	void setIsFormerBase(bool status);
 	void setisOwned(bool status);
+	void setOwner(Player p);
 
 	//Get-eri
 	std::string getName();

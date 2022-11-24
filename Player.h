@@ -31,7 +31,6 @@ public:
 
 	//Set
 	void setName(std::string m_name);
-	void setScore(int m_score);
 	void setColor(std::string m_color);
 	void setBase(Region m_base);
 
@@ -53,6 +52,7 @@ public:
 	void addRegion(Region newRegion);
 	void addRegion(std::string newRegion, Board);
 	void loseRegion(Region lostRegion);
+	void chooseBase(Board b);
 
 };
 

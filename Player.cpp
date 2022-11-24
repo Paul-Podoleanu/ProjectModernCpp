@@ -1,5 +1,18 @@
 #include "Player.h"
 
+Player::Player()
+{
+}
+
+Player::~Player()
+{
+}
+
+void Player::setName(std::string m_name)
+{
+
+}
+
 void Player::setColor(std::string m_color)
 {
 	this->m_color = m_color;
@@ -83,7 +96,7 @@ void Player::chooseBase(Board b)
 	{
 		m_base = board[linie][coloana];
 		board[linie][coloana].setisOwned(true);
-		board[linie][coloana].setOwner(this);
+		board[linie][coloana].setOwner(*this);
 	}
 	else
 	{
