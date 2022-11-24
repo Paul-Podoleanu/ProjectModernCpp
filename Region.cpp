@@ -1,5 +1,9 @@
 #include "Region.h"
 
+Region::Region()
+{
+}
+
 void Region::setName(std::string name)
 {
 	this->m_name = name;
@@ -21,7 +25,7 @@ void Region::setIsFormerBase(bool status)
 }
 
 
-void Region::setisOwneD(bool status)
+void Region::setisOwned(bool status)
 {
 	this->isOwned = status;
 }

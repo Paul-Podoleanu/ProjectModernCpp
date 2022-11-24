@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+#include "Region.h"
 #include <iostream>
 #include <vector>
 class Board
@@ -10,7 +11,6 @@ private:
 	std::vector<Region>m_regions;
 	int nrPlayers;
 	int nrRounds;
-	std::vector < std::vector<int, int>>BoardMatrix;
 
 public:
 	Board();
@@ -25,5 +25,9 @@ public:
 	int getNrPlayers();
 	std::vector<Region> getRegions() { return m_regions; }
 	Region getSpecificRegion(std::string region);
+
+	//Overload operator
+	//Board& operator=(const Board& other);
+
 };
 

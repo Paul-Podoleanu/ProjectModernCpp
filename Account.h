@@ -16,6 +16,8 @@ public:
 	std::string getEmail() { return m_email; }
 	std::string getUsername() { return m_username; }
 	std::string getPassword() { return m_password; }
+	//overload operator ==
+	bool operator==(const Account& other);
 	
 	~Account();
 	

@@ -4,16 +4,17 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include"Player.h"
-#include"Region.h"
-#include "../ProjectModernCpp/Logging/Logging.h"
+#include "Account.h"
+#include "Board.h"
+
+//#include "../ProjectModernCpp/Logging/Logging.h"
 int main()
 {
-	std::ofstream of("syslog.log", std::ios::app);
+	/*std::ofstream of("syslog.log", std::ios::app);
 	Logger logger(of);
 	logger.log(Logger::Level::Info, "Started application...");
 
-	logger.log(Logger::Level::Info, 123);
+	logger.log(Logger::Level::Info, 123);*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

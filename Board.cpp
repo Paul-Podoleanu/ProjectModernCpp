@@ -1,5 +1,14 @@
 #include "Board.h"
 
+Board::Board()
+{
+
+}
+
+Board::~Board()
+{
+}
+
 void Board::setnrPlayers(int nrPlayers)
 {
 	this->nrPlayers = nrPlayers;

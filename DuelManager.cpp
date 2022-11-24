@@ -109,7 +109,7 @@ void DuelManager::ThreePlayerDuelABCD(Board b, Question q, Player one, Player tw
 			std::cout << "Could not be taken \n";
 		}
 		else {
-			one.addRegion(region, b);
+			//one.addRegion(region, b);
 		}
 	}
 	if (answerPlayerTwo == question.getCorrectAnswer()) {
@@ -120,7 +120,7 @@ void DuelManager::ThreePlayerDuelABCD(Board b, Question q, Player one, Player tw
 			std::cout << "Could not be taken \n";
 		}
 		else {
-			two.addRegion(region, b);
+			//two.addRegion(region, b);
 		}
 	}
 	if (answerPlayerThree == question.getCorrectAnswer()) {
@@ -131,7 +131,7 @@ void DuelManager::ThreePlayerDuelABCD(Board b, Question q, Player one, Player tw
 			std::cout << "Could not be taken \n";
 		}
 		else {
-			three.addRegion(region, b);
+			//three.addRegion(region, b);
 		}
 	}
 

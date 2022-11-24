@@ -9,6 +9,31 @@ Account::Account(std::string firstname, std::string surname, std::string email, 
 {
 }
 
+bool Account::operator==(const Account& other)
+{
+	if (this->m_username != other.m_username)
+	{
+		return false;
+	}
+	if (this->m_password != other.m_password)
+	{
+		return false;
+	}
+	if (this->m_email != other.m_email)
+	{
+		return false;
+	}
+	if (this->m_firstname != other.m_firstname)
+	{
+		return false;
+	}
+	if (this->m_surname != other.m_surname)
+	{
+		return false;
+	}
+	return true;
+}
+
 Account::~Account()
 {
 }

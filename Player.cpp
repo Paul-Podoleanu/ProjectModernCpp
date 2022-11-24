@@ -68,15 +68,15 @@ void Player::addRegion(Region newRegion)
 	m_regions.push_back(newRegion);
 }
 
-void Player::addRegion(std::string newRegion, Board b)
-{
-	for (auto& region : b.getRegions()) {
-		if (newRegion == region.getName()) {
-			this->addRegion(region);
-			break;
-		}
-	}
-}
+//void Player::addRegion(std::string newRegion, Board b)
+//{
+//	for (auto& region : b.getRegions()) {
+//		if (newRegion == region.getName()) {
+//			this->addRegion(region);
+//			break;
+//		}
+//	}
+//}
 
 void Player::loseRegion(Region lostRegion)
 {
@@ -87,20 +87,20 @@ void Player::loseRegion(Region lostRegion)
 		}
 	}
 }
-void Player::chooseBase(Board b)
-{
-	int linie, coloana;
-	std::cin >> linie >> coloana;
-	std::vector < std::vector<Region>>board = b.getBoard();
-	if (board[linie][coloana].getisOwned() == false)
-	{
-		m_base = board[linie][coloana];
-		board[linie][coloana].setisOwned(true);
-		board[linie][coloana].setOwner(*this);
-	}
-	else
-	{
-		std::cout << "Alege alta baza";
-		chooseBase(b);
-	}
-}
+//void Player::chooseBase(Board b)
+//{
+//	int linie, coloana;
+//	std::cin >> linie >> coloana;
+//	std::vector < std::vector<Region>>board; //= b.getBoard();
+//	if (board[linie][coloana].getisOwned() == false)
+//	{
+//		m_baza = board[linie][coloana];
+//		board[linie][coloana].setisOwned(true);
+//		board[linie][coloana].setOwner(*this);
+//	}
+//	else
+//	{
+//		std::cout << "Alege alta baza";
+//		chooseBase(b);
+//	}
+//}
