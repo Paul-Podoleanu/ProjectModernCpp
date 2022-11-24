@@ -4,6 +4,10 @@ AccountManager::AccountManager()
 {
 }
 
+AccountManager::AccountManager(std::vector<Account> users) : m_users(users)
+{
+}
+
 void AccountManager::addAccount(Account account)
 {
 	m_users.push_back(account);
