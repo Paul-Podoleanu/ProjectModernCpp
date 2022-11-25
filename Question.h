@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <iostream>
 #include "QuestionABCD.h"
 #include "QuestionNumeric.h"
 #include <iostream>
