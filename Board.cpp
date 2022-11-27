@@ -22,8 +22,8 @@ int Board::getNrPlayers()
 Region Board::getSpecificRegion(std::string region)
 {
 	for (auto& r : m_regions) {
-		if (r.getName() == region) {
-			return r;
+		if (r.first.getName() == region) {
+			return r.first;
 		}
 	}
 }
@@ -58,6 +58,14 @@ void Board::setRegionsNumber()
 		size = 15;
 	if (dimensions.first == 6 && dimensions.second == 4)
 		size = 24;
+}
+
+void Board::addRegion(Region addedRegion, Player addedPLayer)
+{
+	std::pair<Region, Player> newRegion;
+	newRegion.first = addedRegion;
+	newRegion.second = addedPLayer;
+	m_regions.push_back(newRegion);
 }
 
 Board& Board::operator=(const Board& other) {

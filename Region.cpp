@@ -76,3 +76,15 @@ bool Region::operator==(const Region& region) const
 	return false;
 }
 
+Region& Region::operator=(const Region& region)
+{
+	m_name = region.m_name;
+	m_isFormerBase = region.m_isFormerBase;
+	m_isBase = region.m_isBase;
+	m_points = region.m_points;
+	isOwned = region.isOwned;
+
+	return *this;
+
+}
+

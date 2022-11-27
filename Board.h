@@ -8,7 +8,9 @@ class Board
 private:
 	std::pair<int, int> dimensions;
 	int size;
-	std::vector<Region>m_regions;
+	//Regiunile sunt trecute ca pair, Region: regiunea prorpiu zisa; Player: jucatorul ce detine acea regiune
+	//Structureat astfel pentru a nu include Region.h in clasa Player
+	std::vector<std::pair<Region,Player>> m_regions;
 	int nrPlayers;
 	int nrRounds;
 
@@ -23,8 +25,11 @@ public:
 
 	//Get
 	int getNrPlayers();
-	std::vector<Region> getRegions() { return m_regions; }
+	std::vector<std::pair<Region, Player>> getRegions() { return m_regions; }
 	Region getSpecificRegion(std::string region);
+
+	//General use functions
+	void addRegion(Region addedRegion, Player addedPLayer);
 
 	//Overload operator
 	Board& operator=(const Board& other);

@@ -32,6 +32,7 @@ public:
 	bool getisOwned();
 	//Overload Operatori
 	bool operator==(const Region& region) const;
+	Region& operator=(const Region& region);
 	//Functii pentru joc
 };
 

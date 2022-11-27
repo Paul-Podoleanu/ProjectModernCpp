@@ -87,20 +87,13 @@ void Player::loseRegion(Region lostRegion)
 		}
 	}
 }
-//void Player::chooseBase(Board b)
-//{
-//	int linie, coloana;
-//	std::cin >> linie >> coloana;
-//	std::vector < std::vector<Region>>board; //= b.getBoard();
-//	if (board[linie][coloana].getisOwned() == false)
-//	{
-//		m_baza = board[linie][coloana];
-//		board[linie][coloana].setisOwned(true);
-//		board[linie][coloana].setOwner(*this);
-//	}
-//	else
-//	{
-//		std::cout << "Alege alta baza";
-//		chooseBase(b);
-//	}
-//}
+Player& Player::operator=(const Player& player)
+{
+	m_name = player.m_name;
+	m_active = player.m_active;
+	m_base = player.m_base;
+	m_color = player.m_color;
+	m_regions = player.m_regions;
+	m_score = player.m_score;
+}
+

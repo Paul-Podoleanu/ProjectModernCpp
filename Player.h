@@ -14,7 +14,6 @@ private:
 	std::string m_color;
 	//Tine cont daca este sau nu scos din joc/daca a pierdut
 	bool m_active;
-
 	/*O sa trebuiasca sa fie asociat unui cont
 	 Pentru asta o sa trebuiasca sa facem mai intai Account Manager */
 	std::vector<Region> m_regions;
@@ -48,9 +47,9 @@ public:
 	//Ajustare scor, numarul poate fi pozitiv sau negativ
 	void changeScore(int dif);
 	void addRegion(Region newRegion);
-	//void addRegion(std::string newRegion, Board b);
 	void loseRegion(Region lostRegion);
-	//void chooseBase(Board b);
 
+	//Overload operator
+	Player& operator=(const Player& player);
 };
 
