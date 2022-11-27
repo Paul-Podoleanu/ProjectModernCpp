@@ -27,7 +27,7 @@ public:
 	Region getSpecificRegion(std::string region);
 
 	//Overload operator
-	//Board& operator=(const Board& other);
+	Board& operator=(const Board& other);
 
 };
 

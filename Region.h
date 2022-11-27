@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
 #include<vector>
-//#include"Player.h"
-//#include"Board.h"
 class Region
 {
 private:
@@ -12,7 +10,6 @@ private:
 	bool m_isFormerBase;
 	// Bool pentru inceputul meciului cand fiecare jucator isi alege o regiune de pe harta
 	bool isOwned;
-	//Player owner;
 	//Aici se trec vecinii unei regiuni
 	//std::vector<Region> neighbours;
 

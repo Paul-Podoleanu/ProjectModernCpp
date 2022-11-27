@@ -3,7 +3,6 @@
 #include <vector>
 #include <iostream>
 #include"Region.h"
-//#include "Board.h"
 
 //Clasa este pentru un player in-game, nu pentru un cont
 class Player

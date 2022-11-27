@@ -59,3 +59,14 @@ void Board::setRegionsNumber()
 	if (dimensions.first == 6 && dimensions.second == 4)
 		size = 24;
 }
+
+Board& Board::operator=(const Board& other) {
+	m_regions = other.m_regions;
+	size = other.size;
+	nrPlayers = other.nrPlayers;
+	nrRounds = other.nrRounds;
+	dimensions.first = other.dimensions.first;
+	dimensions.second = other.dimensions.second;
+
+	return *this;
+}
