@@ -7,14 +7,14 @@
 #include "Account.h"
 #include "Board.h"
 
+#include "Logging/Logging.h"
 //#include "../ProjectModernCpp/Logging/Logging.h"
 int main()
 {
-	/*std::ofstream of("syslog.log", std::ios::app);
+	std::ofstream of("syslog.log", std::ios::app);
 	Logger logger(of);
-	logger.log(Logger::Level::Info, "Started application...");
-
-	logger.log(Logger::Level::Info, 123);*/
+	logger.log("Started application...", Logger::Level::Info);
+	logger.log(123, Logger::Level::Info);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
