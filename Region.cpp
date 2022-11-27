@@ -4,6 +4,15 @@ Region::Region()
 {
 }
 
+Region::Region(std::string name, int points, bool isBase, bool isFormerBase, bool isOwned)
+{
+	this->m_name = name;
+	this->m_points = points;
+	this->m_isBase = isBase;
+	this->m_isFormerBase = isFormerBase;
+	this->isOwned = isOwned;
+}
+
 void Region::setName(std::string name)
 {
 	this->m_name = name;

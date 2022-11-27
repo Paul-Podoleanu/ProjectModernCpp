@@ -15,6 +15,7 @@ private:
 
 public:
 	Region();
+	Region(std::string name, int points, bool isBase, bool isFormerBase, bool isOwned);
 	
 	//Set-eri
 	void setName(std::string name);
