@@ -1,13 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include "User.h"
 #include"Question.h"
 namespace sql = sqlite_orm;
 
 int main()
 {
-
+	const std::string db_file_user = "users.sqlite";
 	const std::string db_file = "questions.sqlite";
 	Storage db = createStorage(db_file);
+	UsereStorage dbUser = createStorageUser(db_file_user);
+	dbUser.sync_schema();
 	db.sync_schema();
 	auto initQuestionCounts = db.count<QuestionABCD>();
 	auto initQuestionNumeriCount = db.count<QuestionNumeric>();
@@ -35,6 +38,20 @@ int main()
 				});
 		}
 		return crow::json::wvalue{ question_json };
+		});
+	CROW_ROUTE(app, "/addusers")([&dbUser](const crow::request& req)
+		{
+			std::string username = req.url_params.get("username");
+			std::string password = req.url_params.get("password");
+			if (username.empty() || password.empty())
+			{
+				return crow::response(400);
+			}
+			else
+			{
+				dbUser.insert(User{ username, password });
+				return crow::response(200);
+			}
 		});
 
 	app.port(8080).multithreaded().run();
