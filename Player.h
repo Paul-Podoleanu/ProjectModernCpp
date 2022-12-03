@@ -48,6 +48,7 @@ public:
 	void changeScore(int dif);
 	void addRegion(Region newRegion);
 	void loseRegion(Region lostRegion);
+	void getPlayerHistory();
 
 	//Overload operator
 	Player& operator=(const Player& player);

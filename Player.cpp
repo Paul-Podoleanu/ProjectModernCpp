@@ -87,6 +87,9 @@ void Player::loseRegion(Region lostRegion)
 		}
 	}
 }
+void Player::getPlayerHistory()
+{
+}
 Player& Player::operator=(const Player& player)
 {
 	m_name = player.m_name;
