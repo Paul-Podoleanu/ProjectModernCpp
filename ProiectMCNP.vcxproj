@@ -134,6 +134,7 @@
     <ClCompile Include="Advantages.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="DuelManager.cpp" />
+    <ClCompile Include="GameConosoleVersion.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProiectMCNP.cpp" />
     <ClCompile Include="Question.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Advantages.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="DuelManager.h" />
+    <ClInclude Include="GameConosoleVersion.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuestionABCD.h" />

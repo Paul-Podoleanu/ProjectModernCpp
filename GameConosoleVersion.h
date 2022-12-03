@@ -5,14 +5,15 @@ class GameConosoleVersion
 {
 	//Initial o sa fac ca jocul sa fie doar pentru 2 jucatori
 private:
-
-	Board tabla;
-	std::vector<Player> Jucatori;
+	//Trebuie setat board-ul, regiunile din el, dimensiunile etc;
+	Board table;
+	std::vector<Player> players;
 
 public:
+	//Gameplay
+	void chooseBaseStartOfGame2Player(Player one, Player two);
 	
-	void chooseBaseStartOfGame(Player one, Player two);
-
+	//Setup joc
 
 };
 
