@@ -30,6 +30,64 @@ void Advantages::addAdvantage1(Question& question,QuestionABCD answers)
 		{
 			std::cout << "The correct answer is between answer A and answer D";
 		}
+		else if (ans == answers.getAnswerB())
+		{
+			srand(time(NULL));
+
+			int randNum = (rand() % 3) + 1;
+			if (randNum == 1)
+
+			{
+				std::cout << "The correct answer is between answer A and answer B";
+			}
+			else if (randNum == 2)
+			{
+				std::cout << "The correct answer is between answer B and answer C";
+			}
+			else if (randNum == 3)
+			{
+				std::cout << "The correct answer is between answer B and answer D";
+			}
+
+		}
+		else if (ans == answers.getAnswerC())
+		{
+			srand(time(NULL));
+
+			int randNum = (rand() % 3) + 1;
+			if (randNum == 1)
+
+			{
+				std::cout << "The correct answer is between answer A and answer C";
+			}
+			else if (randNum == 2)
+			{
+				std::cout << "The correct answer is between answer B and answer C";
+			}
+			else if (randNum == 3)
+			{
+				std::cout << "The correct answer is between answer C and answer D";
+			}
+		}
+		else if (ans == answers.getAnswerD())
+		{
+			srand(time(NULL));
+
+			int randNum = (rand() % 3) + 1;
+			if (randNum == 1)
+
+			{
+				std::cout << "The correct answer is between answer A and answer D";
+			}
+			else if (randNum == 2)
+			{
+				std::cout << "The correct answer is between answer B and answer D";
+			}
+			else if (randNum == 3)
+			{
+				std::cout << "The correct answer is between answer C and answer D";
+			}
+		}
 
 	}
 		
