@@ -3,6 +3,9 @@
 QuestionNumeric::QuestionNumeric(std::string question, int correctAnswer) :m_question(question), m_correctAnswer(correctAnswer)
 {
 }
+QuestionNumeric::QuestionNumeric()
+{
+}
 QuestionNumeric& QuestionNumeric::operator=(const QuestionNumeric& other)
 {
 	m_question = other.getQuestion();

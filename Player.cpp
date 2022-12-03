@@ -98,5 +98,6 @@ Player& Player::operator=(const Player& player)
 	m_color = player.m_color;
 	m_regions = player.m_regions;
 	m_score = player.m_score;
+	return *this;
 }
 

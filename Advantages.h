@@ -7,9 +7,12 @@ class Advantages
 private:
 	std::string ans;
 	const int advantageCost = 100;
+	Region region;
 public:
+
 	Advantages();
 	~Advantages();
+	bool checkRegionScore(Region targetRegion);
 	void addAdvantage1(Question& question, QuestionABCD ans);
 	void addAdvantage2(Question& question);
 	void addAdvantage3(Question& question);
