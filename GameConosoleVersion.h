@@ -1,13 +1,24 @@
 #pragma once
 #include "Board.h"
 #include "Question.h"
+/*
+SPECIFICATII PENTRU VERSIUNEA DE CONSOLA
+
+>Jocul este pentru 2 jucatori, nu am implementat inca o metoda pentru a verifica
+daca 2 regiuni sunt vecine, deci momentan se poate alege o regiune oriune fie pentru
+stabilit la inceput de joc, fie pentru a ataca un alt jucator
+
+>Selectarea de raspunsuri, alegere de regiuni se face prin input direct de la tastatura prin
+scriere de string-uri 
+*/
+
 class GameConosoleVersion
 {
-	//Initial o sa fac ca jocul sa fie doar pentru 2 jucatori
 private:
 	//Trebuie setat board-ul, regiunile din el, dimensiunile etc;
 	Board table;
 	std::vector<Player> players;
+	Question questions;
 
 public:
 	//Gameplay
@@ -18,6 +29,7 @@ public:
 	//int-urile corespund nr de intrebari raspunse corect de fiecare jucator, si nr de regiuni ce vor putea alege
 	std::pair<int, int> preGameQuestions2Player(Player one, Player two);
 
+	void pickRegion(Player one, int nrRegions);
 
 
 	//Setup joc

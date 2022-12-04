@@ -25,6 +25,7 @@ void GameConosoleVersion::chooseBaseStartOfGame2Player(Player one, Player two)
 
 	std::cout << two.getName() << " alege o baza: ";
 	std::cin >> inputNume2;
+	//Check ca nu se alege aceeasi baza la amadoi playeri
 	while (inputNume1==inputNume2)
 	{
 		std::cout << "Baza deja aleasa, introduceti alt nume: ";
@@ -33,7 +34,7 @@ void GameConosoleVersion::chooseBaseStartOfGame2Player(Player one, Player two)
 
 
 	inputBase = table.getSpecificRegion(inputNume2);
-	one.setBase(inputBase);
+	two.setBase(inputBase);
 	//Adaugat info pentru regiunea aleasa in variable table, pentru al doilea player
 	for (int i = 0; i < table.getRegions().size(); i++) {
 		if (table.getRegions()[i].first.getName() == inputNume2) {
@@ -136,6 +137,34 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 
 	return answers;
 
+}
+
+void GameConosoleVersion::pickRegion(Player one, int nrRegions)
+{
+	std::string nume;
+	std::cout << "Alege o regiune de cucerit: ";
+	std::cin >> nume;
+
+	while (nrRegions!=0)
+	{
+		for (int i = 0; i < table.getRegions().size(); i++) {
+			if (nume == table.getRegions()[i].first.getName()) {
+				if (table.getRegions()[i].first.getisOwned() == false) {
+					std::cout << nume << " a fost cucerita! \n";
+					//Atribuiri
+					one.addRegion(table.getRegions()[i].first);
+					table.getRegions()[i].first.setisOwned(true);
+					table.getRegions()[i].second = one;
+					nrRegions--;
+					//Check daca mai sunt de adaugat
+					if (nrRegions == 0)
+						break;
+				}
+			}
+		}
+		std::cout << "Alege o regiune de cucerit: ";
+		std::cin >> nume;
+	}
 }
 
 void GameConosoleVersion::addPlayer(Player one)

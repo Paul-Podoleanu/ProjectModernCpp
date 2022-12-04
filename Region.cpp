@@ -2,6 +2,11 @@
 
 Region::Region()
 {
+	this->m_name = "blank";
+	this->isOwned = false;
+	this->m_isBase = false;
+	this->m_isFormerBase = false;
+	this->m_points = 0;
 }
 
 Region::Region(std::string name, int points, bool isBase, bool isFormerBase, bool isOwned)
