@@ -47,3 +47,98 @@ void GameConosoleVersion::chooseBaseStartOfGame2Player(Player one, Player two)
 
 
 }
+
+std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Player two)
+{
+	//Declarari
+	std::pair<int, int> answers;
+	answers.first = 0;
+	answers.second = 0;
+	int num1, num2;
+	std::string st1, st2;
+
+	//Luam intrebarile care o sa fie folosite
+	QuestionABCD firstQuestion=questions.getRandomQuestionWithVariants(), thirdQuestion= questions.getRandomQuestionWithVariants();
+	QuestionNumeric secondQuestion ;
+
+	//Prima intrebare
+	//Sper ca merge operatorul << nu am testat inca :P
+	std::cout << firstQuestion;
+	std::cout << "Raspuns de la " << one.getName()<<':';
+	std::cin >> st1;
+	std::cout << "Raspuns de la " << two.getName() << ':';
+	std::cin >> st2;
+
+	if (st1 == firstQuestion.getCorrectAnswer()) {
+		answers.first++;
+		std::cout << one.getName() << " a raspuns corect \n";
+	}
+	else {
+		std::cout << one.getName() << " nu a raspuns corect \n";
+	}
+
+	if (st2 == firstQuestion.getCorrectAnswer()) {
+		answers.second++;
+		std::cout << two.getName() << " a raspuns corect \n";
+	}
+	else {
+		std::cout << two.getName() << " nu a raspuns corect \n";
+	}
+
+
+	//A doua intrebare
+	std::cout << secondQuestion;
+	std::cout << "Raspuns de la " << one.getName() << ':';
+	std::cin >> num1;
+	std::cout << "Raspuns de la " << two.getName() << ':';
+	std::cin >> num2;
+
+	if (num1 == secondQuestion.getCorrectAnswer()) {
+		answers.first++;
+		std::cout << one.getName() << " a raspuns corect \n";
+	}
+	else {
+		std::cout << one.getName() << " nu a raspuns corect \n";
+	}
+
+	if (num2 == secondQuestion.getCorrectAnswer()) {
+		answers.second++;
+		std::cout << two.getName() << " a raspuns corect \n";
+	}
+	else {
+		std::cout << two.getName() << " nu a raspuns corect \n";
+	}
+
+
+	//A treia intrebare
+	std::cout << thirdQuestion;
+	std::cout << "Raspuns de la " << one.getName() << ':';
+	std::cin >> st1;
+	std::cout << "Raspuns de la " << two.getName() << ':';
+	std::cin >> st2;
+
+	if (st1 == thirdQuestion.getCorrectAnswer()) {
+		answers.first++;
+		std::cout << one.getName() << " a raspuns corect \n";
+	}
+	else {
+		std::cout << one.getName() << " nu a raspuns corect \n";
+	}
+
+	if (st2 == thirdQuestion.getCorrectAnswer()) {
+		answers.second++;
+		std::cout << two.getName() << " a raspuns corect \n";
+	}
+	else {
+		std::cout << two.getName() << " nu a raspuns corect \n";
+	}
+
+
+	return answers;
+
+}
+
+void GameConosoleVersion::addPlayer(Player one)
+{
+	players.push_back(one);
+}
