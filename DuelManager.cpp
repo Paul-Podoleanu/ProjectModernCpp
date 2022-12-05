@@ -16,7 +16,7 @@ void DuelManager::DuelTime()
 {
 }
 
-void DuelManager::TwoPlayerDuelABCD(Question q,Player one, Player two, int score)
+Player DuelManager::TwoPlayerDuelABCD(Question q,Player one, Player two, int score)
 {
 	//Nu am implementat un timer pentru intrebari
 	//Acesta este un schelet, o sa trb refacute total cand introducem GUI,timer,etc.
@@ -32,9 +32,11 @@ void DuelManager::TwoPlayerDuelABCD(Question q,Player one, Player two, int score
 	if (answerPlayerOne != answerPlayerTwo) {
 		if (answerPlayerOne == question.getCorrectAnswer()) {
 			one.changeScore(score);
+			return one;
 		}
 		if (answerPlayerTwo == question.getCorrectAnswer()) {
 			two.changeScore(score);
+			return two;
 		}
 	}
 	else {
@@ -44,7 +46,7 @@ void DuelManager::TwoPlayerDuelABCD(Question q,Player one, Player two, int score
 
 }
 
-void DuelManager::TwoPlayerDuelNumeric(Question q, Player one, Player two, int score)
+Player DuelManager::TwoPlayerDuelNumeric(Question q, Player one, Player two, int score)
 {
 	//Nu am implementat un timer pentru intrebari
 	//Acesta este un schelet, o sa trb refacute total cand introducem GUI,timer,etc.
@@ -57,6 +59,7 @@ void DuelManager::TwoPlayerDuelNumeric(Question q, Player one, Player two, int s
 	std::cout << "Input for " << two.getName() << ':';
 	std::cin >> answerPlayerTwo;
 
+	//Se calculeaza diferenta de scor dintre ce s-a ales si raspunsul corect
 	if (answerPlayerOne != answerPlayerTwo) {
 		answerPlayerOne = question.getCorrectAnswer() - answerPlayerOne;
 		answerPlayerTwo = question.getCorrectAnswer() - answerPlayerTwo;
@@ -68,9 +71,11 @@ void DuelManager::TwoPlayerDuelNumeric(Question q, Player one, Player two, int s
 		}
 		if (answerPlayerOne < answerPlayerTwo) {
 			one.changeScore(score);
+			return one;
 		}
 		else {
 			two.changeScore(score);
+			return two;
 		}
 	}
 	else {

@@ -1,6 +1,5 @@
 #pragma once
-#include "Board.h"
-#include "Question.h"
+#include "DuelManager.h"
 /*
 SPECIFICATII PENTRU VERSIUNEA DE CONSOLA
 
@@ -29,11 +28,15 @@ public:
 	//int-urile corespund nr de intrebari raspunse corect de fiecare jucator, si nr de regiuni ce vor putea alege
 	std::pair<int, int> preGameQuestions2Player(Player one, Player two);
 
-	void pickRegion(Player one, int nrRegions);
-
+	//Functia ar trebui folosita pentru alegerea de regiuni dupa 
+	void pickRegion(Player one, int nrRegions); 
+	
 
 	//Setup joc
 	void addPlayer(Player one);
 
+
+	//Joc-ul in sine
+	//void Game();
 };
 

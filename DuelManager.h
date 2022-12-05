@@ -1,7 +1,5 @@
 #pragma once
 #include <iostream>
-#include"Player.h"
-#include"Region.h"
 #include "Question.h"
 #include "Board.h"
 
@@ -20,8 +18,9 @@ public:
 	//O sa inlocuim cum se dau raspunsurile, intr-un GUI, alta data
 
 	//Two-Player-Duel
-	void TwoPlayerDuelABCD(Question q, Player one, Player two, int score);
-	void TwoPlayerDuelNumeric(Question q, Player one, Player two, int score);
+	//Return este jucatorul care a castigat
+	Player TwoPlayerDuelABCD(Question q, Player one, Player two, int score);
+	Player TwoPlayerDuelNumeric(Question q, Player one, Player two, int score);
 
 	//Three-Player-Duel
 	//O sa fie folosite la inceput de joc, sau posibil la final
