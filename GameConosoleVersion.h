@@ -31,6 +31,10 @@ public:
 	//Functia ar trebui folosita pentru alegerea de regiuni dupa 
 	void pickRegion(Player one, int nrRegions); 
 	
+	//Player one ataca Player two, pentru regiunea parametru
+	void attackPlayer(Player one, Player two, Region region);
+
+
 
 	//Setup joc
 	void addPlayer(Player one);

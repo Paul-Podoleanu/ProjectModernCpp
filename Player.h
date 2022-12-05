@@ -52,5 +52,6 @@ public:
 
 	//Overload operator
 	Player& operator=(const Player& player);
+	bool operator== (const Player& player) const;
 };
 

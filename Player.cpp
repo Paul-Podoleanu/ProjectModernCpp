@@ -101,3 +101,12 @@ Player& Player::operator=(const Player& player)
 	return *this;
 }
 
+bool Player::operator==(const Player& player) const
+{
+	//In teorie 2 jucatori nu ar trb sa aiba acelasi nume, deci se va compara doar dupa nume
+	if (this->m_name == player.m_name) {
+		return true;
+	}
+	return false;
+}
+

@@ -167,6 +167,38 @@ void GameConosoleVersion::pickRegion(Player one, int nrRegions)
 	}
 }
 
+void GameConosoleVersion::attackPlayer(Player one, Player two, Region region)
+{
+	//Eventual o sa trb sa le facem dinamic
+	Player aux;
+	DuelManager duel;
+
+	//Option alege la intamplare ce tip de intrebare va fi pusa, si ca atare tipul de duel
+	int option = rand() % 2;
+	if (option == 0) {
+		aux = duel.TwoPlayerDuelABCD(questions, one, two, region.getPoints());
+	}
+	if (option == 1) {
+		aux = duel.TwoPlayerDuelNumeric(questions, one, two, region.getPoints());
+	}
+	if (one == aux) {
+		std::cout << "Regiunea a fost furata de catre " << one.getName();
+		one.addRegion(region);
+		two.loseRegion(region);
+		//Se schimba owner-ul regiunii din table
+		for (int i = 0; i < table.getRegions().size(); i++) {
+			if (region.getName() == table.getRegions()[i].first.getName()) {
+				table.getRegions()[i].second = one;
+				break;
+			}
+		}
+	}
+	else {
+		std::cout << "Regiunea ramane in mainile lui " << two.getName();
+	}
+
+}
+
 void GameConosoleVersion::addPlayer(Player one)
 {
 	players.push_back(one);
