@@ -28,20 +28,44 @@ void DuelManager::BaseDuel(Question q, Player one, Player two, bool isBase)
 				break;
 			}
 		}
-		else {
+		else
+		{
 			std::cout << "Same answer, we go to numeric questions \n";
 			QuestionNumeric question = q.getRandomQuestionWithNumericAnswer();
+			std::cout << "Input for " << one.getName() << ':';
+			std::cin >> answerPlayerOne;
 
+			std::cout << "Input for " << two.getName() << ':';
+			std::cin >> answerPlayerTwo;
+			if (std::stoi(answerPlayerOne) != std::stoi(answerPlayerTwo))
+			{
+				answerPlayerOne = question.getCorrectAnswer() - std::stoi(answerPlayerOne);
+				answerPlayerTwo = question.getCorrectAnswer() - std::stoi(answerPlayerTwo);
+				if (std::stoi(answerPlayerOne) < 0) {
+					answerPlayerOne = std::stoi(answerPlayerOne) * (-1);
+				}
+				if (std::stoi(answerPlayerTwo) < 0) {
+					answerPlayerTwo = std::stoi(answerPlayerTwo) * (-1);
+				}
+				if (std::stoi(answerPlayerOne) > std::stoi(answerPlayerTwo))
+				{
+					life--;
+				}
+				else {
+					break;
+				}
+
+			}
 		}
-		
 	}
 }
+
 
 void DuelManager::DuelTime()
 {
 }
 
-Player DuelManager::TwoPlayerDuelABCD(Question q,Player one, Player two, int score)
+Player DuelManager::TwoPlayerDuelABCD(Question q, Player one, Player two, int score)
 {
 	//Nu am implementat un timer pentru intrebari
 	//Acesta este un schelet, o sa trb refacute total cand introducem GUI,timer,etc.
@@ -106,7 +130,7 @@ Player DuelManager::TwoPlayerDuelNumeric(Question q, Player one, Player two, int
 	else {
 		std::cout << "Same answer, no winner \n";
 		//Daca este acelasi raspuns, se mai alege o intrebare
-		TwoPlayerDuelNumeric(q,one,two,score);
+		TwoPlayerDuelNumeric(q, one, two, score);
 	}
 }
 
