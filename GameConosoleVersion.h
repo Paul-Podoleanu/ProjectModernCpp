@@ -33,6 +33,7 @@ public:
 	
 	//Player one ataca Player two, pentru regiunea parametru
 	void attackPlayer(Player one, Player two, Region region);
+	void AttackPlayerBase(Player one, Player two, Region base);
 
 
 

@@ -199,6 +199,17 @@ void GameConosoleVersion::attackPlayer(Player one, Player two, Region region)
 
 }
 
+void GameConosoleVersion::AttackPlayerBase(Player one, Player two, Region base)
+{
+	Player aux;
+	DuelManager duel;
+	int life = 3;
+	while (life != 0)
+	{
+		
+	}
+}
+
 void GameConosoleVersion::addPlayer(Player one)
 {
 	players.push_back(one);

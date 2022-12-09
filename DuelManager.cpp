@@ -8,8 +8,33 @@ void DuelManager::NormalRegionDuel(bool isBase)
 {
 }
 
-void DuelManager::BaseDuel(bool isBase)
+void DuelManager::BaseDuel(Question q, Player one, Player two, bool isBase)
 {
+	int life = 3;
+	while (life != 0)
+	{
+		QuestionABCD question = q.getRandomQuestionWithVariants();
+		std::string answerPlayerOne, answerPlayerTwo;
+		std::cout << "Input for " << one.getName() << ':';
+		std::cin >> answerPlayerOne;
+
+		std::cout << "Input for " << two.getName() << ':';
+		std::cin >> answerPlayerTwo;
+		if (answerPlayerOne != answerPlayerTwo) {
+			if (answerPlayerOne == question.getCorrectAnswer()) {
+				life--;
+			}
+			if (answerPlayerTwo == question.getCorrectAnswer()) {
+				break;
+			}
+		}
+		else {
+			std::cout << "Same answer, we go to numeric questions \n";
+			QuestionNumeric question = q.getRandomQuestionWithNumericAnswer();
+
+		}
+		
+	}
 }
 
 void DuelManager::DuelTime()
