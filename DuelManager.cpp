@@ -8,7 +8,7 @@ void DuelManager::NormalRegionDuel(bool isBase)
 {
 }
 
-void DuelManager::BaseDuel(Question q, Player one, Player two, bool isBase)
+Player DuelManager::BaseDuel(Question q, Player one, Player two, bool isBase)
 {
 	int life = 3;
 	while (life != 0)

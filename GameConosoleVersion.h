@@ -21,6 +21,9 @@ private:
 
 public:
 	//Gameplay
+	GameConosoleVersion();
+	~GameConosoleVersion();
+	GameConosoleVersion(std::vector<Player> players, Board table, Question questions);
 	void chooseBaseStartOfGame2Player(Player one, Player two);
 
 	//Functia pentru intrebari inainte de joc-propriu zis, dar dupa alegerea bazei

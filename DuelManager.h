@@ -10,7 +10,7 @@ public:
 	DuelManager();
 	~DuelManager();
 	void NormalRegionDuel(bool isBase);
-	void BaseDuel(Question q,Player one, Player two, bool isBase);
+	Player BaseDuel(Question q,Player one, Player two, bool isBase);
 	void DuelTime();
 
 	//Duels

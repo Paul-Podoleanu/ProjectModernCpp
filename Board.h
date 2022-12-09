@@ -16,6 +16,7 @@ private:
 
 public:
 	Board();
+	Board(std::pair<int, int> dimensions, int size, std::vector<std::pair<Region, Player>> m_regions, int nrPlayers, int nrRounds);
 	~Board();
 
 	//Set

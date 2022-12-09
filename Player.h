@@ -23,7 +23,7 @@ private:
 public:
 	//Constructori
 	Player();
-	Player(std::string name, std::string color, int score , bool active, std::vector<Region>regions, Region m_base);
+	Player(std::string name, std::string color, int score, bool active, std::vector<Region>regions, Region m_base);
 	//Destructor
 	~Player();
 

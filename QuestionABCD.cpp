@@ -3,6 +3,10 @@
 QuestionABCD::QuestionABCD(std::string question, std::string answerA, std::string answerB, std::string answerC, std::string answerD, std::string correctAnswer) :m_question(question), m_answerA(answerA), m_answerB(answerB), m_answerC(answerC), m_answerD(answerD), m_correctAnswer(correctAnswer)
 {
 }
+QuestionABCD::QuestionABCD()
+{
+	
+}
 std::string QuestionABCD::getQuestion() const
 {
 	return m_question;

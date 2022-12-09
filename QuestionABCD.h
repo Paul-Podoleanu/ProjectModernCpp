@@ -11,6 +11,7 @@ private:
 	std::string m_answerD;
 	std::string m_correctAnswer;
 public:
+	QuestionABCD();
 	QuestionABCD(std::string question, std::string answerA, std::string answerB, std::string answerC, std::string answerD, std::string correctAnswer);
 
 	//Get

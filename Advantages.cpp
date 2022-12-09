@@ -9,6 +9,10 @@ Advantages::Advantages()
 {
 }
 
+Advantages::Advantages(std::string ans, Region region):ans(ans),region(region)
+{
+}
+
 Advantages::~Advantages()
 {
 }

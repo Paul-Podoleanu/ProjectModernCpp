@@ -5,6 +5,10 @@ Board::Board()
 
 }
 
+Board::Board(std::pair<int, int> dimensions, int size, std::vector<std::pair<Region, Player>> m_regions, int nrPlayers, int nrRounds):dimensions(dimensions),size(size),m_regions(m_regions),nrPlayers(nrPlayers),nrRounds(nrRounds)
+{
+}
+
 Board::~Board()
 {
 }

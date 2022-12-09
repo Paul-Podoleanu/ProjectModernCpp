@@ -4,9 +4,10 @@ Player::Player()
 {
 }
 
-Player::Player(std::string name, std::string color, int score, bool active, std::vector<Region> regions, Region m_base)
+Player::Player(std::string name, std::string color, int score, bool active, std::vector<Region> regions, Region m_base) :m_name(name), m_color(color), m_score(score), m_active(active), m_regions(regions), m_base(m_base)
 {
 }
+
 
 Player::~Player()
 {

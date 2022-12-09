@@ -11,6 +11,7 @@ private:
 public:
 
 	Advantages();
+	Advantages(std::string ans, Region region);
 	~Advantages();
 	bool checkRegionScore(Region targetRegion);
 	void addAdvantage1(Question& question, QuestionABCD ans);

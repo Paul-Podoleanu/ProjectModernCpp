@@ -1,5 +1,18 @@
 #include "GameConosoleVersion.h"
 
+GameConosoleVersion::GameConosoleVersion()
+{
+}
+
+GameConosoleVersion::~GameConosoleVersion()
+{
+}
+
+GameConosoleVersion::GameConosoleVersion(std::vector<Player> players, Board table, Question questions) :players(players), table(table), questions(questions)
+{
+}
+
+
 void GameConosoleVersion::chooseBaseStartOfGame2Player(Player one, Player two)
 {
 	//Declarari ce o sa fie necesar
@@ -203,11 +216,7 @@ void GameConosoleVersion::AttackPlayerBase(Player one, Player two, Region base)
 {
 	Player aux;
 	DuelManager duel;
-	int life = 3;
-	while (life != 0)
-	{
-		
-	}
+	aux = duel.BaseDuel(questions, one, two, base.getPoints());
 }
 
 void GameConosoleVersion::addPlayer(Player one)
