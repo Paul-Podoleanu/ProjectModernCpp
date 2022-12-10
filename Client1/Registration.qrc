@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="Registration"/>
+  <qresource prefix="Poze">
+    <file>Resources/triviador-logo.png</file>
+  </qresource>
+</RCC>
