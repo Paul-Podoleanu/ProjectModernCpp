@@ -15,7 +15,7 @@ namespace sql = sqlite_orm;
 class User
 {
 public:
-	User() = default;
+	//User() = default;
 	User(std::string username = "", std::string password = "", uint8_t matchesPlayed = 0, uint8_t level = 0);
 	~User();
 	friend inline auto createStorageUser(const std::string& filename);
@@ -23,7 +23,7 @@ public:
 	std::string getPassword() const { return m_password; }
 
 private:
-	uint8_t id;
+	int id;
 	std::string m_username;
 	std::string m_password;
 	uint8_t m_matchesPlayed;
@@ -45,19 +45,20 @@ inline auto createStorageUser(const std::string& filename)
 		)
 	);
 }
-using UsereStorage = decltype(createStorageUser(""));
+using UsersStorage = decltype(createStorageUser(""));
 class LoginHandler
 {
-	std::string username;
-	std::string password;
+	UsersStorage& db;
 public:
-	crow::response operator() (const crow::request& req, UsereStorage db) const;
+	LoginHandler(UsersStorage& db);
+	crow::response operator() (const crow::request& req) const;
 
 };
 class RegisterHandler
 {
-	std::string username;
-	std::string password;
+	UsersStorage& db;
+
 public:
-	crow::response operator() (const crow::request& req, UsereStorage db) const;
+	RegisterHandler(UsersStorage& db);
+	crow::response operator() (const crow::request& req) const;
 };

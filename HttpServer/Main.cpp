@@ -9,7 +9,7 @@ int main()
 	const std::string db_file_user = "users.sqlite";
 	const std::string db_file = "questions.sqlite";
 	Storage db = createStorage(db_file);
-	UsereStorage dbUser = createStorageUser(db_file_user);
+	UsersStorage dbUser = createStorageUser(db_file_user);
 	dbUser.sync_schema();
 	db.sync_schema();
 	auto initQuestionCounts = db.count<QuestionABCD>();
@@ -53,7 +53,10 @@ int main()
 				return crow::response(200);
 			}
 		});
-
+	auto& addUser = CROW_ROUTE(app, "/register").methods(crow::HTTPMethod::PUT);
+	addUser(RegisterHandler(dbUser));
+	auto& searchUser = CROW_ROUTE(app, "/login").methods(crow::HTTPMethod::POST);
+	searchUser(LoginHandler(dbUser));
 	app.port(8080).multithreaded().run();
 	return 0;
 }

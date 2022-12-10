@@ -2,13 +2,14 @@
 
 User::User(std::string username, std::string password, uint8_t matchesPlayed, uint8_t level) : m_username(username), m_password(password), m_matchesPlayed(matchesPlayed), m_level(level)
 {
+	id = -1;
 }
 
 User::~User()
 {
 }
 
-crow::response LoginHandler::operator()(const crow::request& req, UsereStorage db) const
+crow::response LoginHandler::operator()(const crow::request& req) const
 {
 	auto urlArgs = parseUrlArgs(req.body);
 	auto username = urlArgs["username"];
@@ -32,7 +33,7 @@ crow::response LoginHandler::operator()(const crow::request& req, UsereStorage d
 
 }
 
-crow::response RegisterHandler::operator()(const crow::request& req, UsereStorage db) const
+crow::response RegisterHandler::operator()(const crow::request& req) const
 {
 	auto urlArgs = parseUrlArgs(req.body);
 	auto username = urlArgs["username"];
@@ -44,5 +45,14 @@ crow::response RegisterHandler::operator()(const crow::request& req, UsereStorag
 			return crow::response(401, "User already exists");
 		}
 	}
+	db.insert(User(username, password));
 	return crow::response(200);
+}
+
+LoginHandler::LoginHandler(UsersStorage& db) :db(db)
+{
+}
+
+RegisterHandler::RegisterHandler(UsersStorage& db) :db(db)
+{
 }
