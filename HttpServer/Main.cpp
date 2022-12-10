@@ -1,13 +1,13 @@
 #include <iostream>
 #include <fstream>
-#include "User.h"
 #include"Question.h"
+#include "User.h"
 namespace sql = sqlite_orm;
-
 int main()
 {
-	const std::string db_file_user = "users.sqlite";
+
 	const std::string db_file = "questions.sqlite";
+	const std::string db_file_user = "users.sqlite";
 	Storage db = createStorage(db_file);
 	UsersStorage dbUser = createStorageUser(db_file_user);
 	dbUser.sync_schema();
@@ -22,7 +22,7 @@ int main()
 	CROW_ROUTE(app, "/")([]() {
 		return "This is an example app of crow and sql-orm";
 		});
-	CROW_ROUTE(app, "/questions")([&db]() {
+	CROW_ROUTE(app, "/questionsABCD")([&db]() {
 		std::vector<crow::json::wvalue> question_json;
 
 		for (const auto& questionABCD : db.iterate<QuestionABCD>())
@@ -39,25 +39,28 @@ int main()
 		}
 		return crow::json::wvalue{ question_json };
 		});
-	CROW_ROUTE(app, "/addusers")([&dbUser](const crow::request& req)
+	CROW_ROUTE(app, "/questionsNumeric")([&db]()
 		{
-			std::string username = req.url_params.get("username");
-			std::string password = req.url_params.get("password");
-			if (username.empty() || password.empty())
+
+			std::vector<crow::json::wvalue> question_json;
+			for (const auto& questionNumeric : db.iterate<QuestionNumeric>())
 			{
-				return crow::response(400);
+				question_json.push_back(crow::json::wvalue{
+					{"id", questionNumeric.id},
+					{"question", questionNumeric.m_question},
+					{"correctAnswer", questionNumeric.m_correctAnswer}
+					});
 			}
-			else
-			{
-				dbUser.insert(User{ username, password });
-				return crow::response(200);
-			}
+			return crow::json::wvalue{ question_json };
 		});
+
 	auto& addUser = CROW_ROUTE(app, "/register").methods(crow::HTTPMethod::PUT);
 	addUser(RegisterHandler(dbUser));
 	auto& searchUser = CROW_ROUTE(app, "/login").methods(crow::HTTPMethod::POST);
 	searchUser(LoginHandler(dbUser));
-	app.port(8080).multithreaded().run();
+
+
+	app.port(18080).multithreaded().run();
 	return 0;
 }
 
