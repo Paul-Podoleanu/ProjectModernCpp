@@ -31,7 +31,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>6.4.1_msvc2019_64</QtInstall>
+    <QtInstall>6.4.0_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -92,15 +92,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="Registration.qrc" />
+    <QtUic Include="AccountPage.ui" />
     <QtUic Include="MainPage.ui" />
     <QtUic Include="Registration.ui" />
     <QtMoc Include="Registration.h" />
+    <ClCompile Include="AccountPage.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="Registration.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="AccountPage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

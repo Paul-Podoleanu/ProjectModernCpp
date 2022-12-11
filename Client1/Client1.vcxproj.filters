@@ -43,14 +43,23 @@
     <ClCompile Include="MainPage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AccountPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainPage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="AccountPage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="AccountPage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
