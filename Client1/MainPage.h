@@ -1,7 +1,10 @@
 #pragma once
-
+#include <QStackedWidget>
+#include <QVBoxLayout>
+#include <QSignalMapper>
 #include <QMainWindow>
 #include "ui_MainPage.h"
+#include "AccountPage.h"
 
 class MainPage : public QMainWindow
 {
@@ -11,6 +14,9 @@ public:
 	MainPage(QWidget *parent = nullptr);
 	~MainPage();
 
+public slots:
+	void on_Cont_clicked();
 private:
 	Ui::MainPageClass ui;
+	AccountPage* accountPage;
 };
