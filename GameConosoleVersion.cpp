@@ -252,8 +252,13 @@ void GameConosoleVersion::addPlayer(Player one)
 
 void GameConosoleVersion::addRegion(Region reg)
 {
-	Player blank;
+	this->table.addRegion(reg, Player());
 
+}
+
+Question GameConosoleVersion::getQuestions()
+{
+	return this->questions;
 }
 
 void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)

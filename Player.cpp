@@ -18,9 +18,9 @@ Player::~Player()
 {
 }
 
-void Player::setName(std::string m_name)
+void Player::setName(std::string name)
 {
-
+	this->m_name = name;
 }
 
 void Player::setColor(std::string m_color)

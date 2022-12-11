@@ -45,6 +45,7 @@ public:
 	//Setup joc
 	void addPlayer(Player one);
 	void addRegion(Region reg);
+	Question getQuestions();
 
 	//Joc-ul in sine
 	void StartGame(Player one, Player two, int numberRounds);

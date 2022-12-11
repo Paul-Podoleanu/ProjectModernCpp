@@ -47,8 +47,12 @@ int main()
 	Game.addRegion(reg);
 	reg = Region("Sibiu", 100, false, false, false);
 	Game.addRegion(reg);
+
+	//Citit intrebari din fisier
+	Game.getQuestions().addQuestion();
+
 	//Joc in sine
-	
+	Game.StartGame(one,two,5);
 
 }
 
