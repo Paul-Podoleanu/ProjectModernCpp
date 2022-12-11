@@ -7,8 +7,7 @@ class DuelManager
 {
 private:
 public:
-	DuelManager();
-	~DuelManager();
+	
 	void NormalRegionDuel(bool isBase);
 	Player BaseDuel(Question q,Player one, Player two, bool isBase);
 	void DuelTime();

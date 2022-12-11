@@ -2,6 +2,11 @@
 
 Player::Player()
 {
+	this->m_name = "blank";
+	this->m_color = "blank";
+	this->m_score = 0;
+	this->m_active = true;
+
 }
 
 Player::Player(std::string name, std::string color, int score, bool active, std::vector<Region> regions, Region m_base) :m_name(name), m_color(color), m_score(score), m_active(active), m_regions(regions), m_base(m_base)
@@ -26,6 +31,11 @@ void Player::setColor(std::string m_color)
 void Player::setBase(Region m_base)
 {
 	this->m_base = m_base;
+}
+
+void Player::setScore(int scor)
+{
+	this->m_score = scor;
 }
 
 int Player::getScore()

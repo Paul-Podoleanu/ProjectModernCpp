@@ -31,20 +31,22 @@ public:
 	//int-urile corespund nr de intrebari raspunse corect de fiecare jucator, si nr de regiuni ce vor putea alege
 	std::pair<int, int> preGameQuestions2Player(Player one, Player two);
 
-	//Functia ar trebui folosita pentru alegerea de regiuni dupa 
-	void pickRegion(Player one, int nrRegions); 
+	//Functia ar trebui folosita pentru alegerea de regiuni
+	void pickRegion(Player one, int nrRegions);
 	
 	//Player one ataca Player two, pentru regiunea parametru
 	void attackPlayer(Player one, Player two, Region region);
-	void AttackPlayerBase(Player one, Player two, Region base);
+	Player AttackPlayerBase(Player one, Player two, Region base);
 
+	//Functie pentru gsit regiune doar prin nume
+	Region getRegionByName(std::string nume);
 
-
+	
 	//Setup joc
 	void addPlayer(Player one);
-
+	void addRegion(Region reg);
 
 	//Joc-ul in sine
-	//void Game();
+	void StartGame(Player one, Player two, int numberRounds);
 };
 

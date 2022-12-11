@@ -31,6 +31,7 @@ public:
 	void setName(std::string m_name);
 	void setColor(std::string m_color);
 	void setBase(Region m_base);
+	void setScore(int scor);
 
 	//Get
 	int getScore();

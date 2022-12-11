@@ -5,7 +5,7 @@
 #include <fstream>
 #include <vector>
 #include "Account.h"
-#include "Board.h"
+#include "GameConosoleVersion.h"
 
 #include "Logging/Logging.h"
 //#include "../ProjectModernCpp/Logging/Logging.h"
@@ -15,6 +15,41 @@ int main()
 	Logger logger(of);
 	logger.log("Started application...", Logger::Level::Info);
 	logger.log(123, Logger::Level::Info);
+
+
+	//Setup joc consola, adica initializari
+	GameConosoleVersion Game;
+	Player one, two;
+	Region reg;
+	one.setName("Paul");
+	one.setScore(0);
+	two.setName("Ioan");
+	two.setScore(0);
+	Game.addPlayer(one);
+	Game.addPlayer(two);
+
+	//Adaugat regiuni manual
+	reg = Region("Prahova", 100, false, false, false);
+	Game.addRegion(reg);
+	reg = Region("Brasov", 100, false, false, false);
+	Game.addRegion(reg);
+	reg = Region("Constanta", 100, false, false, false);
+	Game.addRegion(reg);
+	reg = Region("Cluj", 100, false, false, false);
+	Game.addRegion(reg);
+	reg = Region("Ilfov", 100, false, false, false);
+	Game.addRegion(reg);
+	reg = Region("Vaslui", 100, false, false, false);
+	Game.addRegion(reg);
+	reg = Region("Iasi", 100, false, false, false);
+	Game.addRegion(reg);
+	reg = Region("Timisoara", 100, false, false, false);
+	Game.addRegion(reg);
+	reg = Region("Sibiu", 100, false, false, false);
+	Game.addRegion(reg);
+	//Joc in sine
+	
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -25,11 +25,20 @@ int Board::getNrPlayers()
 
 Region Board::getSpecificRegion(std::string region)
 {
-	for (auto& r : m_regions) {
-		if (r.first.getName() == region) {
-			return r.first;
+	bool ok = true;
+	std::string name;
+	while (ok)
+	{
+		for (auto& r : m_regions) {
+			if (r.first.getName() == region) {
+				return r.first;
+			}
 		}
+		std::cout << "Numele nu este corect, alegeti altul: ";
+		std::cin >> name;
+		region = name;
 	}
+	
 }
 
 void Board::setDimension()

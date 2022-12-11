@@ -1,8 +1,5 @@
 #include "DuelManager.h"
 
-DuelManager::DuelManager()
-{
-}
 
 void DuelManager::NormalRegionDuel(bool isBase)
 {
@@ -58,6 +55,12 @@ Player DuelManager::BaseDuel(Question q, Player one, Player two, bool isBase)
 			}
 		}
 	}
+
+	//Se face decizia dintre care player a castigat baza
+	if (life == 0) {
+		return one;
+	}
+	return two;
 }
 
 
@@ -90,7 +93,7 @@ Player DuelManager::TwoPlayerDuelABCD(Question q, Player one, Player two, int sc
 	}
 	else {
 		std::cout << "Same answer, no winner \n";
-		TwoPlayerDuelABCD(q, one, two, score);
+		return TwoPlayerDuelABCD(q, one, two, score);
 	}
 
 }
@@ -130,7 +133,7 @@ Player DuelManager::TwoPlayerDuelNumeric(Question q, Player one, Player two, int
 	else {
 		std::cout << "Same answer, no winner \n";
 		//Daca este acelasi raspuns, se mai alege o intrebare
-		TwoPlayerDuelNumeric(q, one, two, score);
+		return TwoPlayerDuelNumeric(q, one, two, score);
 	}
 }
 
