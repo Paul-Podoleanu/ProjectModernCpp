@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>600</height>
+    <width>1131</width>
+    <height>599</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainPage</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:rgb(170, 85, 0)</string>
+   <string notr="true">background-color:rgb(255, 128, 77)</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="Info">
@@ -34,7 +34,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(111, 56, 0)</string>
+     <string notr="true">background-color:rgb(255, 51, 51)</string>
     </property>
     <property name="text">
      <string>Informatii</string>
@@ -57,7 +57,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(111, 56, 0)</string>
+     <string notr="true">background-color:rgb(255, 51, 51)</string>
     </property>
     <property name="text">
      <string>Cont</string>
@@ -80,7 +80,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(111, 56, 0)</string>
+     <string notr="true">background-color:rgb(255, 51, 51)</string>
     </property>
     <property name="text">
      <string>Exit</string>
@@ -103,7 +103,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(186, 0, 0)</string>
+     <string notr="true">background-color:rgb(255, 51, 51)</string>
     </property>
     <property name="text">
      <string>Play</string>
@@ -115,11 +115,12 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1200</width>
-     <height>26</height>
+     <width>1131</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -128,7 +129,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
