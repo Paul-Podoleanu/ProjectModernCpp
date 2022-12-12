@@ -31,6 +31,7 @@ void Question::addQuestion()
 			m_QuestionWithNumericAnswer.push_back(a);
 		}
 	}
+	//std::cout << m_QuestionsWithVariants.size() << ' ' << m_QuestionWithNumericAnswer.size()<<std::endl;
 }
 void Question::writeQuestionWithVar()
 {
@@ -59,4 +60,9 @@ QuestionNumeric Question::getRandomQuestionWithNumericAnswer()
 	int k = rand() % m_QuestionWithNumericAnswer.size();
 	return m_QuestionWithNumericAnswer[k];
 
+}
+
+int Question::getNumberQVar()
+{
+	return m_QuestionsWithVariants.size();
 }

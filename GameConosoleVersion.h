@@ -46,6 +46,7 @@ public:
 	void addPlayer(Player one);
 	void addRegion(Region reg);
 	Question getQuestions();
+	void ReadQuestion();
 
 	//Joc-ul in sine
 	void StartGame(Player one, Player two, int numberRounds);

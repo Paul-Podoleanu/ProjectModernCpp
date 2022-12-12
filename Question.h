@@ -19,4 +19,7 @@ public:
 	void writeQuestionWithNumeric();
 	QuestionABCD getRandomQuestionWithVariants();
 	QuestionNumeric getRandomQuestionWithNumericAnswer();
+
+	//Debugging
+	int getNumberQVar();
 };

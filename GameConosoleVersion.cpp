@@ -77,16 +77,19 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 
 	//Luam intrebarile care o sa fie folosite
 	QuestionABCD firstQuestion = questions.getRandomQuestionWithVariants(), thirdQuestion = questions.getRandomQuestionWithVariants();
-	QuestionNumeric secondQuestion;
+	QuestionNumeric secondQuestion=questions.getRandomQuestionWithNumericAnswer();
 
+	std::cout << "Urmatoarele intrebari determina cate regiuni o sa fie alese de fiecare jucator: \n";
+	std::cin.ignore();
 	//Prima intrebare
 	//Sper ca merge operatorul << nu am testat inca :P
 	std::cout << firstQuestion;
-	std::cout << "Raspuns de la " << one.getName() << ':';
-	std::cin >> st1;
+	std::cout << "Raspuns de la " << one.getName() << ':' << std::endl;
+	std::getline(std::cin, st1);
 	std::cout << "Raspuns de la " << two.getName() << ':';
-	std::cin >> st2;
+	std::getline(std::cin, st2);
 
+	//Se pun puncte pentru raspunsuri corecte
 	if (st1 == firstQuestion.getCorrectAnswer()) {
 		answers.first++;
 		std::cout << one.getName() << " a raspuns corect \n";
@@ -105,7 +108,7 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 
 
 	//A doua intrebare
-	std::cout << secondQuestion;
+	std::cout << secondQuestion<<std::endl;
 	std::cout << "Raspuns de la " << one.getName() << ':';
 	std::cin >> num1;
 	std::cout << "Raspuns de la " << two.getName() << ':';
@@ -131,9 +134,9 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 	//A treia intrebare
 	std::cout << thirdQuestion;
 	std::cout << "Raspuns de la " << one.getName() << ':';
-	std::cin >> st1;
+	std::getline(std::cin, st1);
 	std::cout << "Raspuns de la " << two.getName() << ':';
-	std::cin >> st2;
+	std::getline(std::cin, st2);
 
 	if (st1 == thirdQuestion.getCorrectAnswer()) {
 		answers.first++;
@@ -158,12 +161,13 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 
 void GameConosoleVersion::pickRegion(Player one, int nrRegions)
 {
+	
 	std::string nume;
-	std::cout << "Alege o regiune de cucerit: ";
-	std::cin >> nume;
-
 	while (nrRegions != 0)
 	{
+		
+		std::cout << "Alege o regiune de cucerit: ";
+		std::cin >> nume;
 		for (int i = 0; i < table.getRegions().size(); i++) {
 			if (nume == table.getRegions()[i].first.getName()) {
 				if (table.getRegions()[i].first.getisOwned() == false) {
@@ -259,6 +263,11 @@ void GameConosoleVersion::addRegion(Region reg)
 Question GameConosoleVersion::getQuestions()
 {
 	return this->questions;
+}
+
+void GameConosoleVersion::ReadQuestion()
+{
+	questions.addQuestion();
 }
 
 void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
