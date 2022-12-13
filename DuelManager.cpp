@@ -7,6 +7,7 @@ void DuelManager::NormalRegionDuel(bool isBase)
 
 Player DuelManager::BaseDuel(Question q, Player& one, Player& two, bool isBase)
 {
+	std::cin.ignore();
 	int life = 3;
 	while (life != 0)
 	{
@@ -14,50 +15,59 @@ Player DuelManager::BaseDuel(Question q, Player& one, Player& two, bool isBase)
 		std::cout << question;
 		std::string answerPlayerOne, answerPlayerTwo;
 		std::cout << "Input for " << one.getName() << ':';
-		std::cin.ignore();
+		
 		std::getline(std::cin, answerPlayerOne);;
 
 		std::cout << "Input for " << two.getName() << ':';
-	//	std::cin.ignore();
+		//	std::cin.ignore();
 		std::getline(std::cin, answerPlayerTwo);
 		if (answerPlayerOne != answerPlayerTwo) {
+			if (answerPlayerOne != question.getCorrectAnswer()) {
+				return two;
+			}
 			if (answerPlayerOne == question.getCorrectAnswer()) {
 				life--;
+				std::cout << "Mai ramane " << life << " hp pentru baza \n";
 			}
 			if (answerPlayerTwo == question.getCorrectAnswer()) {
 				return two;
 			}
 		}
 		else
-		{
-			std::cout << "Same answer, we go to numeric questions \n";
-			QuestionNumeric question = q.getRandomQuestionWithNumericAnswer();
-			std::cout << std::endl << question;
-			std::cout << "Input for " << one.getName() << ':';
-			std::cin >> answerPlayerOne;
-
-			std::cout << "Input for " << two.getName() << ':';
-			std::cin >> answerPlayerTwo;
-			if (std::stoi(answerPlayerOne) != std::stoi(answerPlayerTwo))
-			{
-				answerPlayerOne = question.getCorrectAnswer() - std::stoi(answerPlayerOne);
-				answerPlayerTwo = question.getCorrectAnswer() - std::stoi(answerPlayerTwo);
-				if (std::stoi(answerPlayerOne) < 0) {
-					answerPlayerOne = std::stoi(answerPlayerOne) * (-1);
-				}
-				if (std::stoi(answerPlayerTwo) < 0) {
-					answerPlayerTwo = std::stoi(answerPlayerTwo) * (-1);
-				}
-				if (std::stoi(answerPlayerOne) > std::stoi(answerPlayerTwo))
+			if (answerPlayerOne == answerPlayerTwo)
+				if (answerPlayerTwo == question.getCorrectAnswer())
 				{
-					life--;
+					std::cout << "Same answer, we go to numeric questions \n";
+					QuestionNumeric question = q.getRandomQuestionWithNumericAnswer();
+					std::cout << std::endl << question;
+					std::cout << "Input for " << one.getName() << ':';
+					std::cin >> answerPlayerOne;
+
+					std::cout << "Input for " << two.getName() << ':';
+					std::cin >> answerPlayerTwo;
+					if (std::stoi(answerPlayerOne) != std::stoi(answerPlayerTwo))
+					{
+						answerPlayerOne = question.getCorrectAnswer() - std::stoi(answerPlayerOne);
+						answerPlayerTwo = question.getCorrectAnswer() - std::stoi(answerPlayerTwo);
+						if (std::stoi(answerPlayerOne) < 0) {
+							answerPlayerOne = std::stoi(answerPlayerOne) * (-1);
+						}
+						if (std::stoi(answerPlayerTwo) < 0) {
+							answerPlayerTwo = std::stoi(answerPlayerTwo) * (-1);
+						}
+						if (std::stoi(answerPlayerOne) > std::stoi(answerPlayerTwo))
+						{
+							life--;
+						}
+						else {
+							return two;
+						}
+
+					}
 				}
 				else {
 					return two;
 				}
-
-			}
-		}
 	}
 
 	//Se face decizia dintre care player a castigat baza
