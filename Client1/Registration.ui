@@ -14,7 +14,7 @@
    <string>Registration</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:rgb(255, 128, 77)</string>
+   <string notr="true">background-image: url(:/Poze/Resources/background_gradient.png);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="label">
