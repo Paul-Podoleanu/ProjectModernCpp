@@ -3,6 +3,8 @@
 #include <QMainWindow>
 #include <cpr/cpr.h>
 #include <string>
+#include <QString>
+#include <QTextEdit>
 #include "ui_AccountPage.h"
 
 class AccountPage : public QMainWindow
