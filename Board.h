@@ -15,6 +15,8 @@ private:
 	int nrRounds;
 
 public:
+
+
 	Board();
 	Board(std::pair<int, int> dimensions, int size, std::vector<std::pair<Region, Player>> m_regions, int nrPlayers, int nrRounds);
 	~Board();
@@ -26,7 +28,7 @@ public:
 
 	//Get
 	int getNrPlayers();
-	std::vector<std::pair<Region, Player>> getRegions() { return m_regions; }
+	std::vector<std::pair<Region, Player>>& getRegions() { return m_regions; }
 	Region getSpecificRegion(std::string region);
 
 	//General use functions

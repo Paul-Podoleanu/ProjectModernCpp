@@ -13,7 +13,7 @@ GameConosoleVersion::GameConosoleVersion(std::vector<Player> players, Board tabl
 }
 
 
-void GameConosoleVersion::chooseBaseStartOfGame2Player(Player one, Player two)
+void GameConosoleVersion::chooseBaseStartOfGame2Player(Player &one, Player &two)
 {
 	//Declarari ce o sa fie necesar
 	//2 stringuri, ca sa nu mai caute prin regiuni pentru a da check
@@ -43,7 +43,7 @@ void GameConosoleVersion::chooseBaseStartOfGame2Player(Player one, Player two)
 	//Check ca nu se alege aceeasi baza la amadoi playeri
 	while (inputNume1 == inputNume2)
 	{
-		std::cout << "Baza deja aleasa, introduceti alt nume: ";
+		std::cout << " Baza deja aleasa, introduceti alt nume: ";
 		std::cin >> inputNume2;
 	}
 
@@ -62,11 +62,11 @@ void GameConosoleVersion::chooseBaseStartOfGame2Player(Player one, Player two)
 			break;
 		}
 	}
-
+	std::cout << std::endl << std::endl;
 
 }
 
-std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Player two)
+std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player& one, Player& two)
 {
 	//Declarari
 	std::pair<int, int> answers;
@@ -84,7 +84,7 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 	//Prima intrebare
 	//Sper ca merge operatorul << nu am testat inca :P
 	std::cout << firstQuestion;
-	std::cout << "Raspuns de la " << one.getName() << ':' << std::endl;
+	std::cout << "Raspuns de la " << one.getName() << ':';
 	std::getline(std::cin, st1);
 	std::cout << "Raspuns de la " << two.getName() << ':';
 	std::getline(std::cin, st2);
@@ -108,7 +108,7 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 
 
 	//A doua intrebare
-	std::cout << secondQuestion<<std::endl;
+	std::cout << std::endl << secondQuestion<<std::endl;
 	std::cout << "Raspuns de la " << one.getName() << ':';
 	std::cin >> num1;
 	std::cout << "Raspuns de la " << two.getName() << ':';
@@ -132,10 +132,12 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 
 
 	//A treia intrebare
-	std::cout << thirdQuestion;
+	std::cout << std::endl << thirdQuestion << std::endl;
 	std::cout << "Raspuns de la " << one.getName() << ':';
+	std::cin.ignore();
 	std::getline(std::cin, st1);
 	std::cout << "Raspuns de la " << two.getName() << ':';
+	std::cin.ignore();
 	std::getline(std::cin, st2);
 
 	if (st1 == thirdQuestion.getCorrectAnswer()) {
@@ -154,19 +156,19 @@ std::pair<int, int> GameConosoleVersion::preGameQuestions2Player(Player one, Pla
 		std::cout << two.getName() << " nu a raspuns corect \n";
 	}
 
-
+	std::cout << std::endl << std::endl;
 	return answers;
 
 }
 
-void GameConosoleVersion::pickRegion(Player one, int nrRegions)
+void GameConosoleVersion::pickRegion(Player& one, int nrRegions)
 {
 	
 	std::string nume;
 	while (nrRegions != 0)
 	{
 		
-		std::cout << "Alege o regiune de cucerit: ";
+		std::cout<<one.getName()<< " alege o regiune de cucerit: ";
 		std::cin >> nume;
 		for (int i = 0; i < table.getRegions().size(); i++) {
 			if (nume == table.getRegions()[i].first.getName()) {
@@ -189,11 +191,13 @@ void GameConosoleVersion::pickRegion(Player one, int nrRegions)
 	}
 }
 
-void GameConosoleVersion::attackPlayer(Player one, Player two, Region region)
+void GameConosoleVersion::attackPlayer(Player& one, Player& two, Region region)
 {
 	//Eventual o sa trb sa le facem dinamic
 	Player aux;
 	DuelManager duel;
+
+	std::cout << one.getName() << " a atacat " << two.getName() << "\n";
 
 	//Option alege la intamplare ce tip de intrebare va fi pusa, si ca atare tipul de duel
 	int option = rand() % 2;
@@ -210,6 +214,8 @@ void GameConosoleVersion::attackPlayer(Player one, Player two, Region region)
 		//Se schimba owner-ul regiunii din table
 		for (int i = 0; i < table.getRegions().size(); i++) {
 			if (region.getName() == table.getRegions()[i].first.getName()) {
+				//Aici .getRegions() creaza un alt obiect
+				//trebuie accesat direct
 				table.getRegions()[i].second = one;
 				one.changeScore(table.getRegions()[i].first.getPoints());
 				two.changeScore(-table.getRegions()[i].first.getPoints());
@@ -223,8 +229,10 @@ void GameConosoleVersion::attackPlayer(Player one, Player two, Region region)
 
 }
 
-Player GameConosoleVersion::AttackPlayerBase(Player one, Player two, Region base)
+Player GameConosoleVersion::AttackPlayerBase(Player& one, Player& two, Region base)
 {
+	std::cout << one.getName() << " a atacat " << two.getName() << "\n";
+
 	Player aux;
 	DuelManager duel;
 	return duel.BaseDuel(questions, one, two, base.getPoints());
@@ -247,6 +255,19 @@ Region GameConosoleVersion::getRegionByName(std::string nume)
 	}
 
 
+}
+
+void GameConosoleVersion::showStats(Player one,Player two)
+{
+	std::cout << "Regiuni: "<< std::endl;
+	for (int i = 0; i < table.getRegions().size(); i++) {
+		std::cout << table.getRegions()[i].first.getName() << ": " << table.getRegions()[i].second.getName()<<std::endl;
+	}
+	std::cout<<std::endl<<"Scoruri: "<<std::endl;
+	std::cout << one.getName() << ": " << one.getScore() << std::endl;
+	std::cout << two.getName() << ": " << two.getScore() << std::endl<<std::endl;
+
+	
 }
 
 void GameConosoleVersion::addPlayer(Player one)
@@ -274,7 +295,6 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 {
 	//Alegere baze
 	chooseBaseStartOfGame2Player(one, two);
-
 	//Intrebri pentru a alege cate regiuni se aleg la inceput de joc
 	std::pair<int, int> answersFor3Questions;
 	answersFor3Questions = preGameQuestions2Player(one, two);
@@ -288,6 +308,10 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 
 	while (numberRounds != 0)
 	{
+		//Show stats
+		system("cls");
+		showStats(one,two);
+
 		//Primul player are o actiune
 		std::cout << one.getName() << " alege o regiune pentru actiune: ";
 		std::cin >> numeRegiune;
@@ -305,7 +329,7 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 						attackPlayer(one, two, reg);
 					}
 					else {
-						std::cout << "Este regiunea ta prostule, ai pierdut o tura >:[ \n";
+						std::cout << "Este regiunea ta, ai pierdut o tura >:[ \n";
 					}
 				}
 			}
@@ -316,6 +340,8 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 			pickRegion(one, 1);
 		}
 
+		system("cls");
+		showStats(one, two);
 
 		//Al doilea player are o actiune
 			//Primul player are o actiune
@@ -349,6 +375,9 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 		numberRounds--;
 	}
 	
+	system("cls");
+	showStats(one, two);
+
 	if (one.getScore() > two.getScore()) {
 		std::cout<<one.getName()<< "A CASTIGAT JOCUL !!!";
 		return;

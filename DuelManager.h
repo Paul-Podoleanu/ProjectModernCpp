@@ -9,7 +9,7 @@ private:
 public:
 	
 	void NormalRegionDuel(bool isBase);
-	Player BaseDuel(Question q,Player one, Player two, bool isBase);
+	Player BaseDuel(Question q,Player &one, Player &two, bool isBase);
 	void DuelTime();
 
 	//Duels
@@ -18,8 +18,8 @@ public:
 
 	//Two-Player-Duel
 	//Return este jucatorul care a castigat
-	Player TwoPlayerDuelABCD(Question q, Player one, Player two, int score);
-	Player TwoPlayerDuelNumeric(Question q, Player one, Player two, int score);
+	Player TwoPlayerDuelABCD(Question q, Player &one, Player &two, int score);
+	Player TwoPlayerDuelNumeric(Question q, Player &one, Player &two, int score);
 
 	//Three-Player-Duel
 	//O sa fie folosite la inceput de joc, sau posibil la final

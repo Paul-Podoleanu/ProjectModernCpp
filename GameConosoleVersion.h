@@ -1,5 +1,7 @@
 #pragma once
 #include "DuelManager.h"
+#include <stdlib.h>
+#include <conio.h>
 /*
 SPECIFICATII PENTRU VERSIUNEA DE CONSOLA
 
@@ -24,24 +26,29 @@ public:
 	GameConosoleVersion();
 	~GameConosoleVersion();
 	GameConosoleVersion(std::vector<Player> players, Board table, Question questions);
-	void chooseBaseStartOfGame2Player(Player one, Player two);
+	void chooseBaseStartOfGame2Player(Player &one, Player &two);
 
 	//Functia pentru intrebari inainte de joc-propriu zis, dar dupa alegerea bazei
 	//toate intrebarile se tin in functia asta, in cazut la 2 jucatori o sa fie 2 intrebari
 	//int-urile corespund nr de intrebari raspunse corect de fiecare jucator, si nr de regiuni ce vor putea alege
-	std::pair<int, int> preGameQuestions2Player(Player one, Player two);
+	std::pair<int, int> preGameQuestions2Player(Player& one, Player& two);
 
 	//Functia ar trebui folosita pentru alegerea de regiuni
-	void pickRegion(Player one, int nrRegions);
+	void pickRegion(Player& one, int nrRegions);
 	
 	//Player one ataca Player two, pentru regiunea parametru
-	void attackPlayer(Player one, Player two, Region region);
-	Player AttackPlayerBase(Player one, Player two, Region base);
+	void attackPlayer(Player& one, Player& two, Region region);
+	Player AttackPlayerBase(Player& one, Player& two, Region base);
 
 	//Functie pentru gsit regiune doar prin nume
 	Region getRegionByName(std::string nume);
 
-	
+	//Functie pentru afisare stats
+	//O sa trebuiasaca sa ia direct din vectorul de playeri, dar o sa ne ocupam de asta
+	//cand refacem si restul de functii sa mearga pe nr variabil de playeri
+	void showStats(Player one, Player two);
+
+
 	//Setup joc
 	void addPlayer(Player one);
 	void addRegion(Region reg);

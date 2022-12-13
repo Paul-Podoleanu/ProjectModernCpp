@@ -29,23 +29,23 @@ int main()
 	Game.addPlayer(two);
 
 	//Adaugat regiuni manual
-	reg = Region("Prahova", 100, false, false, false);
+	reg = Region("p1", 100, false, false, false);
 	Game.addRegion(reg);
-	reg = Region("Brasov", 100, false, false, false);
+	reg = Region("p2", 100, false, false, false);
 	Game.addRegion(reg);
-	reg = Region("Constanta", 100, false, false, false);
+	reg = Region("p3", 100, false, false, false);
 	Game.addRegion(reg);
-	reg = Region("Cluj", 100, false, false, false);
+	reg = Region("p4", 100, false, false, false);
 	Game.addRegion(reg);
-	reg = Region("Ilfov", 100, false, false, false);
+	reg = Region("p5", 100, false, false, false);
 	Game.addRegion(reg);
-	reg = Region("Vaslui", 100, false, false, false);
+	reg = Region("p6", 100, false, false, false);
 	Game.addRegion(reg);
-	reg = Region("Iasi", 100, false, false, false);
+	reg = Region("p7", 100, false, false, false);
 	Game.addRegion(reg);
-	reg = Region("Timisoara", 100, false, false, false);
+	reg = Region("p8", 100, false, false, false);
 	Game.addRegion(reg);
-	reg = Region("Sibiu", 100, false, false, false);
+	reg = Region("p9", 100, false, false, false);
 	Game.addRegion(reg);
 
 	//Citit intrebari din fisier
@@ -60,6 +60,7 @@ int main()
 	std::getline(std::cin, p1);
 	std::cout << "p1: " << p1;*/
 
+	Game.showStats(one,two);
 
 	//Joc in sine
 	Game.StartGame(one,two,5);

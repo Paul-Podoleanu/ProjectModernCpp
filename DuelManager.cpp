@@ -5,12 +5,13 @@ void DuelManager::NormalRegionDuel(bool isBase)
 {
 }
 
-Player DuelManager::BaseDuel(Question q, Player one, Player two, bool isBase)
+Player DuelManager::BaseDuel(Question q, Player& one, Player& two, bool isBase)
 {
 	int life = 3;
 	while (life != 0)
 	{
 		QuestionABCD question = q.getRandomQuestionWithVariants();
+		std::cout << question;
 		std::string answerPlayerOne, answerPlayerTwo;
 		std::cout << "Input for " << one.getName() << ':';
 		std::cin >> answerPlayerOne;
@@ -29,6 +30,7 @@ Player DuelManager::BaseDuel(Question q, Player one, Player two, bool isBase)
 		{
 			std::cout << "Same answer, we go to numeric questions \n";
 			QuestionNumeric question = q.getRandomQuestionWithNumericAnswer();
+			std::cout << std::endl << question;
 			std::cout << "Input for " << one.getName() << ':';
 			std::cin >> answerPlayerOne;
 
@@ -68,18 +70,22 @@ void DuelManager::DuelTime()
 {
 }
 
-Player DuelManager::TwoPlayerDuelABCD(Question q, Player one, Player two, int score)
+Player DuelManager::TwoPlayerDuelABCD(Question q, Player& one, Player& two, int score)
 {
 	//Nu am implementat un timer pentru intrebari
 	//Acesta este un schelet, o sa trb refacute total cand introducem GUI,timer,etc.
 	//Sper sa putem copia direct peste codul asta ce o sa mai facem
 	QuestionABCD question = q.getRandomQuestionWithVariants();
+	Player neutru;
 	std::string answerPlayerOne, answerPlayerTwo;
+	std::cout << question;
 	std::cout << "Input for " << one.getName() << ':';
-	std::cin >> answerPlayerOne;
+	std::cin.ignore();
+	std::getline(std::cin, answerPlayerOne);
 
 	std::cout << "Input for " << two.getName() << ':';
-	std::cin >> answerPlayerTwo;
+	std::cin.ignore();
+	std::getline(std::cin, answerPlayerTwo);
 
 	if (answerPlayerOne != answerPlayerTwo) {
 		if (answerPlayerOne == question.getCorrectAnswer()) {
@@ -90,21 +96,26 @@ Player DuelManager::TwoPlayerDuelABCD(Question q, Player one, Player two, int sc
 			two.changeScore(score);
 			return two;
 		}
+		else {
+			return neutru;
+		}
 	}
 	else {
-		std::cout << "Same answer, no winner \n";
-		return TwoPlayerDuelABCD(q, one, two, score);
+		std::cout << "No winner \n";
+		return TwoPlayerDuelNumeric(q, one, two, score);
 	}
 
 }
 
-Player DuelManager::TwoPlayerDuelNumeric(Question q, Player one, Player two, int score)
+Player DuelManager::TwoPlayerDuelNumeric(Question q, Player& one, Player& two, int score)
 {
 	//Nu am implementat un timer pentru intrebari
 	//Acesta este un schelet, o sa trb refacute total cand introducem GUI,timer,etc.
 	//Sper sa putem copia direct peste codul asta ce o sa mai facem
 	QuestionNumeric question = q.getRandomQuestionWithNumericAnswer();
 	int answerPlayerOne, answerPlayerTwo;
+	Player neutru;
+	std::cout << question;
 	std::cout << "Input for " << one.getName() << ':';
 	std::cin >> answerPlayerOne;
 
@@ -133,7 +144,7 @@ Player DuelManager::TwoPlayerDuelNumeric(Question q, Player one, Player two, int
 	else {
 		std::cout << "Same answer, no winner \n";
 		//Daca este acelasi raspuns, se mai alege o intrebare
-		return TwoPlayerDuelNumeric(q, one, two, score);
+		return TwoPlayerDuelABCD(q, one, two, score);
 	}
 }
 
