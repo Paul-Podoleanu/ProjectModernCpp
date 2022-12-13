@@ -317,6 +317,7 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 		std::cin >> numeRegiune;
 		reg = table.getSpecificRegion(numeRegiune);
 		if (reg.getIsBase() == true) {
+			std::cout << one.getName() << " a atacat baza lui " << two.getName();
 			if (one == AttackPlayerBase(one, two, reg)) {
 				std::cout << one.getName() << "A CASTIGAT JOCUL !!!";
 				return;
@@ -349,6 +350,7 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 		std::cin >> numeRegiune;
 		reg = table.getSpecificRegion(numeRegiune);
 		if (reg.getIsBase() == true) {
+			std::cout << two.getName() << " a atacat baza lui " << one.getName();
 			if (two == AttackPlayerBase(two, one, reg)) {
 				std::cout << two.getName() << "A CASTIGAT JOCUL !!!";
 				return;
@@ -361,7 +363,7 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 						attackPlayer(two, one, reg);
 					}
 					else {
-						std::cout << "Este regiunea ta prostule, ai pierdut o tura >:[ \n";
+						std::cout << "Este regiunea ta, ai pierdut o tura >:[ \n";
 					}
 				}
 			}

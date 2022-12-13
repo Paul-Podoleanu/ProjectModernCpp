@@ -14,16 +14,18 @@ Player DuelManager::BaseDuel(Question q, Player& one, Player& two, bool isBase)
 		std::cout << question;
 		std::string answerPlayerOne, answerPlayerTwo;
 		std::cout << "Input for " << one.getName() << ':';
-		std::cin >> answerPlayerOne;
+		std::cin.ignore();
+		std::getline(std::cin, answerPlayerOne);;
 
 		std::cout << "Input for " << two.getName() << ':';
-		std::cin >> answerPlayerTwo;
+	//	std::cin.ignore();
+		std::getline(std::cin, answerPlayerTwo);
 		if (answerPlayerOne != answerPlayerTwo) {
 			if (answerPlayerOne == question.getCorrectAnswer()) {
 				life--;
 			}
 			if (answerPlayerTwo == question.getCorrectAnswer()) {
-				break;
+				return two;
 			}
 		}
 		else
@@ -51,7 +53,7 @@ Player DuelManager::BaseDuel(Question q, Player& one, Player& two, bool isBase)
 					life--;
 				}
 				else {
-					break;
+					return two;
 				}
 
 			}
