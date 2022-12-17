@@ -27,6 +27,7 @@ private:
 	std::string m_username;
 	std::string m_password;
 	uint8_t m_matchesPlayed;
+	uint8_t m_matchesWon;
 	uint8_t m_level;
 };
 
@@ -41,6 +42,7 @@ inline auto createStorageUser(const std::string& filename)
 			sql::make_column("username", &User::m_username),
 			sql::make_column("password", &User::m_password),
 			sql::make_column("matchesPlayed", &User::m_matchesPlayed),
+			sql::make_column("matchesWon", &User::m_matchesWon),
 			sql::make_column("level", &User::m_level)
 		)
 	);

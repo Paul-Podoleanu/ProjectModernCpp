@@ -58,8 +58,24 @@ int main()
 	addUser(RegisterHandler(dbUser));
 	auto& searchUser = CROW_ROUTE(app, "/login").methods(crow::HTTPMethod::POST);
 	searchUser(LoginHandler(dbUser));
-
-
+	CROW_ROUTE(app, "/randomABCDQuestion")([&db]() {
+		using namespace sqlite_orm;
+		auto rows = db.select(sql::columns(&QuestionABCD::id, &QuestionABCD::m_question, &QuestionABCD::m_correctAnswer, &QuestionABCD::m_answerA, &QuestionABCD::m_answerB, &QuestionABCD::m_answerC, &QuestionABCD::m_answerD),
+			sql::where(sql::c(&QuestionABCD::id) == 1));
+		const auto& [id, question, m_correctAnswer, m_answerA, m_answerB, m_answerC, m_answerD] = rows[0];
+		crow::json::wvalue q
+		{
+			{"id", id},
+			{"question",question},
+			{"correctAnswer",m_correctAnswer},
+			{"answerA",m_answerA},
+			{"answerB",m_answerB},
+			{"answerC",m_answerC},
+			{"answerD",m_answerD},
+		};
+		
+			return q;
+		});
 	app.port(18080).multithreaded().run();
 	return 0;
 }

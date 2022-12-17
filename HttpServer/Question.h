@@ -14,7 +14,7 @@
 namespace sql = sqlite_orm;
 struct Question
 {
-	
+
 };
 inline auto createStorage(const std::string& filename)
 {
@@ -41,3 +41,4 @@ inline auto createStorage(const std::string& filename)
 }
 using Storage = decltype(createStorage(""));
 void populateStorage(Storage& storage);
+
