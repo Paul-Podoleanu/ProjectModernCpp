@@ -12,7 +12,12 @@ class Play : public QMainWindow
 public:
 	Play(QWidget *parent = nullptr);
 	~Play();
-
+public slots:
+	void on_AnswerA_clicked();
+	void on_AnswerB_clicked();
+	void on_AnswerC_clicked();
+	void on_AnswerD_clicked();
 private:
 	Ui::PlayClass ui;
+	std::string correctAnswer;
 };

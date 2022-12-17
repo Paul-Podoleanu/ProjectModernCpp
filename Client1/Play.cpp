@@ -1,5 +1,6 @@
 #include "Play.h"
 #include <qcolor.h>
+#include <qmessagebox.h>
 
 Play::Play(QWidget *parent)
 	: QMainWindow(parent)
@@ -17,13 +18,57 @@ Play::Play(QWidget *parent)
 	ui.AnswerC->setText(answerC.c_str());
 	std::string answerD = questionRow["answerD"].s();
 	ui.AnswerD->setText(answerD.c_str());
-	//ui.AnswerA->setStyleSheet(b);
-	QColor col = QColor(Qt::red);
-	QString qss = QString("background-color: %1").arg(col.name());
-	ui.AnswerA->setStyleSheet(qss);
 	ui.Question->setFont(QFont("Helvetica", 10, QFont::Bold, QFont::Capitalize));
+	correctAnswer = questionRow["correctAnswer"].s();
+	QDebug(QtMsgType::QtInfoMsg) << correctAnswer.c_str();
 }
 
 Play::~Play()
 {
+}
+void Play::on_AnswerA_clicked()
+{
+	if (ui.AnswerA->text().toUtf8().constData() == correctAnswer)
+	{
+		QMessageBox::information(this, "Correct", "Correct");
+	}
+	else
+	{
+		QMessageBox::information(this, "Incorrect", "Incorrect");
+	}
+}
+	
+void Play::on_AnswerB_clicked()
+{
+	if (ui.AnswerB->text().toUtf8().constData() == correctAnswer)
+	{
+		QMessageBox::information(this, "Correct", "Correct");
+	}
+	else
+	{
+		QMessageBox::information(this, "Incorrect", "Incorrect");
+	}
+}
+void Play::on_AnswerC_clicked()
+{
+	if (ui.AnswerC->text().toUtf8().constData() == correctAnswer)
+	{
+		QMessageBox::information(this, "Correct", "Correct");
+	}
+	else
+	{
+		QMessageBox::information(this, "Incorrect", "Incorrect");
+	}
+
+}
+void Play::on_AnswerD_clicked()
+{
+	if (ui.AnswerD->text().toUtf8().constData() == correctAnswer)
+	{
+		QMessageBox::information(this, "Correct", "Correct");
+	}
+	else
+	{
+		QMessageBox::information(this, "Incorrect", "Incorrect");
+	}
 }

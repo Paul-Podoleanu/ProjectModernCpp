@@ -14,7 +14,7 @@
    <string>MainPage</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image:url(:/Poze/Resources/1302751.jpg)</string>
+   <string notr="true">background-image:url(:/Poze/Resources/1.jpg)</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="Info">
