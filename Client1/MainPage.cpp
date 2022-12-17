@@ -1,4 +1,5 @@
 #include "MainPage.h"
+#include "Play.h"
 MainPage::MainPage(QWidget* parent)
 	: QMainWindow(parent)
 {
@@ -12,3 +13,10 @@ void MainPage::on_Cont_clicked()
 }
 MainPage::~MainPage()
 {}
+
+void MainPage::on_Play_clicked()
+{
+	Play* play = new Play(this);
+	play->resize(1200, 600);
+	play->show();
+}

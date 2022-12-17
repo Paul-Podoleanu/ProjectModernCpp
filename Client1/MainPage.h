@@ -16,6 +16,7 @@ public:
 
 public slots:
 	void on_Cont_clicked();
+	void on_Play_clicked();
 private:
 	Ui::MainPageClass ui;
 	AccountPage* accountPage;

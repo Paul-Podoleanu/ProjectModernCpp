@@ -39,7 +39,6 @@ void Registration::on_Login_clicked()
 	if (response.status_code == 200)
 	{
 		MainPage* mainPage = new MainPage();
-		//mainPage->setWindowState(Qt::WindowMaximized);
 		mainPage->show();
 	}
 	else
@@ -47,3 +46,4 @@ void Registration::on_Login_clicked()
 		QMessageBox::information(this, "Error", "Login failed");
 	}
 }
+	

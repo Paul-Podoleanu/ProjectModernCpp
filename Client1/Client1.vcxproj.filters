@@ -46,6 +46,9 @@
     <ClCompile Include="AccountPage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Play.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainPage.ui">
@@ -54,12 +57,18 @@
     <QtUic Include="AccountPage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="Play.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainPage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="AccountPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Play.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

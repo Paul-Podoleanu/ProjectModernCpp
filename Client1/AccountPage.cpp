@@ -1,5 +1,6 @@
 #include "AccountPage.h"
 
+
 void AccountPage::displayUsername()
 {
 	std::string username;
