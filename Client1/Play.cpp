@@ -6,6 +6,8 @@ Play::Play(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	//trebuie adaugata conditie in caz ca e ABCD sau Numeric
+
 	auto responseQuestion = cpr::Get(cpr::Url{ "http://localhost:18080/randomABCDQuestion" });
 	auto questionRow = crow::json::load(responseQuestion.text);
 	std::string question = questionRow["question"].s();
@@ -20,6 +22,14 @@ Play::Play(QWidget *parent)
 	ui.AnswerD->setText(answerD.c_str());
 	ui.Question->setFont(QFont("Helvetica", 10, QFont::Bold, QFont::Capitalize));
 	correctAnswer = questionRow["correctAnswer"].s();
+	QDebug(QtMsgType::QtInfoMsg) << correctAnswer.c_str();
+	//pentru numeric questions
+	auto responseNumericQuestion = cpr::Get(cpr::Url{ "http://localhost:18080/randomNumericQuestion" });
+	auto numericQuestionRow = crow::json::load(responseNumericQuestion.text);
+	std::string numericQuestion = numericQuestionRow["question"].s();
+	ui.Question->setText(numericQuestion.c_str());
+	std::string numericAnswer = numericQuestionRow["answer"].s();
+	correctAnswer = numericQuestionRow["correctAnswer"].s();
 	QDebug(QtMsgType::QtInfoMsg) << correctAnswer.c_str();
 }
 
@@ -71,4 +81,19 @@ void Play::on_AnswerD_clicked()
 	{
 		QMessageBox::information(this, "Incorrect", "Incorrect");
 	}
+
 }
+
+void Play::on_NumericAnswer_typed()
+{
+	if (ui.numericAnswer->text().toUtf8().constData() == correctAnswer)
+	{
+		QMessageBox::information(this, "Correct", "Correct");
+	}
+	else
+	{
+		QMessageBox::information(this, "Incorrect", "Incorrect");
+	}
+}
+
+
