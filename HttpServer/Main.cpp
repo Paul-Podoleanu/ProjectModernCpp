@@ -76,6 +76,20 @@ int main()
 		
 			return q;
 		});
+	CROW_ROUTE(app, "/randomNumericQuestion")([&db]() {
+		using namespace sqlite_orm;
+	auto rows = db.select(sql::columns(&QuestionNumeric::id, &QuestionNumeric::m_question, &QuestionNumeric::m_correctAnswer),
+		sql::where(sql::c(&QuestionNumeric::id) == 1));
+	const auto& [id, question, m_correctAnswer] = rows[0];
+	crow::json::wvalue q
+	{
+		{"id", id},
+		{"question",question},
+		{"correctAnswer",m_correctAnswer},
+	};
+	return q;
+		});
+	
 	app.port(18080).multithreaded().run();
 	return 0;
 }
