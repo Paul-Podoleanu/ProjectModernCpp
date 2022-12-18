@@ -19,8 +19,12 @@ public:
 	User(std::string username = "", std::string password = "", uint8_t matchesPlayed = 0, uint8_t level = 0);
 	~User();
 	friend inline auto createStorageUser(const std::string& filename);
+	int getId() const { return id; }
 	std::string getUsername() const { return m_username; }
 	std::string getPassword() const { return m_password; }
+	uint8_t getMatchesPlayed() const { return m_matchesPlayed; }
+	uint8_t getMatchesWon() const { return m_matchesWon; }
+	uint8_t getLevel() const { return m_level; }
 
 private:
 	int id;
