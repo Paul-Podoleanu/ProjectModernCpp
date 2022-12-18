@@ -17,6 +17,7 @@ public slots:
 	void on_AnswerB_clicked();
 	void on_AnswerC_clicked();
 	void on_AnswerD_clicked();
+	void on_NumericAnswer_typed();
 private:
 	Ui::PlayClass ui;
 	std::string correctAnswer;

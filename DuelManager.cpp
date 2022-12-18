@@ -68,6 +68,7 @@ Player DuelManager::BaseDuel(Question q, Player& one, Player& two, bool isBase)
 				else {
 					return two;
 				}
+		
 	}
 
 	//Se face decizia dintre care player a castigat baza
