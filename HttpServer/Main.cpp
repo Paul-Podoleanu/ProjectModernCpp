@@ -89,7 +89,21 @@ int main()
 	};
 	return q;
 		});
-	
+
+	CROW_ROUTE(app, "/Account")([&dbUser]() {
+		std::vector<crow::json::wvalue> users_json;
+	for (const auto& users : dbUser.iterate<User>())
+	{
+		users_json.push_back(crow::json::wvalue{
+			{"id", users.getId()},
+			{"username", users.getUsername()},
+			{"matchesPlayed", users.getMatchesPlayed()},
+			{"matchesWon", users.getMatchesWon()},
+			{"level", users.getLevel()}
+			});
+	}
+	return crow::json::wvalue{ users_json };
+		});
 	app.port(18080).multithreaded().run();
 	return 0;
 }
