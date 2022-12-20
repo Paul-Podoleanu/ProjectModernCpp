@@ -346,11 +346,18 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 		std::cin >> numeRegiune;
 		reg = table.getSpecificRegion(numeRegiune);
 		if (reg.getIsBase() == true) {
-			std::cout << one.getName() << " a atacat baza lui " << two.getName();
-			if (one == AttackPlayerBase(one, two, reg)) {
-				std::cout << one.getName() << " A CASTIGAT JOCUL !!!";
-				return;
+			for (int i = 0; i < table.getRegions().size(); i++) {
+				if (reg.getName() == table.getRegions()[i].first.getName()) {
+					if (table.getRegions()[i].second.getName() != one.getName()) {
+						std::cout << one.getName() << " a atacat baza lui " << two.getName();
+						if (one == AttackPlayerBase(one, two, reg)) {
+							std::cout << one.getName() << " A CASTIGAT JOCUL !!!";
+							return;
+						}
+					}
+				}
 			}
+
 		}
 		if (reg.getisOwned()) {
 			for (int i = 0; i < table.getRegions().size(); i++) {
@@ -377,11 +384,18 @@ void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 		std::cout << two.getName() << " alege o regiune pentru actiune: ";
 		std::cin >> numeRegiune;
 		reg = table.getSpecificRegion(numeRegiune);
+		reg = table.getSpecificRegion(numeRegiune);
 		if (reg.getIsBase() == true) {
-			std::cout << two.getName() << " a atacat baza lui " << one.getName();
-			if (two == AttackPlayerBase(two, one, reg)) {
-				std::cout << two.getName() << "A CASTIGAT JOCUL !!!";
-				return;
+			for (int i = 0; i < table.getRegions().size(); i++) {
+				if (reg.getName() == table.getRegions()[i].first.getName()) {
+					if (table.getRegions()[i].second.getName() != two.getName()) {
+						std::cout << one.getName() << " a atacat baza lui " << two.getName();
+						if (one == AttackPlayerBase(one, two, reg)) {
+							std::cout << one.getName() << " A CASTIGAT JOCUL !!!";
+							return;
+						}
+					}
+				}
 			}
 		}
 		if (reg.getisOwned()) {
