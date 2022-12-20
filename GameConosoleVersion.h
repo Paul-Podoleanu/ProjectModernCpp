@@ -35,7 +35,8 @@ public:
 
 	//Functia ar trebui folosita pentru alegerea de regiuni
 	void pickRegion(Player& one, int nrRegions);
-	
+	void pickRegionByName(Player& one, std::string region);
+
 	//Player one ataca Player two, pentru regiunea parametru
 	void attackPlayer(Player& one, Player& two, Region region);
 	Player AttackPlayerBase(Player& one, Player& two, Region base);
