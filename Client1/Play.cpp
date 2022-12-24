@@ -106,7 +106,65 @@ void Play::close1()
 		this->close();
 	}
 }
-
+void Play::on_AvantajJumatate_clicked()
+{
+	int random = rand() % 4;
+	int random2 = rand() % 4;
+	while (random == random2)
+	{
+		random2 = rand() % 4;
+	}
+	int contor = 0;
+	if (okAvantajJumatate == true)
+	{
+		QMessageBox::information(this, "You already used this advantage", "You already used this advantage");
+	}
+	else {
+		while (contor != 2 && okAvantajJumatate == false) {
+			if (random == 0 || random2 == 0)
+			{
+				if (ui.AnswerA->text().toUtf8().constData() != correctAnswer)
+				{
+					ui.AnswerA->setDisabled(true);
+					ui.AnswerA->hide();
+					contor++;
+				}
+			}
+			if (random == 1 || random2 == 1)
+			{
+				if (ui.AnswerB->text().toUtf8().constData() != correctAnswer)
+				{
+					ui.AnswerB->setDisabled(true);
+					ui.AnswerB->hide();
+					contor++;
+				}
+			}
+			if (random == 2 || random2 == 2)
+			{
+				if (ui.AnswerC->text().toUtf8().constData() != correctAnswer)
+				{
+					ui.AnswerC->setDisabled(true);
+					ui.AnswerC->hide();
+					contor++;
+				}
+			}
+			if (random == 3 || random2 == 3)
+			{
+				if (ui.AnswerD->text().toUtf8().constData() != correctAnswer)
+				{
+					ui.AnswerD->setDisabled(true);
+					ui.AnswerD->hide();
+					contor++;
+				}
+			}
+		}
+	}
+	if (okAvantajJumatate == true)
+	{
+		QMessageBox::information(this, "You already used this advantage", "You already used this advantage");
+	}
+	okAvantajJumatate =true;
+}
 //void Play::on_NumericAnswer_typed()
 //{
 //	if (ui.numericAnswer->text().toUtf8().constData() == correctAnswer)
