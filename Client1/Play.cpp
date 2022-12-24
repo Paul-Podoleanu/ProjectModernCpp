@@ -1,13 +1,21 @@
 #include "Play.h"
 #include <qcolor.h>
 #include <qmessagebox.h>
+#include <qtimer.h>
 
 Play::Play(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
 	//trebuie adaugata conditie in caz ca e ABCD sau Numeric
-
+	QTimer* timer = new QTimer(this);
+	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+	timer->start(100);
+	ui.progressBar->setValue(100);
+	ui.progressBar->setFormat("");
+	connect(timer, SIGNAL(timeout()), this, SLOT(updateProgressBar()));
+	ui.progressBar->setStyleSheet("QProgressBar {border: 2px solid grey;border-radius: 5px;text-align: center;}");
+	connect(timer, SIGNAL(timeout()), this, SLOT(close1()));
 	auto responseQuestion = cpr::Get(cpr::Url{ "http://localhost:18080/randomABCDQuestion" });
 	auto questionRow = crow::json::load(responseQuestion.text);
 	std::string question = questionRow["question"].s();
@@ -24,13 +32,13 @@ Play::Play(QWidget *parent)
 	correctAnswer = questionRow["correctAnswer"].s();
 	QDebug(QtMsgType::QtInfoMsg) << correctAnswer.c_str();
 	//pentru numeric questions
-	auto responseNumericQuestion = cpr::Get(cpr::Url{ "http://localhost:18080/randomNumericQuestion" });
-	auto numericQuestionRow = crow::json::load(responseNumericQuestion.text);
-	std::string numericQuestion = numericQuestionRow["question"].s();
-	ui.Question->setText(numericQuestion.c_str());
-	std::string numericAnswer = numericQuestionRow["answer"].s();
-	correctAnswer = numericQuestionRow["correctAnswer"].s();
-	QDebug(QtMsgType::QtInfoMsg) << correctAnswer.c_str();
+	//auto responseNumericQuestion = cpr::Get(cpr::Url{ "http://localhost:18080/randomNumericQuestion" });
+	//auto numericQuestionRow = crow::json::load(responseNumericQuestion.text);
+	//std::string numericQuestion = numericQuestionRow["question"].s();
+	//ui.Question->setText(numericQuestion.c_str());
+	//std::string numericAnswer = numericQuestionRow["answer"].s();
+	//correctAnswer = numericQuestionRow["correctAnswer"].s();
+	//QDebug(QtMsgType::QtInfoMsg) << correctAnswer.c_str();
 }
 
 Play::~Play()
@@ -84,16 +92,31 @@ void Play::on_AnswerD_clicked()
 
 }
 
-void Play::on_NumericAnswer_typed()
+void Play::updateProgressBar()
 {
-	if (ui.numericAnswer->text().toUtf8().constData() == correctAnswer)
+	if (ui.progressBar->value() > 0)
 	{
-		QMessageBox::information(this, "Correct", "Correct");
+		ui.progressBar->setValue(ui.progressBar->value() - 1);
 	}
-	else
+}
+void Play::close1()
+{
+	if (ui.progressBar->value() == 0)
 	{
-		QMessageBox::information(this, "Incorrect", "Incorrect");
+		this->close();
 	}
 }
 
+//void Play::on_NumericAnswer_typed()
+//{
+//	if (ui.numericAnswer->text().toUtf8().constData() == correctAnswer)
+//	{
+//		QMessageBox::information(this, "Correct", "Correct");
+//	}
+//	else
+//	{
+//		QMessageBox::information(this, "Incorrect", "Incorrect");
+//	}
+//}
+//
 

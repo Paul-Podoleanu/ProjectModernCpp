@@ -17,8 +17,12 @@ public slots:
 	void on_AnswerB_clicked();
 	void on_AnswerC_clicked();
 	void on_AnswerD_clicked();
-	void on_NumericAnswer_typed();
+	void updateProgressBar();
+	void close1();
+	void on_AvantajJumatate_clicked();
+	//void on_NumericAnswer_typed();
 private:
-	Ui::PlayClass ui;
+	Ui::ClasaPlay ui;
 	std::string correctAnswer;
+	bool okAvantajJumatate = false;
 };

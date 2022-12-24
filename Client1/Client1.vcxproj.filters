@@ -49,6 +49,9 @@
     <ClCompile Include="Play.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QTTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainPage.ui">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Play.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QTTimer.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
