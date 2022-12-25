@@ -3,14 +3,12 @@
 
 void AccountPage::displayUsername()
 {
-	std::string username;
-	auto response = cpr::Get(
-		cpr::Url{ "http://localhost:18080/login" },
-		cpr::Body{ "username=" + username }
-	);
-
-	QString qUsername(username.c_str());
-	ui.usernameEdit->setText(qUsername);
+	auto responseAccount = cpr::Get(cpr::Url{ "http://localhost:18080/Account" });
+	auto AccountRow = crow::json::load(responseAccount.text);
+	std::string username = AccountRow["username"].s();
+	ui.usernameEdit->setText(username.c_str());
+	std::string matchesPlayed = AccountRow["matchesPlayed"].s();
+	ui.matchesPlayedEdit->setText(matchesPlayed.c_str());
 }
 
 AccountPage::AccountPage(QWidget* parent)

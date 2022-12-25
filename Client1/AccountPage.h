@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include <crow.h>
 #include <cpr/cpr.h>
 #include <string>
 #include <QString>
