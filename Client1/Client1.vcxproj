@@ -93,11 +93,13 @@
   <ItemGroup>
     <QtRcc Include="Registration.qrc" />
     <QtUic Include="AccountPage.ui" />
+    <QtUic Include="Game.ui" />
     <QtUic Include="MainPage.ui" />
     <QtUic Include="Play.ui" />
     <QtUic Include="Registration.ui" />
     <QtMoc Include="Registration.h" />
     <ClCompile Include="AccountPage.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="Play.cpp" />
     <ClCompile Include="QTTimer.cpp" />
@@ -115,6 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QTTimer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
