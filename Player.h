@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include"Region.h"
+#include"Advantages.h"
 
 //Clasa este pentru un player in-game, nu pentru un cont
 class Player

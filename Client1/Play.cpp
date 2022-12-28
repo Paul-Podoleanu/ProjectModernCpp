@@ -3,7 +3,7 @@
 #include <qmessagebox.h>
 #include <qtimer.h>
 
-Play::Play(QWidget* parent)
+Play::Play(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
