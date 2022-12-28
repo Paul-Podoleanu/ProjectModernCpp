@@ -165,6 +165,22 @@ void Play::on_AvantajJumatate_clicked()
 	}
 	okAvantajJumatate =true;
 }
+void Play::on_AvantajAlegereRaspuns_clicked()
+{
+	//do an get answer
+	int contor2 = 0;
+	if (okAvantajAlegere == true)
+	{
+		QMessageBox::information(this, "You already used this advantage", "You already used this advantage");
+	}
+	else {
+		auto responseAnswer = cpr::Get(cpr::Url{ "http://localhost:18080/getAnswer" });
+		auto answerRow = crow::json::load(responseAnswer.text);
+		std::string answer = answerRow["answer"].s();
+		QMessageBox::information(this, "Answer", answer.c_str());
+	}
+	contor2++;
+}
 //void Play::on_NumericAnswer_typed()
 //{
 //	if (ui.numericAnswer->text().toUtf8().constData() == correctAnswer)
