@@ -21,10 +21,12 @@ public slots:
 	void close1();
 	void on_AvantajJumatate_clicked();
 	void on_AvantajAlegereRaspuns_clicked();
+	void on_AvantajSugestieRaspuns_clicked();
 	//void on_NumericAnswer_typed();
 private:
 	Ui::ClasaPlay ui;
 	std::string correctAnswer;
 	bool okAvantajJumatate = false;
 	bool okAvantajAlegere = false;
+	bool okAvantajSugestie = false;
 };
