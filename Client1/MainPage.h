@@ -5,13 +5,13 @@
 #include <QMainWindow>
 #include "ui_MainPage.h"
 #include "AccountPage.h"
-#include "Game.h"
+#include "LobbyPage.h"
 class MainPage : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	MainPage(QWidget *parent = nullptr);
+	MainPage(QWidget* parent = nullptr);
 	~MainPage();
 
 public slots:
@@ -20,7 +20,8 @@ public slots:
 	void on_doi_clicked();
 	void on_trei_clicked();
 	void on_patru_clicked();
-	
+	void on_Lobby_clicked();
+
 private:
 	Ui::MainPageClass ui;
 	AccountPage* accountPage;

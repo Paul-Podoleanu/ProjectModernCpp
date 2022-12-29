@@ -55,6 +55,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LobbyPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainPage.ui">
@@ -67,6 +70,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Game.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="LobbyPage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -84,6 +90,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Game.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LobbyPage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
