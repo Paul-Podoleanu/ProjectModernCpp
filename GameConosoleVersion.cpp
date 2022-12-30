@@ -320,6 +320,47 @@ void GameConosoleVersion::ReadQuestion()
 	questions.addQuestion();
 }
 
+void GameConosoleVersion::useAdvantage1(Advantages p)
+{
+	int contor = 0;
+	if(contor==0)
+	{p.addAdvantage1(questions,answer);
+	contor++;
+	}
+	else
+		std::cout << "Ai folosit deja acest avantaj";
+
+}
+
+void GameConosoleVersion::useAdvantage2(Advantages p)
+{
+	int contor = 0;
+	if (contor = 0)
+	{
+		p.addAdvantage2(questions);
+		contor++;
+	}
+
+	else
+	{
+		std::cout << "Ai folosit deja acest avantaj";
+}
+}
+
+void GameConosoleVersion::useAdvantage3(Advantages p)
+{
+	int contor = 0;
+	if (contor=0)
+		
+	{p.addAdvantage3(questions);
+	contor++;
+	}
+	else
+	{
+		std::cout << "Ai folosit deja acest avantaj";
+	}
+}
+
 void GameConosoleVersion::StartGame(Player one, Player two, int numberRounds)
 {
 	//Alegere baze

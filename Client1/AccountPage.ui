@@ -35,7 +35,7 @@
      <string>Username:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="matchesPlayed">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -77,6 +77,68 @@
     </property>
     <property name="text">
      <string>inputMatchesPlayed</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="matchesWon">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>130</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Matches won:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Level">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>160</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Level:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="matchesWonEdit">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>130</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>inputMatchesWon</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="levelEdit">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>160</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>inputLevel</string>
     </property>
    </widget>
   </widget>

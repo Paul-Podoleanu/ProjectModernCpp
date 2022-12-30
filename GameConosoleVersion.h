@@ -1,4 +1,5 @@
 #pragma once
+#include "Advantages.h"
 #include "DuelManager.h"
 #include <stdlib.h>
 #include <conio.h>
@@ -20,6 +21,7 @@ private:
 	Board table;
 	std::vector<Player> players;
 	Question questions;
+	QuestionABCD answer;
 
 public:
 	//Gameplay
@@ -55,6 +57,10 @@ public:
 	void addRegion(Region reg);
 	Question getQuestions();
 	void ReadQuestion();
+	void useAdvantage1(Advantages p);
+	void useAdvantage2(Advantages p);
+	void useAdvantage3(Advantages p);
+	
 
 	//Joc-ul in sine
 	void StartGame(Player one, Player two, int numberRounds);

@@ -55,7 +55,7 @@ void Play::on_AnswerA_clicked()
 		QMessageBox::information(this, "Incorrect", "Incorrect");
 	}
 }
-	
+
 void Play::on_AnswerB_clicked()
 {
 	if (ui.AnswerB->text().toUtf8().constData() == correctAnswer)
@@ -163,7 +163,44 @@ void Play::on_AvantajJumatate_clicked()
 	{
 		QMessageBox::information(this, "You already used this advantage", "You already used this advantage");
 	}
-	okAvantajJumatate =true;
+	okAvantajJumatate = true;
+}
+void Play::on_AvantajAlegereRaspuns_clicked()
+{
+
+	int contor2 = 0;
+	if (okAvantajAlegere == true)
+	{
+		QMessageBox::information(this, "You already used this advantage", "You already used this advantage");
+	}
+	else {
+		if (okAvantajAlegere == false && contor2 == 0)
+		{
+			auto responseAnswer = cpr::Get(cpr::Url{ "http://localhost:18080/getAnswer" });
+			auto answerRow = crow::json::load(responseAnswer.text);
+			std::string answer = answerRow["answer"].s();
+			QMessageBox::information(this, "Answer", answer.c_str());
+		}
+		contor2++;
+	}
+}
+void Play::on_AvantajSugestieRaspuns_clicked()
+{
+	int contor3 = 0;
+	if (okAvantajSugestie == true)
+	{
+		QMessageBox::information(this, "You already used this advantage", "You already used this advantage");
+	}
+	else {
+		if (okAvantajSugestie == false && contor3 == 0)
+		{
+			auto responseSuggestion = cpr::Get(cpr::Url{ "http://localhost:18080/getSuggestion" });
+			auto suggestionRow = crow::json::load(responseSuggestion.text);
+			std::string suggestion = suggestionRow["suggestion"].s();
+			QMessageBox::information(this, "Suggestion", suggestion.c_str());
+		}
+		contor3++;
+	}
 }
 //void Play::on_NumericAnswer_typed()
 //{
