@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include"Question.h"
+#include "Game.h"
 #include "User.h"
 namespace sql = sqlite_orm;
 int main()
@@ -8,10 +9,13 @@ int main()
 
 	const std::string db_file = "questions.sqlite";
 	const std::string db_file_user = "users.sqlite";
+	const std::string db_file_game = "games.sqlite";
 	Storage db = createStorage(db_file);
 	UsersStorage dbUser = createStorageUser(db_file_user);
+	GamesStorage dbGame = createStorageGame(db_file_game);
 	dbUser.sync_schema();
 	db.sync_schema();
+	dbGame.sync_schema();
 	auto initQuestionCounts = db.count<QuestionABCD>();
 	auto initQuestionNumeriCount = db.count<QuestionNumeric>();
 	if (initQuestionCounts == 0 && initQuestionNumeriCount == 0)
@@ -104,6 +108,15 @@ int main()
 	}
 	return crow::json::wvalue{ users_json };
 		});
+	//create a crow route to create a lobby
+	auto& createLobby = CROW_ROUTE(app, "/createLobby").methods(crow::HTTPMethod::PUT);
+	createLobby(CreateLobbyHandler(dbGame));
+	//create a crow route to join a lobby
+	auto& joinLobby = CROW_ROUTE(app, "/joinLobby").methods(crow::HTTPMethod::POST);
+	joinLobby(JoinLobbyHandler(dbGame));
+	//create a crow route to get all players in a lobby
+	auto& getPlayers = CROW_ROUTE(app, "/players").methods(crow::HTTPMethod::Get);
+	getPlayers(GetPlayersHandler(dbGame));
 	app.port(18080).multithreaded().run();
 	return 0;
 }
