@@ -113,7 +113,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>300</y>
+      <y>250</y>
       <width>200</width>
       <height>71</height>
      </rect>
@@ -176,6 +176,62 @@
     </property>
     <property name="text">
      <string>4 Players</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="JoinLobby">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>450</y>
+      <width>200</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Nirmala UI</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(255, 51, 51)</string>
+    </property>
+    <property name="text">
+     <string>JoinLobby</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="OwnerName">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>530</y>
+      <width>201</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Lobby">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>450</y>
+      <width>200</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Nirmala UI</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(255, 51, 51)</string>
+    </property>
+    <property name="text">
+     <string>Lobby</string>
     </property>
    </widget>
   </widget>

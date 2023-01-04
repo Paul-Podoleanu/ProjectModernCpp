@@ -58,6 +58,9 @@
     <ClCompile Include="LobbyPage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainPage.ui">
@@ -77,9 +80,6 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="MainPage.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="AccountPage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -95,5 +95,13 @@
     <QtMoc Include="LobbyPage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="MainPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
