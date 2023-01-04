@@ -11,15 +11,21 @@
 
 class Registration : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    Registration(QWidget *parent = nullptr);
-    ~Registration();
+	Registration(QWidget* parent = nullptr);
+	~Registration();
+	void setUsername(std::string username) { m_username = username; }
+	void setPassword(std::string password) { m_password = password; }
+	std::string getUsername()const { return m_username; }
+	std::string getPassword()const { return m_password; }
 public slots:
-    void on_Login_clicked();
-    void on_Register_clicked();
- 
+	void on_Login_clicked();
+	void on_Register_clicked();
 private:
 	Ui::RegistrationClass ui;
+	std::string m_username;
+	std::string m_password;
+
 };
