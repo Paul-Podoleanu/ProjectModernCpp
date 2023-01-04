@@ -75,3 +75,9 @@ void MainPage::on_Lobby_clicked()
 		QMessageBox::information(this, "Error", "We");
 	}
 }
+
+void MainPage::on_Exit_clicked()
+{
+	this->close();
+	//Aici trebuie scos din data de baze player-ul ca fiind online
+}

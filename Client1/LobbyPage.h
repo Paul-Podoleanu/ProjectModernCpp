@@ -15,7 +15,6 @@ private:
 	std::string m_Owner;
 
 public slots:
-	//void on_StartGame_clicked();
 	void on_StartGame_clicked() {
 		//switch in functie de numarul de playeri conectati
 		Game* game = new Game(nullptr, 3, 3);

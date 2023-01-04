@@ -60,6 +60,9 @@ public:
 	crow::response operator() (const crow::request& req) const;
 
 };
+
+
+
 class RegisterHandler
 {
 	UsersStorage& db;

@@ -24,6 +24,7 @@ public slots:
 	void on_patru_clicked();
 	void on_JoinLobby_clicked();
 	void on_Lobby_clicked();
+	void on_Exit_clicked();
 
 private:
 	Ui::MainPageClass ui;
