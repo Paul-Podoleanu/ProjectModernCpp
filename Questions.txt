@@ -1,0 +1,56 @@
+Q:Who is the president of the United States?
+Joe Biden
+Joe Biden
+Donald Trump
+Barack Obama
+George W. Bush
+When was Michael Jackson born?
+1958
+Q:Who was the first president of the United States?
+George Washington
+Abraham Lincoln
+Thomas Jefferson
+John Adams
+George Washington
+Q:Who invented the light bulb?
+Thomas Edison
+Thomas Edison
+Albert Einstein
+Nikolas Tesla
+Benjamin Franklin
+Q:What is the capital of the United States?
+Washington, D.C.
+Washington, D.C.
+New York City
+Los Angeles
+Chicago
+Q:What is the capital of Canada?
+Ottawa
+Ottawa
+Toronto
+Vancouver
+Montreal
+When was the Declaration of Independence signed?
+1776
+Q:Which country is the largest in the world?
+Russia
+Russia
+China
+United States
+Canada
+Q:Who is the current prime minister of Canada?
+Justin Trudeau
+Justin Trudeau
+Stephen Harper
+Paul Martin
+Jean Chretien
+Q:Where is the Eiffel Tower located?
+Paris, France
+Paris, France
+London, England
+Rome, Italy
+Berlin, Germany
+When did the Second World War end?
+1945
+When did Queen Elizabeth II become queen?
+1952
