@@ -24,6 +24,7 @@ public:
 	//Three-Player-Duel
 	//O sa fie folosite la inceput de joc, sau posibil la final
 	void ThreePlayerDuelABCD(Board b, Question q, Player one, Player two, Player three, int score);
+	void FourPlayerDuelABCD(Board b, Question q, Player one, Player two, Player three, Player four, int score);
 };
 
 
