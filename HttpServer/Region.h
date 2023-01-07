@@ -9,7 +9,8 @@ private:
 	bool isBase;
 	bool isOwned;
 	std::vector<Region> neighbours;
-	
+	int id;	
+
 public:
 	Region();
 	Region(std::string name, int points, bool isBase, bool isOwned) : name(name), points(points), isBase(isBase), isOwned(isOwned) {}

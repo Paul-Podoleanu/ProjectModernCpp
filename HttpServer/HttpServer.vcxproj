@@ -129,19 +129,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DuelManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GamePlayer.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuestionABCD.h" />
     <ClInclude Include="QuestionNumeric.h" />
+    <ClInclude Include="Region.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DuelManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GamePlayer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="QuestionABCD.cpp" />
     <ClCompile Include="QuestionNumeric.cpp" />
+    <ClCompile Include="Region.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
