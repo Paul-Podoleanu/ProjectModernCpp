@@ -35,3 +35,11 @@ Game::Game(QWidget* parent, int rows, int columns)
 }
 Game::~Game()
 {}
+
+void Game::on_button_clicked()
+{
+	QPushButton* button = qobject_cast<QPushButton*>(sender());
+	QMessageBox::information(this, "Button clicked", button->text());
+}
+
+

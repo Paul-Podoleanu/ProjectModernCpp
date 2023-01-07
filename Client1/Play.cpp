@@ -202,6 +202,25 @@ void Play::on_AvantajSugestieRaspuns_clicked()
 		contor3++;
 	}
 }
+
+void Play::on_AvantajSchimbareRaspuns_clicked()
+{
+	int contor4 = 0;
+	if (okAvantajSchimbare == true)
+	{
+		QMessageBox::information(this, "You already used this advantage", "You already used this advantage");
+	}
+	else {
+		if (okAvantajSchimbare == false && contor4 == 0)
+		{
+			auto responseChange = cpr::Get(cpr::Url{ "http://localhost:18080/getChange" });
+			auto changeRow = crow::json::load(responseChange.text);
+			std::string change = changeRow["change"].s();
+			QMessageBox::information(this, "Change", change.c_str());
+		}
+		contor4++;
+	}
+}
 //void Play::on_NumericAnswer_typed()
 //{
 //	if (ui.numericAnswer->text().toUtf8().constData() == correctAnswer)
