@@ -16,10 +16,11 @@ Game::Game(QWidget* parent, int rows, int columns)
 		for (int j = 0; j < columns; j++)
 		{
 			buttons[i * columns + j] = new QPushButton();
-			buttons[i*columns+j]->setMinimumSize(100, 100);
+			buttons[i * columns + j]->setMinimumSize(100, 100);
 			buttons[i * columns + j]->setStyleSheet("background-color: white");
 			buttons[i * columns + j]->setStyleSheet("QPushButton {background-color: white; border: 2px solid black; border-radius: 10px;}");
 			buttons[i * columns + j]->setCursor(Qt::PointingHandCursor);
+			buttons[i * columns + j]->setText(QString::number(i * columns + j));
 			layout->addWidget(buttons[i * columns + j], i, j);
 			//bring the buttons closer together
 			layout->setSpacing(0);

@@ -7,6 +7,7 @@
 #include <qdebug.h>
 #include <qmessagebox.h>
 #include <vector>
+#include <iostream>
 
 class Game : public QMainWindow
 {
@@ -19,7 +20,7 @@ private slots:
 	void on_button_clicked()
 	{
 		QPushButton* button = qobject_cast<QPushButton*>(sender());
-		QMessageBox::information(this, "Button clicked", button->text());
+		QMessageBox::information(this, tr("Button clicked"), button->text());
 	}
 
 private:
