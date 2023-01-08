@@ -17,11 +17,7 @@ public:
 	Game(QWidget *parent = nullptr, int rows=0, int columns=0);
 	~Game();
 private slots:
-	void on_button_clicked()
-	{
-		QPushButton* button = qobject_cast<QPushButton*>(sender());
-		QMessageBox::information(this, tr("Button clicked"), button->text());
-	}
+	void on_button_clicked();
 
 private:
 	Ui::GameClass ui;
