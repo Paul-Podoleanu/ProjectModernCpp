@@ -73,6 +73,8 @@ inline auto createStorageGame(const std::string& filename)
 	);
 }
 using GamesStorage = decltype(createStorageGame(""));
+
+
 class CreateLobbyHandler
 {
 	GamesStorage& db;
@@ -80,6 +82,8 @@ public:
 	CreateLobbyHandler(GamesStorage& db);
 	crow::response operator() (const crow::request& req) const;
 };
+
+
 class JoinLobbyHandler
 {
 	GamesStorage& db;
@@ -87,6 +91,8 @@ public:
 	JoinLobbyHandler(GamesStorage& db);
 	crow::response operator() (const crow::request& req) const;
 };
+
+
 class GetPlayersHandler
 {
 	GamesStorage& db;
@@ -94,6 +100,8 @@ public:
 	GetPlayersHandler(GamesStorage& db);
 	crow::response operator() (const crow::request& req) const;
 };
+
+
 class StartGameHandler
 {
 	GamesStorage& db;

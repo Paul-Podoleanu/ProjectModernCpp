@@ -10,7 +10,7 @@ class Play : public QMainWindow
 	Q_OBJECT
 
 public:
-	Play(QWidget *parent = nullptr);
+	Play(QWidget* parent = nullptr);
 	~Play();
 public slots:
 	void on_AnswerA_clicked();
@@ -23,7 +23,7 @@ public slots:
 	void on_AvantajAlegereRaspuns_clicked();
 	void on_AvantajSugestieRaspuns_clicked();
 	void on_AvantajSchimbareRaspuns_clicked();
-		
+
 	//void on_NumericAnswer_typed();
 private:
 	Ui::ClasaPlay ui;
@@ -32,5 +32,6 @@ private:
 	bool okAvantajAlegere = false;
 	bool okAvantajSugestie = false;
 	bool okAvantajSchimbare = false;
+
 };
 
