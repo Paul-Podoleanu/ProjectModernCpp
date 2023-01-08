@@ -17,7 +17,13 @@
    <string notr="true">background-image: url(:/Poze/Resources/background_gradient.png);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <widget class="QLabel" name="label">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -26,8 +32,12 @@
       <height>100</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">image:url(:/Poze/Resources/triviador-logo.png)</string>
+     <string notr="true">image:url(:/Poze/Resources/triviador-logo.png)
+</string>
     </property>
     <property name="text">
      <string/>
@@ -41,6 +51,12 @@
       <width>280</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Username</string>
@@ -68,6 +84,12 @@
       <height>16</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
      <string>Password</string>
     </property>
@@ -94,8 +116,11 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 170, 0)</string>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Login</string>
@@ -110,8 +135,11 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 170, 0)</string>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Register</string>
@@ -124,7 +152,7 @@
      <x>0</x>
      <y>0</y>
      <width>1173</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
