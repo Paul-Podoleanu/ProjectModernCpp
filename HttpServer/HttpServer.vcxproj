@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClInclude Include="DuelManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GamePlayer.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuestionABCD.h" />
@@ -142,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="DuelManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GamePlayer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Question.cpp" />

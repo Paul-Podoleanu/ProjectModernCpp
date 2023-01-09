@@ -8,6 +8,9 @@
 #include <qmessagebox.h>
 #include <vector>
 #include <iostream>
+#include <cpr/cpr.h>
+#include <crow.h>
+#include "Play.h"
 
 class Game : public QMainWindow
 {

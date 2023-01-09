@@ -39,8 +39,29 @@ Game::~Game()
 
 void Game::on_button_clicked()
 {
+	//Textul de la regiuni este Qstring, trebuie atribuit unui string normal pentru cpr::Body
+	//QString region = ((QPushButton*)sender())->text();
 	QPushButton* button = qobject_cast<QPushButton*>(sender());
-	QMessageBox::information(this, "Button clicked", button->text());
+	std::string regionText = button->text().toUtf8().constData();
+	
+	//QPushButton* button = qobject_cast<QPushButton*>(sender());
+	auto r = cpr::Put(cpr::Url{ "http://localhost:18080/clickRegion" },
+		cpr::Body{ "region" + regionText }
+	);
+	if (r.status_code == 200)
+	{
+		Play* PlayPage = new Play();
+		PlayPage->resize(800, 600);
+		PlayPage->show();
+		QMessageBox::information(this, "Button clicked", button->text());
+	}
+	else
+	{
+		QMessageBox::information(this, "Error", "Cant open");
+	}
+
+	
+	
 }
 
 

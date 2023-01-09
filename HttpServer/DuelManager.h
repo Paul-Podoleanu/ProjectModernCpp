@@ -13,8 +13,8 @@ class DuelManager
 {
 public:
 	//playerOne is ALWAYS the one ATTACKING
-	void NormalPlayerDuel(GamePlayer playerOne, GamePlayer playerTwo, Region region);
-	void BaseDuel(GamePlayer playerOne, GamePlayer playerTwo, Region base);
+	void NormalPlayerDuel(GamePlayer &playerOne, GamePlayer &playerTwo, Region &region);
+	void BaseDuel(GamePlayer &playerOne, GamePlayer &playerTwo, Region &base);
 };
 
 

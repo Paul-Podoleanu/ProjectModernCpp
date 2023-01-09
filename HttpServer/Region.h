@@ -34,5 +34,9 @@ public:
 	//Overload Operatori
 	bool operator==(const Region& other) const { return this->name == other.name; }
 	Region& operator=(const Region& other);
+
+
+
+	
 };
 
