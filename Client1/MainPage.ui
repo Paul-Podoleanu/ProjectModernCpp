@@ -34,7 +34,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
      <string>Informatii</string>
@@ -57,7 +58,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
      <string>Cont</string>
@@ -80,7 +82,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
      <string>Exit</string>
@@ -103,7 +106,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
      <string>Play</string>
@@ -126,7 +130,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
      <string>2 Players</string>
@@ -149,7 +154,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
      <string>3 Players</string>
@@ -172,7 +178,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
      <string>4 Players</string>
@@ -195,10 +202,11 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
-     <string>JoinLobby</string>
+     <string>Join Lobby</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="OwnerName">
@@ -209,6 +217,10 @@
       <width>201</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Lobby">
@@ -228,7 +240,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(255, 51, 51)</string>
+     <string notr="true">background: none;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="text">
      <string>Create Lobby</string>
