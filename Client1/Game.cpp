@@ -1,12 +1,17 @@
 #include "Game.h"
 #include <qgridlayout.h>
+#include "NumericAnswer.h"
+#include "Play.h"
 #include <qpushbutton.h>
 #include <qdebug.h>
 #include <qmessagebox.h>
+#include "utils.h"
 
-Game::Game(QWidget* parent, int rows, int columns)
+Game::Game(QWidget* parent, int rows, int columns, std::string username, std::string owner)
 	: QMainWindow(parent)
 {
+	m_owner = owner;
+	this->username = username;
 	ui.setupUi(this);
 	this->resize(1400, 800);
 	QGridLayout* layout = new QGridLayout();
@@ -21,6 +26,7 @@ Game::Game(QWidget* parent, int rows, int columns)
 			buttons[i * columns + j]->setStyleSheet("QPushButton {background-color: white; border: 2px solid black; border-radius: 10px;}");
 			buttons[i * columns + j]->setCursor(Qt::PointingHandCursor);
 			buttons[i * columns + j]->setText(QString::number(i * columns + j));
+			buttons[i * columns + j]->setObjectName(QString::number(i * columns + j));
 			layout->addWidget(buttons[i * columns + j], i, j);
 			//bring the buttons closer together
 			layout->setSpacing(0);
@@ -32,36 +38,43 @@ Game::Game(QWidget* parent, int rows, int columns)
 	this->centralWidget()->setLayout(layout);
 	layout->setGeometry(QRect(0, 0, 1400, 800));
 	layout->setAlignment(Qt::AlignCenter);
-
+	players();
 }
 Game::~Game()
 {}
+void Game::players()
+{
+	cpr::Response r = cpr::Get(cpr::Url{ "http://localhost:18080/players" },
+		cpr::Body{ "&username=" + m_owner });
+	std::string response = r.text;
+	std::vector<std::string> players = split(response, ",");
+	ui.Player1->setText(players[0].c_str());
+	ui.Player2->setText(players[1].c_str());
+	if (players[3] != "*")
+	{
+		ui.Player3->setText(players[2].c_str());
+		ui.Player4->setText(players[3].c_str());
 
+	}
+	else if (players[2] == "*")
+	{
+		ui.Player3->setVisible(false);
+		ui.Player4->setVisible(false);
+	}
+	else if (players[3] == "*")
+	{
+		ui.Player3->setText(players[2].c_str());
+		ui.Player4->setVisible(false);
+	}
+}
 void Game::on_button_clicked()
 {
 	//Textul de la regiuni este Qstring, trebuie atribuit unui string normal pentru cpr::Body
 	//QString region = ((QPushButton*)sender())->text();
 	QPushButton* button = qobject_cast<QPushButton*>(sender());
-	std::string regionText = button->text().toUtf8().constData();
-	
-	//QPushButton* button = qobject_cast<QPushButton*>(sender());
-	auto r = cpr::Put(cpr::Url{ "http://localhost:18080/clickRegion" },
-		cpr::Body{ "region" + regionText }
-	);
-	if (r.status_code == 200)
-	{
-		Play* PlayPage = new Play();
-		PlayPage->resize(800, 600);
-		PlayPage->show();
-		QMessageBox::information(this, "Button clicked", button->text());
-	}
-	else
-	{
-		QMessageBox::information(this, "Error", "Cant open");
-	}
-
-	
-	
+	int index = button->objectName().toInt();
+	NumericAnswer* numericAnswer = new NumericAnswer(nullptr, username);
+	numericAnswer->show();
 }
 
 

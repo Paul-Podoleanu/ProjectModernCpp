@@ -50,7 +50,8 @@ void MainPage::on_JoinLobby_clicked()
 		cpr::Body{ "&username=" + m_username, "&gameOwner=" + ownerName });
 	if (r.status_code == 200)
 	{
-		LobbyPage* lobbyPage = new LobbyPage(nullptr, ownerName);
+		LobbyPage* lobbyPage = new LobbyPage(nullptr, ownerName, m_username);
+		lobbyPage->setAttribute(Qt::WA_DeleteOnClose, true);
 		lobbyPage->resize(800, 600);
 		lobbyPage->show();
 	}
@@ -66,7 +67,8 @@ void MainPage::on_Lobby_clicked()
 		cpr::Body{ "username=" + m_username });
 	if (r.status_code == 200)
 	{
-		LobbyPage* lobbyPage = new LobbyPage(nullptr, m_username);
+		LobbyPage* lobbyPage = new LobbyPage(nullptr, m_username, m_username);
+		lobbyPage->setAttribute(Qt::WA_DeleteOnClose, true);
 		lobbyPage->resize(800, 600);
 		lobbyPage->show();
 	}

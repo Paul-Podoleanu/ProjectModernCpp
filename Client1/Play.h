@@ -10,7 +10,7 @@ class Play : public QMainWindow
 	Q_OBJECT
 
 public:
-	Play(QWidget* parent = nullptr);
+	Play(QWidget* parent = nullptr, std::string username = "");
 	~Play();
 public slots:
 	void on_AnswerA_clicked();
@@ -27,6 +27,7 @@ public slots:
 	//void on_NumericAnswer_typed();
 private:
 	Ui::ClasaPlay ui;
+	std::string m_username;
 	std::string correctAnswer;
 	bool okAvantajJumatate = false;
 	bool okAvantajAlegere = false;

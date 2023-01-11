@@ -3,11 +3,11 @@
 #include <qmessagebox.h>
 #include <qtimer.h>
 
-Play::Play(QWidget *parent)
+Play::Play(QWidget* parent, std::string username)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-	//trebuie adaugata conditie in caz ca e ABCD sau Numeric
+	m_username = username;
 	QTimer* timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 	timer->start(100);
@@ -16,7 +16,7 @@ Play::Play(QWidget *parent)
 	connect(timer, SIGNAL(timeout()), this, SLOT(updateProgressBar()));
 	ui.progressBar->setStyleSheet("QProgressBar {border: 2px solid grey;border-radius: 5px;text-align: center;}");
 	connect(timer, SIGNAL(timeout()), this, SLOT(close1()));
-	auto responseQuestion = cpr::Get(cpr::Url{ "http://localhost:18080/randomABCDQuestion" });
+	auto responseQuestion = cpr::Get(cpr::Url{ "http://localhost:18080/getQuestionABCD" });
 	auto questionRow = crow::json::load(responseQuestion.text);
 	std::string question = questionRow["question"].s();
 	ui.Question->setText(question.c_str());
@@ -29,16 +29,6 @@ Play::Play(QWidget *parent)
 	std::string answerD = questionRow["answerD"].s();
 	ui.AnswerD->setText(answerD.c_str());
 	ui.Question->setFont(QFont("Helvetica", 10, QFont::Bold, QFont::Capitalize));
-	correctAnswer = questionRow["correctAnswer"].s();
-	QDebug(QtMsgType::QtInfoMsg) << correctAnswer.c_str();
-	//pentru numeric questions
-	//auto responseNumericQuestion = cpr::Get(cpr::Url{ "http://localhost:18080/randomNumericQuestion" });
-	//auto numericQuestionRow = crow::json::load(responseNumericQuestion.text);
-	//std::string numericQuestion = numericQuestionRow["question"].s();
-	//ui.Question->setText(numericQuestion.c_str());
-	//std::string numericAnswer = numericQuestionRow["answer"].s();
-	//correctAnswer = numericQuestionRow["correctAnswer"].s();
-	//QDebug(QtMsgType::QtInfoMsg) << correctAnswer.c_str();
 }
 
 Play::~Play()
@@ -221,16 +211,4 @@ void Play::on_AvantajSchimbareRaspuns_clicked()
 		contor4++;
 	}
 }
-//void Play::on_NumericAnswer_typed()
-//{
-//	if (ui.numericAnswer->text().toUtf8().constData() == correctAnswer)
-//	{
-//		QMessageBox::information(this, "Correct", "Correct");
-//	}
-//	else
-//	{
-//		QMessageBox::information(this, "Incorrect", "Incorrect");
-//	}
-//}
-//
 
