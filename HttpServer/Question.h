@@ -3,8 +3,10 @@
 #include <string>
 #include "QuestionABCD.h"
 #include "QuestionNumeric.h"
-#include <iostream>
 #include <random>
+#include <algorithm>
+#include <random>
+#include <iostream>
 #include <filesystem>
 #include <fstream>
 #include <string>
@@ -14,7 +16,6 @@
 namespace sql = sqlite_orm;
 struct Question
 {
-
 };
 inline auto createStorage(const std::string& filename)
 {
@@ -41,4 +42,5 @@ inline auto createStorage(const std::string& filename)
 }
 using Storage = decltype(createStorage(""));
 void populateStorage(Storage& storage);
-
+std::vector<QuestionABCD> getQuestionsABCD(Storage storage, int size);
+std::vector<QuestionNumeric>getQuestionsNumeric(Storage storage, int size);

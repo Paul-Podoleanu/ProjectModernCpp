@@ -29,3 +29,36 @@ void populateStorage(Storage& storage)
 		}
 	}
 }
+
+std::vector<QuestionABCD> getQuestionsABCD(Storage storage, int size)
+{
+	std::vector<QuestionABCD> questions;
+	for (const auto& questionABCD : storage.iterate<QuestionABCD>())
+	{
+		questions.push_back(questionABCD);
+
+	}
+	std::shuffle(questions.begin(), questions.end(), std::mt19937(std::random_device()()));
+	std::vector<QuestionABCD> questionsABCD;
+	for (int i = 0; i < size; i++)
+	{
+		questionsABCD.push_back(questions[i]);
+	}
+	return questionsABCD;
+}
+
+std::vector<QuestionNumeric> getQuestionsNumeric(Storage storage, int size)
+{
+	std::vector<QuestionNumeric> questions;
+	for (const auto& questionNumeric : storage.iterate<QuestionNumeric>())
+	{
+		questions.push_back(questionNumeric);
+	}
+	std::shuffle(questions.begin(), questions.end(), std::mt19937(std::random_device()()));
+	std::vector<QuestionNumeric> questionsNumeric;
+	for (int i = 0; i < size; i++)
+	{
+		questionsNumeric.push_back(questions[i]);
+	}
+	return questionsNumeric;
+}

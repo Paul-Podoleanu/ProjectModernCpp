@@ -99,24 +99,4 @@ crow::response GetPlayersHandler::operator()(const crow::request& req) const
 	}
 	return crow::response(401);
 }
-#include "Game.h"
 
-StartGameHandler::StartGameHandler(GamesStorage& db):db(db)
-{
-}
-
-crow::response StartGameHandler::operator()(const crow::request& req) const
-{
-	auto urlArgs = parseUrlArgs(req.body);
-	auto username = urlArgs["username"];
-	for (auto game : db.iterate<Lobby>())
-	{
-		if (game.getOwner() == username)
-		{
-			game.setIsStarted(0);
-			db.update(game);
-			return crow::response(200);
-		}
-	}
-	return crow::response(401);
-}

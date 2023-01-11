@@ -101,12 +101,3 @@ public:
 	crow::response operator() (const crow::request& req) const;
 };
 
-
-class StartGameHandler
-{
-	GamesStorage& db;
-public:
-	StartGameHandler(GamesStorage& db);
-	crow::response operator() (const crow::request& req) const;
-};
-	
