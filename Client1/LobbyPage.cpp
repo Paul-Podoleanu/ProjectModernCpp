@@ -35,6 +35,7 @@ int LobbyPage::startGame()
 			this->destroy();
 			game->show();
 			timer2->stop();
+			timer->stop();
 			return 1;
 		}
 		else if (nrPlayeri == 3)
@@ -44,6 +45,7 @@ int LobbyPage::startGame()
 			game->show();
 			this->destroy();
 			timer2->stop();
+			timer->stop();
 			return 1;
 		}
 		else if (nrPlayeri == 4)
@@ -52,6 +54,7 @@ int LobbyPage::startGame()
 			game->resize(1200, 600);
 			this->destroy();
 			game->show();
+			timer->stop();
 			timer2->stop();
 			return 1;
 		}

@@ -3,6 +3,7 @@
 #include "NumericAnswer.h"
 #include "Play.h"
 #include <qpushbutton.h>
+#include <QTimer>
 #include <qdebug.h>
 #include <qmessagebox.h>
 #include "utils.h"
@@ -14,13 +15,15 @@ Game::Game(QWidget* parent, int rows, int columns, std::string username, std::st
 	this->username = username;
 	ui.setupUi(this);
 	this->resize(1400, 800);
-	QGridLayout* layout = new QGridLayout();
 	buttons.resize(rows * columns);
+	QGridLayout* layout = new QGridLayout();
+	//buttons.resize(rows * columns);
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
 		{
-			buttons[i * columns + j] = new QPushButton();
+			int index = i * columns + j;
+			buttons[i * columns + j] = new QPushButton(QString::number(index));
 			buttons[i * columns + j]->setMinimumSize(100, 100);
 			buttons[i * columns + j]->setStyleSheet("background-color: white");
 			buttons[i * columns + j]->setStyleSheet("QPushButton {background-color: white; border: 2px solid black; border-radius: 10px;}");
@@ -39,6 +42,14 @@ Game::Game(QWidget* parent, int rows, int columns, std::string username, std::st
 	layout->setGeometry(QRect(0, 0, 1400, 800));
 	layout->setAlignment(Qt::AlignCenter);
 	players();
+	this->setWindowTitle(username.c_str());
+	QTimer* timer2 = new QTimer(this);
+	timer2->start(2000);
+	connect(timer2, SIGNAL(timeout()), this, SLOT(updateGame()));
+	timer = new QTimer(this);
+	timer->start(2000);
+	connect(timer, SIGNAL(timeout()), this, SLOT(checkStage()));
+
 }
 Game::~Game()
 {}
@@ -67,14 +78,210 @@ void Game::players()
 		ui.Player4->setVisible(false);
 	}
 }
+void Game::checkStage()
+{
+	cpr::Response r = cpr::Post(cpr::Url{ "http://localhost:18080/checkStage" },
+		cpr::Body{ "&username=" + username });
+	std::string response = r.text;
+	if (r.status_code == 200)
+	{
+		if (response == "Waiting")
+		{
+			updateGame();
+			stage = response;
+		}
+		else if (response == "ABCDQuestion")
+		{
+			Play* play = new Play(this, username);
+			play->show();
+			stage = response;
+			changeStage();
+		}
+		else if (response == "NumericQuestion")
+		{
+			stage = response;
+			NumericAnswer* numeric = new NumericAnswer(this, username);
+			numeric->show();
+		}
+		else if (response == "SelectBase")
+		{
+			stage = response;
+		}
+		else if (response == "SelectRegions")
+		{
+			stage = response;
+		}
+		if (response == "Duel")
+		{
+			stage = response;
+		}
+	}
+}
+void Game::changeStage()
+{
+	cpr::Response r = cpr::Post(cpr::Url{ "http://localhost:18080/changeStage" },
+		cpr::Body{ "&username=" + username });
+}
+bool Game::checkTurn()
+{
+	cpr::Response r = cpr::Post(cpr::Url{ "http://localhost:18080/checkTurn" },
+		cpr::Body{ "&username=" + username });
+	if (r.status_code == 200)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void Game::makeButtonsUnusable()
+{
+	for (int i = 0; i < buttons.size(); i++)
+	{
+		buttons[i]->setDisabled(true);
+	}
+}
+void Game::updateGame()
+{
+	ui.GameStage->setText(stage.c_str());
+	cpr::Response r = cpr::Get(cpr::Url{ "http://localhost:18080/getRegions" });
+	auto response = crow::json::load(r.text);
+	for (const auto& region : response)
+	{
+		std::int16_t i = region["id"].i();
+		std::string owner = region["owner"].s();
+		std::int16_t points = region["points"].i();
+		buttons[i]->setObjectName(owner.c_str());
+		buttons[i]->setText(QString::number(points));
+	}
+	colorTheButtons();
+	getPoints();
+	this->update();
+}
+void Game::takeRegion()
+{
+	int ok = 0;
+	if (checkTurn() && stage == "SelectRegions") {
+		QObject* senderObj = sender();
+		QPushButton* button = qobject_cast<QPushButton*>(senderObj);
+		int i = searchIndex(button);
+		std::string index = std::to_string(i);
+		while (ok == 0) {
+			cpr::Response r = cpr::Post(cpr::Url{ "http://localhost:18080/takeRegion" },
+				cpr::Body{ "username=" + username + "&index=" + index });
+			auto response = r.text;
+			if (response == "Region already owned")
+			{
+				QMessageBox::information(this, "Error", "Base already owned");
+			}
+			else if (response == "Region taken")
+			{
+				ok = 1;
+			}
+		}
+	}
+	else
+	{
+		QMessageBox::information(this, "Error", "It's not your turn");
+	}
+}
+void Game::getPoints()
+{
+	cpr::Response r = cpr::Get(cpr::Url{ "http://localhost:18080/getPlayersScore" });
+	auto response = crow::json::load(r.text);
+	ui.Player3Points->setVisible(false);
+	ui.Player4Points->setVisible(false);
+	for (const auto& player : response)
+	{
+		std::string name = player["username"].s();
+		std::int16_t points = player["score"].i();
+		std::string point = std::to_string(points);
+		if (name == ui.Player1->text().toUtf8().constData())
+		{
+			ui.Player1Points->setText(point.c_str());
+		}
+		else if (name == ui.Player2->text().toUtf8().constData())
+		{
+			ui.Player2Points->setText(point.c_str());
+		}
+		else if (name == ui.Player3->text().toUtf8().constData())
+		{
+			ui.Player3Points->setVisible(true);
+			ui.Player3Points->setText(point.c_str());
+
+		}
+		else if (name == ui.Player4->text().toUtf8().constData())
+		{
+			ui.Player4Points->setVisible(true);
+			ui.Player4Points->setText(point.c_str());
+		}
+	}
+	//this->update();
+
+}
+void Game::colorTheButtons()
+{
+	for (const auto& button : buttons)
+	{
+		if (button->objectName() == ui.Player1->text())
+		{
+			button->setStyleSheet("QPushButton {background-color: red; border: 2px solid black; border-radius: 10px;}");
+		}
+		else if (button->objectName() == ui.Player2->text())
+		{
+			button->setStyleSheet("QPushButton {background-color: blue; border: 2px solid black; border-radius: 10px;}");
+		}
+		else if (button->objectName() == ui.Player3->text() && ui.Player3->isVisible())
+		{
+			button->setStyleSheet("QPushButton {background-color: green; border: 2px solid black; border-radius: 10px;}");
+		}
+		else if (button->objectName() == ui.Player4->text() && ui.Player4->isVisible())
+		{
+			button->setStyleSheet("QPushButton {background-color: yellow; border: 2px solid black; border-radius: 10px;}");
+		}
+	}
+	//	this->update();
+}
+int Game::searchIndex(QPushButton* a)
+{
+	for (int i = 0; i < buttons.size(); i++)
+	{
+		if (buttons[i] == a)
+		{
+			return i;
+		}
+	}
+}
+void Game::duel()
+{
+	if (checkTurn() && stage == "Duel") {
+		QObject* senderObj = sender();
+		QPushButton* button = qobject_cast<QPushButton*>(senderObj);
+		std::string username2 = button->objectName().toUtf8().constData();
+		int i = searchIndex(button);
+		std::string index = std::to_string(i);
+		cpr::Response r = cpr::Post(cpr::Url{ "http://localhost:18080/clicked" },
+			cpr::Body{ "username=" + username + "&index=" + index + "&username2=" + username2 });
+	}
+
+}
 void Game::on_button_clicked()
 {
-	//Textul de la regiuni este Qstring, trebuie atribuit unui string normal pentru cpr::Body
-	//QString region = ((QPushButton*)sender())->text();
-	QPushButton* button = qobject_cast<QPushButton*>(sender());
-	int index = button->objectName().toInt();
-	NumericAnswer* numericAnswer = new NumericAnswer(nullptr, username);
-	numericAnswer->show();
+	if (stage == "SelectBase")
+	{
+		takeBase();
+	}
+	else if (stage == "SelectRegions")
+	{
+		takeRegion();
+	}
+	else if (stage == "Duel")
+	{
+		duel();
+	}
+
 }
 
 

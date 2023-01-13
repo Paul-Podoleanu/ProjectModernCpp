@@ -13,7 +13,14 @@ class NumericAnswer : public QMainWindow
 public:
 	NumericAnswer(QWidget* parent = nullptr, std::string username = "");
 	~NumericAnswer();
-
+public slots:
+	void on_sendAnswer_clicked()
+	{
+		std::string answer = ui.answer->text().toUtf8().constData();
+		auto r = cpr::Post(cpr::Url{ "http://localhost:18080/answerNumeric" },
+			cpr::Body{ "username=" + m_username + "&answer=" + answer });
+		this->close();
+	}
 private:
 	Ui::NumericAnswerClass ui;
 	std::string m_username;

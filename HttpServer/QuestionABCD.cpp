@@ -75,7 +75,6 @@ QuestionABCD& QuestionABCD::operator=(const QuestionABCD& other)
 	m_answerD = other.getAnswerD();
 	m_correctAnswer = other.getCorrectAnswer();
 	m_question = other.getQuestion();
-
 	return *this;
 }
 

@@ -136,6 +136,48 @@ int main()
 	getQuestionABCDS(GetQuestionABCDHandler(game));
 	auto& getQuestionNumerics = CROW_ROUTE(app, "/getQuestionNumeric").methods(crow::HTTPMethod::Get);
 	getQuestionNumerics(GetQuestionNumericHandler(game));
+	auto& getRoundType = CROW_ROUTE(app, "/checkStage").methods(crow::HTTPMethod::Post);
+	getRoundType(GetRoundType(game));
+	auto& changeStage = CROW_ROUTE(app, "/changeStage").methods(crow::HTTPMethod::Post);
+	changeStage(ChangeRoundType(game));
+	auto& getQuestionNumericAnswer = CROW_ROUTE(app, "/answerNumeric").methods(crow::HTTPMethod::Post);
+	getQuestionNumericAnswer(getNumericAnswers(game));
+	auto& turn = CROW_ROUTE(app, "/checkTurn").methods(crow::HTTPMethod::Post);
+	turn(isYourTurn(game));
+	auto& base = CROW_ROUTE(app, "/takeBase").methods(crow::HTTPMethod::Post);
+	base(takeBase(game));
+	CROW_ROUTE(app, "/getRegions")([&game]() {
+		std::vector<crow::json::wvalue> x;
+		auto y = game.getRegions();
+		for (int i = 0; i < y.size(); i++)
+		{
+			x.push_back(crow::json::wvalue{
+				{"id", i},
+				{"owner", y[i].getOwner()},
+				{"points",y[i].getPoints()},
+				});
+
+		}
+		return  crow::json::wvalue{ x };
+		});
+	CROW_ROUTE(app, "/getPlayersScore")([&game]() {
+		std::vector<crow::json::wvalue> x;
+		auto y = game.getPlayers();
+		for (int i = 0; i < y.size(); i++)
+		{
+			x.push_back(crow::json::wvalue{
+				{"username", y[i].getName()},
+				{"score", y[i].getScore()},
+				});
+		}
+		return  crow::json::wvalue{ x };
+		});
+	auto& takeRegions = CROW_ROUTE(app, "/takeRegion").methods(crow::HTTPMethod::Post);
+	takeRegions(takeRegion(game));
+	auto& clicked = CROW_ROUTE(app, "/clicked").methods(crow::HTTPMethod::Post);
+	clicked(clickedForDuel(game));
+	auto& getABCDanswers = CROW_ROUTE(app, "/answerABCD").methods(crow::HTTPMethod::Post);
+	getABCDanswers(getMultipleAnswers(game));
 	app.port(18080).multithreaded().run();
 	return 0;
 }

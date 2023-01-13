@@ -36,49 +36,29 @@ Play::~Play()
 }
 void Play::on_AnswerA_clicked()
 {
-	if (ui.AnswerA->text().toUtf8().constData() == correctAnswer)
-	{
-		QMessageBox::information(this, "Correct", "Correct");
-	}
-	else
-	{
-		QMessageBox::information(this, "Incorrect", "Incorrect");
-	}
+	std::string answer = ui.AnswerA->text().toUtf8().constData();
+	auto r = cpr::Post(cpr::Url{ "http://localhost:18080/answerABCD" },
+		cpr::Body{ "username=" + m_username + "&answer=" + answer });
 }
 
 void Play::on_AnswerB_clicked()
 {
-	if (ui.AnswerB->text().toUtf8().constData() == correctAnswer)
-	{
-		QMessageBox::information(this, "Correct", "Correct");
-	}
-	else
-	{
-		QMessageBox::information(this, "Incorrect", "Incorrect");
-	}
+	std::string answer = ui.AnswerA->text().toUtf8().constData();
+	auto r = cpr::Post(cpr::Url{ "http://localhost:18080/answerABCD" },
+		cpr::Body{ "username=" + m_username + "&answer=" + answer });
 }
 void Play::on_AnswerC_clicked()
 {
-	if (ui.AnswerC->text().toUtf8().constData() == correctAnswer)
-	{
-		QMessageBox::information(this, "Correct", "Correct");
-	}
-	else
-	{
-		QMessageBox::information(this, "Incorrect", "Incorrect");
-	}
+	std::string answer = ui.AnswerA->text().toUtf8().constData();
+	auto r = cpr::Post(cpr::Url{ "http://localhost:18080/answerABCD" },
+		cpr::Body{ "username=" + m_username + "&answer=" + answer });
 
 }
 void Play::on_AnswerD_clicked()
 {
-	if (ui.AnswerD->text().toUtf8().constData() == correctAnswer)
-	{
-		QMessageBox::information(this, "Correct", "Correct");
-	}
-	else
-	{
-		QMessageBox::information(this, "Incorrect", "Incorrect");
-	}
+	std::string answer = ui.AnswerA->text().toUtf8().constData();
+	auto r = cpr::Post(cpr::Url{ "http://localhost:18080/answerABCD" },
+		cpr::Body{ "username=" + m_username + "&answer=" + answer });
 
 }
 
@@ -211,4 +191,16 @@ void Play::on_AvantajSchimbareRaspuns_clicked()
 		contor4++;
 	}
 }
+//void Play::on_NumericAnswer_typed()
+//{
+//	if (ui.numericAnswer->text().toUtf8().constData() == correctAnswer)
+//	{
+//		QMessageBox::information(this, "Correct", "Correct");
+//	}
+//	else
+//	{
+//		QMessageBox::information(this, "Incorrect", "Incorrect");
+//	}
+//}
+//
 

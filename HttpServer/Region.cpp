@@ -8,6 +8,5 @@ Region& Region::operator=(const Region& other)
 	points = other.points;
 	isOwned = other.isOwned;
 	neighbours = other.neighbours;
-
 	return *this;
 }
