@@ -89,7 +89,7 @@ void GameManager::setDuelRounds()
 	std::vector<GamePlayer>players = getPlayers();
 	int nrRunde;
 	int nr = players.size();
-	if (nr == 2) nrRunde = 5;
+	if (nr == 2) nrRunde = 1;
 	else if (nr == 3) nrRunde = 4;
 	else if (nr == 4) nrRunde = 5;
 	while (nrRunde > 0) {
@@ -184,10 +184,19 @@ std::string GameManager::getDuelWinner()
 	}
 	if (answersABCD[1].second == true)
 	{
-		return answersABCD[1].first;
+		return "Lost";
 	}
-	return "Lost";
 }
+std::pair<std::string, int> GameManager::duelWinnerNumeric()
+{
+	return answerNumericForDuel.top();
+}
+
+void GameManager::setRegionPoints(int index)
+{
+	this->regions[index].setPoints(this->regions[index].getPoints() - 100);
+}
+
 
 crow::response StartedHandler::operator()(const crow::request& req) const
 {
@@ -211,7 +220,7 @@ crow::json::wvalue GetQuestionABCDHandler::operator()(const crow::request& req) 
 	x["answerB"] = questions[gameManager.getQuestionABCDCount()].getAnswerB();
 	x["answerC"] = questions[gameManager.getQuestionABCDCount()].getAnswerC();
 	x["answerD"] = questions[gameManager.getQuestionABCDCount()].getAnswerD();
-	gameManager.setQuestionABCDCount(gameManager.getQuestionABCDCount() + 1);
+	//	gameManager.setQuestionABCDCount(gameManager.getQuestionABCDCount() + 1);
 	return x;
 }
 
@@ -234,7 +243,6 @@ crow::response GetRoundType::operator()(const crow::request& req) const
 	}
 	else if (a == Round::ABCDQuestion)
 	{
-		return crow::response(200, "ABCDQuestion");
 		if (gameManager.findAlreadyRequested(name))
 		{
 			return crow::response(400, "AlreadyRequested");
@@ -301,45 +309,79 @@ crow::response getNumericAnswers::operator()(const crow::request& req) const
 	auto questions = gameManager.getAnswersNumeric();
 	questions.push(std::make_pair(username, answer1));
 	gameManager.addAnswersNumeric(std::make_pair(username, answer1));
+	auto opponents = gameManager.getOpponents();
 	if (gameManager.getRegionSelected() != -1)
 	{
 		auto regions = gameManager.getRegions();
-		if (gameManager.getOpponents()[0] == username && gameManager.getOpponents()[1] == username)
+		if (opponents[0] == username || opponents[1] == username)
 		{
-			gameManager.addAnswersNumeric(std::make_pair(username, answer1));
-			if (gameManager.getAnswersNumeric().size() == gameManager.getOpponents().size())
+			gameManager.addAnswersNumericForDuel(std::make_pair(username, answer1));
+			int a = gameManager.getAnswersNumericForDuel().size();
+			int op = opponents.size();
+			if (gameManager.getAnswersNumericForDuel().size() == opponents.size())
 			{
-				gameManager.setQuestionABCDCount(gameManager.getQuestionABCDCount() + 1);
-				if (gameManager.getDuelWinner() == gameManager.getOpponents()[0])
+				gameManager.setQuestionNumericCount(gameManager.getQuestionNumericCount() + 1);
+				if (gameManager.duelWinnerNumeric().first == opponents[0])
 				{
+					int runda = gameManager.duelRoundsGet();
+					int runde = gameManager.getDuelRanking().size();
 					if (regions[gameManager.getRegionSelected()].getPoints() > 100)
 					{
-						regions[gameManager.getRegionSelected()].setPoints(regions[gameManager.getRegionSelected()].getPoints() - 100);
-						gameManager.setRegions(regions);
-						gameManager.setRoundType(Round::Duel);
-						gameManager.duelRoundsIncrement();
+						if (gameManager.duelRoundsGet() == gameManager.getDuelRanking().size() - 1)
+						{
+							gameManager.setRoundType(Round::End);
+							gameManager.setRegionPoints(gameManager.getRegionSelected());
+						}
+						else {
+							gameManager.setRegionPoints(gameManager.getRegionSelected());
+							gameManager.setRoundType(Round::Duel);
+							gameManager.duelRoundsIncrement();
+							gameManager.alreadyRequestedClear();
+							gameManager.clearOpponents();
+							gameManager.clearAnswersNumeric();
+						}
 						return crow::response(200);
 					}
 					else
 					{
-						regions[gameManager.getRegionSelected()].setOwner(gameManager.getOpponents()[0]);
-						gameManager.setRegions(regions);
-						gameManager.setRoundType(Round::Duel);
-						gameManager.duelRoundsIncrement();
+						int runda = gameManager.duelRoundsGet();
+						int runde = gameManager.getDuelRanking().size();
+						if (gameManager.duelRoundsGet() == gameManager.getDuelRanking().size() - 1)
+						{
+							gameManager.setRoundType(Round::End);
+							gameManager.changeRegionOwner(gameManager.duelWinnerNumeric().first, gameManager.getRegionSelected());
+						}
+						else {
+							gameManager.changeRegionOwner(gameManager.duelWinnerNumeric().first, gameManager.getRegionSelected());
+							gameManager.setRoundType(Round::Duel);
+							gameManager.duelRoundsIncrement();
+							gameManager.alreadyRequestedClear();
+							gameManager.clearOpponents();
+							gameManager.clearAnswersNumeric();
+						}
 						return crow::response(200, "You won the region");
 					}
 				}
+				else {
+					if (gameManager.duelRoundsGet() == gameManager.getDuelRanking().size())
+					{
+						gameManager.setRoundType(Round::End);
 
+						return crow::response(200, "You lost");
+						gameManager.setRegionPoints(gameManager.getRegionSelected());
+					}
+					else
+					{
+						gameManager.setRoundType(Round::Duel);
+						gameManager.setRegionPoints(gameManager.getRegionSelected());
+						gameManager.duelRoundsIncrement();
+					}
+				}
 			}
-		}
-		else
-		{
-			return crow::response(200, "You won");
-			gameManager.setRoundType(Round::Duel);
-		}
 
+		}
 	}
-	if (gameManager.getAnswersNumeric().size() == gameManager.getNumberOfPlayers())
+	else if (gameManager.getAnswersNumeric().size() == gameManager.getNumberOfPlayers())
 	{
 		gameManager.setQuestionNumericCount(gameManager.getQuestionNumericCount() + 1);
 		if (gameManager.isBaseStage())
@@ -352,6 +394,7 @@ crow::response getNumericAnswers::operator()(const crow::request& req) const
 			gameManager.createRankingForTeritory(a);
 			gameManager.addItemsInPq(a);
 			gameManager.setRoundType(Round::SelectRegions);
+			gameManager.alreadyRequestedClear();
 		}
 		return crow::response(200, "All players answered");
 	}
@@ -359,6 +402,7 @@ crow::response getNumericAnswers::operator()(const crow::request& req) const
 	{
 		return crow::response(400);
 	}
+	return crow::response(400);
 }
 crow::response isYourTurn::operator()(const crow::request& req) const
 {
@@ -459,10 +503,16 @@ crow::response clickedForDuel::operator()(const crow::request& req) const
 	{
 		gameManager.setDuelRounds();
 	}
+	if (gameManager.getOpponents().size() == 2)
+	{
+		gameManager.clearOpponents();
+	}
 	std::vector<std::string> opponents;
 	opponents.push_back(attacker);
 	opponents.push_back(defender);
 	gameManager.setOpponents(opponents);
+	gameManager.alreadyRequestedClear();
+	gameManager.setRegionSelected(std::stoi(index));
 	gameManager.setRoundType(Round::ABCDQuestion);
 	return crow::response(200);
 }
@@ -488,34 +538,58 @@ crow::response getMultipleAnswers::operator()(const crow::request& req) const
 			gameManager.addAnswersABCD(std::make_pair(username, ok));
 		}
 	}
-	if (gameManager.getOpponents().size() == gameManager.getAnswersABCD().size())
+	if (gameManager.getPlayerCount() == gameManager.getAnswersABCD().size())
 	{
 		gameManager.setQuestionABCDCount(gameManager.getQuestionABCDCount() + 1);
-		if (gameManager.getDuelWinner() == username)
+		if (gameManager.getDuelWinner() == gameManager.getOpponents()[0])
 		{
 			if (regions[(index)].getPoints() > 100)
 			{
-				regions[(index)].setPoints(regions[(index)].getPoints() - 100);
+				gameManager.setRegionPoints(index);
 			}
 			else
 			{
-				regions[(index)].setOwner(username);
+				gameManager.changeRegionOwner(gameManager.getOpponents()[0], index);
 			}
 			gameManager.setRoundType(Round::Duel);
+			gameManager.clearABCDanswers();
 			gameManager.duelRoundsIncrement();
-			gameManager.setRegions(regions);
+			//	gameManager.setRegions(reg);
+			gameManager.clearOpponents();
+			gameManager.alreadyRequestedClear();
+			if (gameManager.duelRoundsGet() == gameManager.getDuelRanking().size()) gameManager.setRoundType(Round::End);
 			return crow::response(200, "You won");
+			int a = gameManager.getOpponents().size();
+			int b = gameManager.duelRoundsGet();
+
 		}
 		else if (gameManager.getDuelWinner() == "Draw")
 		{
+			gameManager.clearABCDanswers();
+			gameManager.alreadyRequestedClear();
 			gameManager.setRoundType(Round::NumericQuestion);
+			int a = gameManager.getOpponents().size();
+			int b = gameManager.duelRoundsGet();
 			return crow::response(200, "Draw");
 		}
 		else if (gameManager.getDuelWinner() == "Lost")
 		{
-			gameManager.setRoundType(Round::Duel);
-			return crow::response(200, "You lost");
+			if (gameManager.duelRoundsGet() == gameManager.getDuelRanking().size())
+			{
+				gameManager.setRoundType(Round::End);
+			}
+			else {
+				gameManager.duelRoundsIncrement();
+				gameManager.clearABCDanswers();
+				gameManager.clearOpponents();
+				gameManager.alreadyRequestedClear();
+				gameManager.setRoundType(Round::Duel);
+				int a = gameManager.getOpponents().size();
+				int b = gameManager.duelRoundsGet();
+				return crow::response(200, "You lost");
+			}
 		}
+		return crow::response(200, "All players answered");
 	}
 	else
 	{
