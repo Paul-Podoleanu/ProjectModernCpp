@@ -13,38 +13,57 @@
   <property name="windowTitle">
    <string>NumericAnswer</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background: none;</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLineEdit" name="answer">
     <property name="geometry">
      <rect>
       <x>215</x>
       <y>170</y>
-      <width>170</width>
-      <height>31</height>
+      <width>211</width>
+      <height>51</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="sendAnswer">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>90</x>
       <y>170</y>
-      <width>61</width>
-      <height>31</height>
+      <width>111</width>
+      <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe Print</family>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Send Answer</string>
     </property>
    </widget>
    <widget class="QLabel" name="Question">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>100</y>
-      <width>271</width>
-      <height>61</height>
+      <x>90</x>
+      <y>70</y>
+      <width>331</width>
+      <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe Print</family>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="midLineWidth">
+     <number>2</number>
     </property>
     <property name="text">
      <string/>
@@ -57,7 +76,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -72,6 +91,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Registration.qrc"/>
+ </resources>
  <connections/>
 </ui>

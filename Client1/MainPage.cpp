@@ -8,7 +8,7 @@ MainPage::MainPage(QWidget* parent, std::string useraname, std::string password)
 }
 void MainPage::on_Cont_clicked()
 {
-	accountPage = new AccountPage();
+	accountPage = new AccountPage(nullptr);
 	accountPage->resize(800, 600);
 	accountPage->show();
 }
@@ -24,21 +24,22 @@ void MainPage::on_Play_clicked()
 
 void MainPage::on_doi_clicked()
 {
-	Game* game = new Game(nullptr, 3, 3);
+	Game* game = new Game(nullptr, 3, 3, "paul","paul");
+	
 	game->resize(1200, 600);
 	game->show();
 }
 
 void MainPage::on_trei_clicked()
 {
-	Game* game = new Game(nullptr, 3, 5);
+	Game* game = new Game(nullptr, 3, 5, "paul", "paul");
 	game->resize(1200, 600);
 	game->show();
 }
 
 void MainPage::on_patru_clicked()
 {
-	Game* game = new Game(nullptr, 3, 6);
+	Game* game = new Game(nullptr, 3, 6, "paul", "paul");
 	game->resize(1200, 600);
 	game->show();
 }

@@ -63,6 +63,10 @@ private slots:
 	void duel();
 public slots:
 	void updateGame();
+	void debugChangeStage(std::string stageName)
+	{
+		stage = stageName;
+	};
 private:
 	Ui::GameClass ui;
 	std::vector<QPushButton*>buttons;
