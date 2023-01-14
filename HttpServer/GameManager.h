@@ -31,6 +31,7 @@ class GameManager
 	std::vector<QuestionABCD>multipleAnswerQuestion;
 	std::vector<QuestionNumeric>numericAnswerQuestion;
 	std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare> answersNumeric;
+	std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare> answerNumericForDuel;
 	std::vector<std::pair<std::string, bool>>answersABCD;
 	std::string winnerABCD;
 	std::vector<std::string>duelRanking;
@@ -78,14 +79,18 @@ public:
 	bool findAlreadyRequested(std::string name);
 	bool isBaseStage();
 	bool isRegionStage();
+	std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare> getAnswersNumericForDuel() { return this->answerNumericForDuel; }
 	std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare> getAnswersNumeric() { return this->answersNumeric; }
 	void addAnswersNumeric(std::pair<std::string, int> answer) { answersNumeric.push(answer); }
 	void setAnswersNumeric(std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare>) { this->answersNumeric = answersNumeric; }
+	void addAnswersNumericForDuel(std::pair<std::string, int> answer) { answerNumericForDuel.push(answer); }
+	void setAnswersNumericForDuel(std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare>) { this->answerNumericForDuel = answerNumericForDuel; }
 	std::vector<Region> getRegions() { return this->regions; }
 	void setRegions(std::vector<Region> regions) { this->regions = regions; }
 	void deleteAnswersNumeric() { this->answersNumeric.pop(); }
 	void changeRegionOwner(std::string name, int region);
 	void alreadyRequestedClear() { alreadyRequested.clear(); }
+	void clearABCDanswers() { answersABCD.clear(); }
 	void createRankingForTeritory(std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare>& a);
 	void addItemsInPq(std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare>a);
 	void setBase(int region);
@@ -96,7 +101,7 @@ public:
 	void setDuelRanking(std::vector<std::string> duelRanking) { this->duelRanking = duelRanking; }
 	std::vector<std::string> getDuelRanking() { return this->duelRanking; }
 	void setOpponents(std::vector<std::string> opponents) { this->opponents = opponents; }
-	std::vector<std::string> getOpponents() { return this->opponents; }
+	std::vector<std::string> getOpponents() const { return this->opponents; }
 	void setWinnerABCD(std::string winnerABCD) { this->winnerABCD = winnerABCD; }
 	std::string getWinnerABCD() const { return this->winnerABCD; }
 	void addAnswersABCD(std::pair<std::string, bool>answer) { answersABCD.push_back(answer); }
@@ -104,6 +109,10 @@ public:
 	std::string getDuelWinner();
 	void setRegionSelected(int regionSelected) { this->regionSelected = regionSelected; }
 	int getRegionSelected() const { return this->regionSelected; }
+	void clearOpponents() { opponents.clear(); }
+	void setRegionPoints(int index);
+	void clearAnswersNumeric() { this->answerNumericForDuel = std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare>(); }
+	std::pair<std::string, int> duelWinnerNumeric();
 };
 
 //HANDLERS
