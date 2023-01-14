@@ -61,7 +61,13 @@ public:
 
 };
 
-
+class AccountHandler
+{
+	UsersStorage& db;
+public:
+	AccountHandler(UsersStorage& db);
+	crow::response operator() (const crow::request& req) const;
+};
 
 class RegisterHandler
 {

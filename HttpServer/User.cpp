@@ -49,6 +49,29 @@ crow::response RegisterHandler::operator()(const crow::request& req) const
 	return crow::response(200);
 }
 
+crow::response AccountHandler::operator()(const crow::request& req) const
+{
+	auto urlArgs = parseUrlArgs(req.body);
+	auto username = urlArgs["username"];
+	for (auto user : db.iterate<User>())
+	{
+		if (user.getUsername() == username)
+		{
+			crow::json::wvalue x;
+			x["username"] = user.getUsername();
+			x["matchesPlayed"] = user.getMatchesPlayed();
+			x["matchesWon"] = user.getMatchesWon();
+			x["level"] = user.getLevel();
+			return crow::response(200, x);
+		}
+	}
+	return crow::response(401, "User not found");
+}
+
+AccountHandler::AccountHandler(UsersStorage& db) : db(db)
+{
+}
+
 LoginHandler::LoginHandler(UsersStorage& db) :db(db)
 {
 }
