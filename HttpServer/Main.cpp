@@ -102,20 +102,23 @@ int main()
 		return q;
 		});
 
-	CROW_ROUTE(app, "/Account")([&dbUser]() {
-		std::vector<crow::json::wvalue> users_json;
-		for (const auto& users : dbUser.iterate<User>())
-		{
-			users_json.push_back(crow::json::wvalue{
-				{"id", users.getId()},
-				{"username", users.getUsername()},
-				{"matchesPlayed", users.getMatchesPlayed()},
-				{"matchesWon", users.getMatchesWon()},
-				{"level", users.getLevel()}
-				});
-		}
-		return crow::json::wvalue{ users_json };
-		});
+	//CROW_ROUTE(app, "/Account")([&dbUser]() {
+	//	std::vector<crow::json::wvalue> users_json;
+	//	for (const auto& users : dbUser.iterate<User>())
+	//	{
+	//		users_json.push_back(crow::json::wvalue{
+	//			{"id", users.getId()},
+	//			{"username", users.getUsername()},
+	//			{"matchesPlayed", users.getMatchesPlayed()},
+	//			{"matchesWon", users.getMatchesWon()},
+	//			{"level", users.getLevel()}
+	//			});
+	//	}
+	//	return crow::json::wvalue{ users_json };
+	//	});
+	auto& account = CROW_ROUTE(app, "/Account").methods(crow::HTTPMethod::Get);
+	account(AccountHandler(dbUser));
+	
 	//create a crow route to create a lobby
 	auto& createLobby = CROW_ROUTE(app, "/createLobby").methods(crow::HTTPMethod::PUT);
 	createLobby(CreateLobbyHandler(dbGame));
