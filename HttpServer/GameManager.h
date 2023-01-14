@@ -110,9 +110,11 @@ public:
 	void setRegionSelected(int regionSelected) { this->regionSelected = regionSelected; }
 	int getRegionSelected() const { return this->regionSelected; }
 	void clearOpponents() { opponents.clear(); }
-	void setRegionPoints(int index);
+	void decrementRegionPoints(int index);
+	void incrementRegionPoints(int index);
 	void clearAnswersNumeric() { this->answerNumericForDuel = std::priority_queue<std::pair<std::string, int>, std::vector<std::pair<std::string, int>>, compare>(); }
 	std::pair<std::string, int> duelWinnerNumeric();
+	std::string checkGameWinner();
 };
 
 //HANDLERS
