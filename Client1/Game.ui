@@ -281,7 +281,8 @@ background-color:rgb(85, 255, 0)</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:transparent</string>
+     <string notr="true">border-image:transparent;
+background-color: rgb(204, 189, 152);</string>
     </property>
     <property name="text">
      <string/>
@@ -311,9 +312,9 @@ background-color:rgb(85, 255, 0)</string>
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>170</green>
-          <blue>127</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
@@ -383,18 +384,18 @@ background-color:rgb(85, 255, 0)</string>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>170</green>
-          <blue>127</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
@@ -457,9 +458,9 @@ background-color:rgb(85, 255, 0)</string>
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>240</red>
-          <green>240</green>
-          <blue>240</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
@@ -529,18 +530,18 @@ background-color:rgb(85, 255, 0)</string>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>240</red>
-          <green>240</green>
-          <blue>240</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
@@ -603,9 +604,9 @@ background-color:rgb(85, 255, 0)</string>
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>170</green>
-          <blue>127</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
@@ -675,18 +676,18 @@ background-color:rgb(85, 255, 0)</string>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>170</green>
-          <blue>127</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>170</green>
-          <blue>127</blue>
+          <red>246</red>
+          <green>218</green>
+          <blue>153</blue>
          </color>
         </brush>
        </colorrole>
@@ -744,10 +745,11 @@ background-color:rgb(85, 255, 0)</string>
      </font>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:transparent</string>
+     <string notr="true">border-image:transparent;
+background-color: rgb(246, 218, 153);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>

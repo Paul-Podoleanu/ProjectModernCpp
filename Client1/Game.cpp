@@ -26,7 +26,7 @@ Game::Game(QWidget* parent, int rows, int columns, std::string username, std::st
 			buttons[i * columns + j] = new QPushButton(QString::number(index));
 			buttons[i * columns + j]->setMinimumSize(100, 100);
 			buttons[i * columns + j]->setStyleSheet("border-image:transparent; background-color: white;");
-			buttons[i * columns + j]->setStyleSheet("QPushButton {border-image:transparent; background-color: white; border: 2px solid black; border-radius: 10px;}");
+			buttons[i * columns + j]->setStyleSheet("QPushButton {border-image:transparent; background-color: rgb(246, 218, 153); border: 2px solid black; border-radius: 10px;}");
 			buttons[i * columns + j]->setCursor(Qt::PointingHandCursor);
 			buttons[i * columns + j]->setText(QString::number(i * columns + j));
 			buttons[i * columns + j]->setObjectName(QString::number(i * columns + j));

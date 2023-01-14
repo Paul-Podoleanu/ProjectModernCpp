@@ -14,9 +14,12 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image:url(:/Poze/Resources/1.jpg)</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/Poze/Resources/blue.jpg);</string>
+   </property>
    <widget class="QPushButton" name="StartGame">
     <property name="geometry">
      <rect>
@@ -27,7 +30,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">backgroud-color:rgb(255, 85, 0)</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Start Game</string>
@@ -42,11 +46,15 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
     <property name="lineWidth">
-     <number>2</number>
+     <number>1</number>
     </property>
     <property name="text">
      <string>Empty</string>
@@ -61,11 +69,15 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
     <property name="lineWidth">
-     <number>2</number>
+     <number>1</number>
     </property>
     <property name="text">
      <string>Empty</string>
@@ -80,11 +92,15 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
     <property name="lineWidth">
-     <number>2</number>
+     <number>1</number>
     </property>
     <property name="text">
      <string>Empty</string>
@@ -99,11 +115,15 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
     <property name="lineWidth">
-     <number>2</number>
+     <number>1</number>
     </property>
     <property name="text">
      <string>Empty</string>

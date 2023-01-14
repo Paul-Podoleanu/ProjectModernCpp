@@ -14,9 +14,12 @@
    <string>MainPage</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image:url(:/Poze/Resources/1.jpg)</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/Poze/Resources/blue.jpg);</string>
+   </property>
    <widget class="QPushButton" name="Info">
     <property name="geometry">
      <rect>
@@ -34,8 +37,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Informatii</string>
@@ -58,8 +61,8 @@ background-color: rgb(246, 218, 153);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Cont</string>
@@ -82,8 +85,8 @@ background-color: rgb(246, 218, 153);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Exit</string>
@@ -106,8 +109,8 @@ background-color: rgb(246, 218, 153);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Play</string>
@@ -130,8 +133,8 @@ background-color: rgb(246, 218, 153);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>2 Players</string>
@@ -154,8 +157,8 @@ background-color: rgb(246, 218, 153);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>3 Players</string>
@@ -178,8 +181,8 @@ background-color: rgb(246, 218, 153);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>4 Players</string>
@@ -202,8 +205,8 @@ background-color: rgb(246, 218, 153);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Join Lobby</string>
@@ -219,8 +222,8 @@ background-color: rgb(246, 218, 153);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Lobby">
@@ -240,8 +243,8 @@ background-color: rgb(246, 218, 153);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: none;
-background-color: rgb(246, 218, 153);</string>
+     <string notr="true">border-image:transparent;
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Create Lobby</string>

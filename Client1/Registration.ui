@@ -27,7 +27,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>500</x>
       <y>70</y>
       <width>300</width>
       <height>100</height>
@@ -49,7 +49,7 @@ image:url(:/Poze/Resources/triviador-logo.png);
    <widget class="QLabel" name="Username">
     <property name="geometry">
      <rect>
-      <x>59</x>
+      <x>60</x>
       <y>260</y>
       <width>280</width>
       <height>20</height>
@@ -60,7 +60,7 @@ image:url(:/Poze/Resources/triviador-logo.png);
     </property>
     <property name="styleSheet">
      <string notr="true">border-image:transparent;
-background-color: qlineargradient(spread:reflect, x1:0.474, y1:1, x2:0.504, y2:0, stop:0 rgba(91, 94, 104, 255), stop:1 rgba(163, 170, 186, 255));</string>
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Username</string>
@@ -88,7 +88,7 @@ background-color: qlineargradient(spread:reflect, x1:0.474, y1:1, x2:0.504, y2:0
       <x>60</x>
       <y>320</y>
       <width>280</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -96,7 +96,7 @@ background-color: qlineargradient(spread:reflect, x1:0.474, y1:1, x2:0.504, y2:0
     </property>
     <property name="styleSheet">
      <string notr="true">border-image:transparent;
-background-color: qlineargradient(spread:reflect, x1:0.474, y1:1, x2:0.504, y2:0, stop:0 rgba(86, 90, 101, 255), stop:1 rgba(163, 170, 186, 255));</string>
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Password</string>
@@ -132,7 +132,7 @@ background-color: qlineargradient(spread:reflect, x1:0.474, y1:1, x2:0.504, y2:0
     </property>
     <property name="styleSheet">
      <string notr="true">border-image:transparent;
-background-color: qlineargradient(spread:reflect, x1:0.474, y1:1, x2:0.504, y2:0, stop:0 rgba(86, 90, 101, 255), stop:1 rgba(163, 170, 186, 255));</string>
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Login</string>
@@ -152,7 +152,7 @@ background-color: qlineargradient(spread:reflect, x1:0.474, y1:1, x2:0.504, y2:0
     </property>
     <property name="styleSheet">
      <string notr="true">border-image:transparent;
-background-color: qlineargradient(spread:reflect, x1:0.474, y1:1, x2:0.504, y2:0, stop:0 rgba(86, 90, 101, 255), stop:1 rgba(163, 170, 186, 255));</string>
+background-color: qlineargradient(spread:pad, x1:0.443, y1:0, x2:0.465909, y2:1, stop:0 rgba(81, 85, 97, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="text">
      <string>Register</string>
