@@ -93,6 +93,7 @@ void Player::addRegion(Region newRegion)
 //	}
 //}
 
+
 void Player::loseRegion(Region lostRegion)
 {
 	for (int i = 0; i < m_regions.size(); i++) {
@@ -125,3 +126,23 @@ bool Player::operator==(const Player& player) const
 	return false;
 }
 
+std::ostream& operator<<(std::ostream& out, const Player& player)
+{
+	
+	out << "Player name: " << player.m_name << std::endl;
+	out << "Player color: " << player.m_color << std::endl;
+	out << "Player score: " << player.m_score << std::endl;
+	out << "Player active: " << player.m_active << std::endl;
+	out << "Player regions: " << std::endl;
+	for (auto& region : player.m_regions) {
+		
+	}
+	return out;
+
+}
+
+std::istream& operator>>(std::istream& in, const Player& player)
+{
+	
+	return in;
+}

@@ -92,10 +92,9 @@ void Game::checkStage()
 		}
 		else if (response == "ABCDQuestion")
 		{
+			stage = response;
 			Play* play = new Play(this, username);
 			play->show();
-			stage = response;
-			changeStage();
 		}
 		else if (response == "NumericQuestion")
 		{
@@ -114,6 +113,13 @@ void Game::checkStage()
 		if (response == "Duel")
 		{
 			stage = response;
+		}
+		//check if response contains "End"
+		if (response.find("End") != std::string::npos)
+		{
+			std::vector<std::string>text;
+			text = split(response, " ");
+			QMessageBox::information(this, "Game Over", text[1].c_str());
 		}
 	}
 }
@@ -265,6 +271,10 @@ void Game::duel()
 		cpr::Response r = cpr::Post(cpr::Url{ "http://localhost:18080/clicked" },
 			cpr::Body{ "username=" + username + "&index=" + index + "&username2=" + username2 });
 	}
+	else
+	{
+		QMessageBox::information(this, "Error", "It's not your turn");
+	}
 
 }
 void Game::on_button_clicked()
@@ -283,5 +293,3 @@ void Game::on_button_clicked()
 	}
 
 }
-
-
