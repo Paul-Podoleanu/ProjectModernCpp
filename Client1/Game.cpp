@@ -154,6 +154,7 @@ void Game::updateGame()
 	ui.GameStage->setText(stage.c_str());
 	cpr::Response r = cpr::Get(cpr::Url{ "http://localhost:18080/getRegions" });
 	auto response = crow::json::load(r.text);
+	/*
 	bool isTurn = checkTurn();
 	if (isTurn) {
 		ui.IsPlayerTurn->setText(QString::fromStdString("Your Turn"));
@@ -161,6 +162,7 @@ void Game::updateGame()
 	else {
 		ui.IsPlayerTurn->setText(QString::fromStdString("Opponent's Turn"));
 	}
+	*/
 	for (const auto& region : response)
 	{
 		std::int16_t i = region["id"].i();
