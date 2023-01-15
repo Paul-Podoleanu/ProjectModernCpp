@@ -6,17 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>601</width>
+    <height>410</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>NumericAnswer</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: none;</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/Poze/Resources/blank.jpg);</string>
+   </property>
    <widget class="QLineEdit" name="answer">
     <property name="geometry">
      <rect>
@@ -25,6 +28,13 @@
       <width>211</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: transparent;
+background-color: rgb(255, 247, 216);</string>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="sendAnswer">
@@ -40,6 +50,10 @@
      <font>
       <family>Segoe Print</family>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: transparent;
+background-color: rgb(255, 247, 216);</string>
     </property>
     <property name="text">
      <string>Send Answer</string>
@@ -59,6 +73,10 @@
       <family>Segoe Print</family>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: transparent;
+background-color: rgb(255, 247, 216);</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
@@ -75,7 +93,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>601</width>
      <height>22</height>
     </rect>
    </property>
