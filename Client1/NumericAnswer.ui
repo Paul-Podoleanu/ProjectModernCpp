@@ -80,6 +80,9 @@ background-color: rgb(255, 247, 216);</string>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
     <property name="midLineWidth">
      <number>2</number>
     </property>
