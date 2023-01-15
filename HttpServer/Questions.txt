@@ -256,3 +256,117 @@ Apple
 Google
 Amazon
 Microsoft
+Q:What is the name of the largest country in the world?
+Russia
+Russia
+China
+United States
+Canada
+How many bones are in the human body?
+206
+How many teeth does an adult human have?
+32
+How many colored squares are there on a chess board?
+32
+How many legs does a spider have?
+8
+What is the only even prime number?
+2
+Q:How is the binary number system represented?
+0 and 1
+0 and 1
+0 and 2
+0 and 3
+0 and 4
+Q:Which country drives on the left side of the road?
+Japan
+China
+United States
+Japan
+Canada
+Q:In the United States, what is the most popular sport?
+Baseball
+Football
+Basketball
+Football
+Hockey
+Q:What is the oldest Disney movie?
+Pinocchio
+Fantasia
+Bambi
+Snow White and the Seven Dwarfs
+Snow White and the Seven Dwarfs
+Q:Botanically speaking, what is a rose?
+A flower
+A fruit
+A vegetable
+A flower
+A tree
+Q:The idea of a "zero" was invented by?
+Euclid
+Archimedes
+Pythagoras
+Pythagoras
+Aristotle
+Q:The idea of Socialism was articulated and developed by?
+Karl Marx
+Karl Marx
+Adam Smith
+John Locke
+Jean-Jacques Rousseau
+Q:Which actor played the role of James Bond in the movie "Dr. No"?
+Roger Moore
+Pierce Brosnan
+Sean Connery
+Sean Connery
+Daniel Craig
+Q:The Panama Canal connects which two oceans?
+Indian and Atlantic
+Indian and Pacific
+Atlantic and Pacific
+Atlantic and Indian
+Atlantic and Pacific
+Q:In which Mario game is the character Yoshi first introduced?
+Super Mario Bros. 2
+Super Mario Bros. 3
+Super Mario Bros.
+Super Mario World
+Super Mario World
+How many strings does a violin have?
+4
+What is the heart rate of a resting adult?
+60
+How many men have walked on the moon?
+12
+At which temperature does water freeze?
+0
+Q:What does NASA stand for?
+National Aeronautics and Space Administration
+National Aeronautics and Space Administration
+National Aeronautics and Space Agency
+National Aeronautics and Space Association
+National Aeronavigation and Space Association
+What is the heart rate of a blue whale?
+1
+How many pairs of chromosomes do humans have?
+23
+How many arms does a starfish have?
+5
+How many degrees are in a circle?
+360
+How many sides does a hexagon have?
+6
+According to the Bible, how many days did it take God to create the world?
+7
+At which temperature does water boil?
+100
+How many sides does a pentagon have?
+5
+In what year did the invasion of Normandy take place?
+1944
+How many days are there in a leap year?
+366
+In what year was the first Computer invented?
+1946
+When did Germany invade Poland?
+1939
